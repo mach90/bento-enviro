@@ -66,7 +66,7 @@ function AirProvider ({children}) {
     }, [latitude, longitude]);
 
 	useEffect(() => {
-        const fetchWeather = async () => {
+        const fetchAir = async () => {
             if(latitude && longitude) try {
                 const response = await fetch(`https://api.waqi.info/feed/geo:${latitude};${longitude}/?token=287fe24eb02c3f1a7b5ea92c4fc4631eb6e3dc76`);
                 if (!response.ok) {
@@ -74,13 +74,13 @@ function AirProvider ({children}) {
                 }
                 const data = await response.json();
                 dispatch({ type: 'dataReceived', payload: data});
-                console.log(data)
+                // console.log(data)
             } catch (error) {
                 dispatch({ type: 'dataFailed'});
             }
         };
 
-        fetchWeather();
+        fetchAir();
     }, [latitude, longitude]);
 
     return <AirContext.Provider value={{aqi, attributions, co, no2, o3, pm10, pm25, so2}}>{children}</AirContext.Provider>

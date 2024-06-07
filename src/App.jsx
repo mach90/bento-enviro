@@ -17,6 +17,8 @@ import CardMoon from "./components/CardMoon";
 import CardSun from "./components/CardSun";
 import CardAllergy from "./components/CardAllergy";
 import { AirProvider } from "./context/airContext";
+import { AuroraProvider } from "./context/auroraContext";
+import { NightskyProvider } from "./context/nightskyContext";
 
 /* //////////////////////////////////////////////////
 APP COMPONENT
@@ -40,9 +42,13 @@ export default function App() {
           <CardAir />
           <CardParticles />
         </AirProvider>
+        <AuroraProvider>
           <CardAurora />
+        </AuroraProvider>
           <CardWebcam />
+        <NightskyProvider>
           <CardNightsky />
+        </NightskyProvider>
           <CardMoon />
           <CardAllergy />
       </Container>

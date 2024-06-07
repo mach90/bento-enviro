@@ -50,12 +50,14 @@ CONTAINER
   display: grid;
   gap: 5px 5px;
   /* GRID TEMPLATE AREAS CONFIGURATION */
-  grid-template-areas:  "weather satellite webcam ." 
-                        "weather forecast forecast forecast" 
-                        "sun moon nightsky aurora"
-                        "air particles allergy something";
+  grid-template-areas:  "weather satellite webcam"
+                        "weather forecast forecast" 
+                        "sun forecast forecast" 
+                        "moon nightsky aurora"
+                        "air particles allergy";
   /* GRID TEMPLATE CONFIGURATION*/
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr 0.5fr 0.5fr 1fr;
 }
 
 

@@ -21,3 +21,6 @@ export default function CardAir() {
 
 //https://dashboard.iqair.com/personal/api-keys
 //https://aqicn.org/json-api/doc/#api-Geolocalized_Feed
+
+
+//https://openweathermap.org/api/air-pollution 🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺

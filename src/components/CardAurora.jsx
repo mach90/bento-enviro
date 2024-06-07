@@ -1,11 +1,12 @@
+import { useAurora } from "../context/auroraContext";
+
 export default function CardAurora() {
+    const {auroraData} = useAurora();
+
     return (
         <div className="card card-aurora">
-            Aurora
+            <p>Kp:{auroraData}</p>
+            <p>Geomagnetic activity</p>
         </div>
     );
 }
-
-//https://services.swpc.noaa.gov/json/ovation_aurora_latest.json
-// -180 pour la latitude, le dernier est le kp
-// need geomagnetic activity
