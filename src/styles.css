@@ -57,7 +57,7 @@ CONTAINER
                         "air particles allergy";
   /* GRID TEMPLATE CONFIGURATION*/
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr 1fr 0.5fr 0.5fr 1fr;
+  grid-template-rows: 1fr 0.25fr 0.5fr 0.5fr 0.5fr;
 }
 
 
@@ -204,11 +204,19 @@ FORECAST
   flex-direction: row;
   overflow: scroll;
   gap: 10px;
+  height: 100%;
 }
 
 .forecast-item {
   background-color: #fae8c2;
   border-radius: 15px;
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 250px;
+  justify-content: center;
+  align-items: center;
 }
 
 .forecast-scrollbar::-webkit-scrollbar {

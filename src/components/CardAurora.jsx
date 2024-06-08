@@ -6,7 +6,7 @@ export default function CardAurora() {
     return (
         <div className="card card-aurora">
             <p>Kp:{auroraData}</p>
-            <p>Geomagnetic activity</p>
+            <img src="https://services.swpc.noaa.gov/images/animations/ovation/north/latest.jpg" alt="sat photo" width="100%"/>
         </div>
     );
 }

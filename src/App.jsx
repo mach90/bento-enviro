@@ -19,6 +19,7 @@ import CardAllergy from "./components/CardAllergy";
 import { AirProvider } from "./context/airContext";
 import { AuroraProvider } from "./context/auroraContext";
 import { NightskyProvider } from "./context/nightskyContext";
+import { SunProvider } from "./context/sunContext";
 
 /* //////////////////////////////////////////////////
 APP COMPONENT
@@ -34,6 +35,8 @@ export default function App() {
           <CardWeather />
           <CardSun />
         </WeatherProvider>
+        <SunProvider>
+        </SunProvider>
         <ForecastProvider>
           <CardForecast />
         </ForecastProvider>
