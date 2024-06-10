@@ -3,7 +3,7 @@ export default function Forecast({data}) {
     const formattedDate = data.dt ? new Date(data.dt * 1000).toLocaleString() : "No timestamp";
 
     return (
-        <div className="forecast-item">
+        <div className="bg-yellow-300">
             <p>{formattedDate}</p>
             <p>{(data.main.temp).toFixed(0)}°C</p>
             <p>Feels like {(data.main.feels_like).toFixed(0)}°C</p>

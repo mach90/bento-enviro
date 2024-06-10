@@ -30,21 +30,21 @@ export default function CardNightsky() {
     }
 
     return (
-        <div className="card card-nightsky">
+        <div className="bg-yellow-500">
             <p>SQM {sqm} (mag./arc sec2)</p>
             <p>Tot. bright. {totalBrightness} (mcd/m²)</p>
             <p>Artif. bright. {artificialBrightness} (μcd/m²)</p>
             <p>Ratio {ratioBrightness}</p>
             <p>Bortle class: {getNumberCode(sqm)}</p>
             {/* <p>Elevation: higher = darker sky</p> */}
-            <p>
+            {/* <p>
             - SQM Sky quality meter {sqm} (mag./arc sec2): higher = darker sky, max 22 
             - Total Brightness {totalBrightness} (mcd/m²): total light pollution from sky + artificial, lower = darker sky 
             - Artif. bright. {artificialBrightness} (μcd/m²): artificial light pollution, lower = darker sky
             - Ratio {ratioBrightness}: This ratio compares the artificial brightness to the natural sky brightness. It shows how much brighter the sky is due to artificial lighting. lower = darker sky
             - Bortle class: visibility of objects, lower = most objects visible
             - Elevation: higher = darker sky
-            </p>
+            </p> */}
         </div>
     );
 }

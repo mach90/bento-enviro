@@ -4,9 +4,9 @@ export default function CardAurora() {
     const {auroraData} = useAurora();
 
     return (
-        <div className="card card-aurora">
+        <div className="bg-yellow-500">
             <p>Kp:{auroraData}</p>
-            <img src="https://services.swpc.noaa.gov/images/animations/ovation/north/latest.jpg" alt="sat photo" width="100%"/>
+            <p><img src="https://services.swpc.noaa.gov/images/animations/ovation/north/latest.jpg" alt="sat photo" /></p>
         </div>
     );
 }

@@ -4,28 +4,27 @@ import { Sunrise, Sunset } from 'lucide-react';
 export default function CardSun() {
     const {sunrise, sunset} = useWeather();
     
-    if(sunrise && sunset) {
-        const sunriseDate = new Date(sunrise * 1000);
-        console.log(sunriseDate)
-        // const sunriseHour = sunriseDate.getHours();
-        const sunriseDay = sunriseDate.toLocaleString(navigator.language, { day: 'numeric' });
-        const sunriseHours = sunriseDate.toLocaleString(navigator.language, { hour: 'numeric', hour12: false });
-        const sunriseMinutes = sunriseDate.toLocaleString(navigator.language, { minute: 'numeric' });
-
-        const sunsetDate = new Date(sunset * 1000);
-        console.log(sunsetDate)
-        // const sunsetHour = sunsetDate.getHours();
-        const sunsetDay = sunsetDate.toLocaleString(navigator.language, { day: 'numeric' });
-        const sunsetHours = sunsetDate.toLocaleString(navigator.language, { hour: 'numeric', hour12: false });
-        const sunsetMinutes = sunsetDate.toLocaleString(navigator.language, { minute: 'numeric' });
-
-        return (
-            <div className="card card-sun">
-                <p className="sun-sunrise"><Sunrise />{sunriseDay < 10 ? `0${sunriseDay}` : sunriseDay} @ {sunriseHours}h{sunriseMinutes < 10 ? `0${sunriseMinutes}` : sunriseMinutes}</p>
-                <p className="sun-sunset"><Sunset />{sunsetDay < 10 ? `0${sunsetDay}` : sunsetDay} @ {sunsetHours}h{sunsetMinutes < 10 ? `0${sunsetMinutes}` : sunsetMinutes}</p>
-            </div>
-        );
-    }
+    // const optionsDate = {
+    //     second: 'numeric',
+    //     hour: 'numeric',
+    //     minute: 'numeric',
+    //     day: 'numeric',
+    //     month: 'short',
+    //     year: 'numeric',
+    //     weekday: 'short',
+    // };
+    // const locale = navigator.language;
+    const sunriseDate = sunrise ? new Date(sunrise * 1000).toLocaleString() : "No sunrise data";
+    // const sunriseDateLocale = new Intl.DateTimeFormat(locale, optionsDate).format(sunriseDate);
+    const sunsetDate = sunset ? new Date(sunset * 1000).toLocaleString() : "No sunset data";
+    // const sunsetDateLocale = new Intl.DateTimeFormat(locale, optionsDate).format(sunsetDate);
+        
+    return (
+        <div className="flex flex-col justify-around font-custom1 text-2xl gap-4">
+            <p className="bg-indigo-200 rounded-t-3xl flex flex-row justify-center items-center p-2 h-full gap-2 text-indigo-900 "><Sunrise /> {sunriseDate}</p>
+            <p className="bg-orange-300 rounded-b-3xl flex flex-row justify-center items-center p-2 h-full gap-2 text-orange-900 "><Sunset /> {sunsetDate}</p>
+        </div>
+    );
 }
 
 /* //////////////////////////////////////////////////

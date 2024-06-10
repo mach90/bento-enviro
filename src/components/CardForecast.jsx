@@ -7,10 +7,8 @@ export default function CardForecast() {
     // console.log(forecast)
 
     return (
-        <div className="card card-forecast">
-            <div className="forecast-daysBox forecast-scrollbar">
-                {forecast ? forecast.map(entry => <Forecast key={entry.dt} data={entry} />) : "Loading"}
-            </div>
+        <div className="bg-yellow-500 flex gap-4 overflow-x-scroll md:col-span-2">
+            {forecast ? forecast.map(entry => <Forecast key={entry.dt} data={entry} />) : "Loading"}
         </div>
     );
 }

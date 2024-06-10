@@ -4,7 +4,7 @@ export default function CardParticles() {
     const {co, no2, o3, pm10, pm25, so2} = useAir();
 
     return (
-        <div className="card card-particles">
+        <div className="bg-yellow-500">
             <p>Carbon monoxide (co): {co ? co : "No data"}</p>
             <p>Nitrogen dioxide (no2): {no2 ? no2 : "No data"}</p>
             <p>Ozone (o3): {o3 ? o3 : "No data"}</p>

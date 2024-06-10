@@ -1,6 +1,6 @@
 export default function CardAllergy() {
     return (
-        <div className="card card-allergy">
+        <div className="bg-red-500">
             Allergy
         </div>
     );
