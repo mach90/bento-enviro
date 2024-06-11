@@ -66,7 +66,7 @@ export default function App() {
           <CardForecast />
         </ForecastProvider>
 
-        {/* <CardMoon /> */}
+        <CardMoon />
 
         <MoonProvider>
           <CardMoon />
