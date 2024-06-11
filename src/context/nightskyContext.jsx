@@ -181,4 +181,11 @@ EXPORTS
 export {NightskyProvider, useNightsky};
 
 
-//https://openweathermap.org/weather-conditions
+/*
+The World Atlas dataset contains calculated artificial brightness in mcd/cm2 (ARTIFICIAL_BRIGHTNESS ). Assuming that the natural brightness of the night sky is 22.00 mag./arc sec2 or 0.171168465 mcd/m2, you can then calculate other properties:
+
+Total brightness: ARTIFICIAL_BRIGHTNESS + 0.171168465 mcd/m2
+SQM: log10((Total brightness)/108000000)/-0.4
+Ratio: ARTIFICIAL_BRIGHTNESS/0.171168465 mcd/m2
+Bortle: SQM classification table
+*/

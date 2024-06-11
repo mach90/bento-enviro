@@ -7,8 +7,8 @@ export default function CardForecast() {
     // console.log(forecast)
 
     return (
-        <div className="bg-yellow-500 flex gap-4 overflow-x-scroll md:col-span-2">
-            {forecast ? forecast.map(entry => <Forecast key={entry.dt} data={entry} />) : "Loading"}
+        <div className=" rounded-3xl flex flex-row gap-4 overflow-x-scroll md:col-span-2 ">
+            {forecast ? forecast.map(entry => <Forecast key={entry.dt} data={entry} />) : "No forecast"}
         </div>
     );
 }

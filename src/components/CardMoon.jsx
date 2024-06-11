@@ -3,45 +3,43 @@
 export default function CardMoon() {
     // const {moonAge, moonIlluminatedFraction, moonPhaseAngle, moonPhaseName,moonPhaseTransitTime, moonrise, moonset} = useMoon();
 
-    const moonAge = 219; 
-    const moonIlluminatedFraction = 90; 
-    const moonPhaseAngle = 219; 
-    const moonPhaseName = 219;
-    const moonPhaseTransitTime = 219; 
-    const moonrise = 219; 
-    const moonset = 219;
+    const moonAge = 12; 
+    // const moonIlluminatedFraction = 90; 
+    const moonPhaseAngle = 1; 
+    const moonPhaseName = "Something crescent";
+    const moonPhaseTransitTime = "12:34"; 
+    const moonrise = "12:34"; 
+    const moonset = "12:34";
 
     return (
-        <div className="bg-[#161616] text-stone-400">
-            <p>{moonAge}</p>
-            <p>{moonIlluminatedFraction}%</p>
-            <p>{moonPhaseAngle}</p>
-            <p>{moonPhaseName}</p>
-            <p>{moonPhaseTransitTime}</p>
-            <p>{moonrise}</p>
-            <p>{moonset}</p>
-            {moonIlluminatedFraction > 50 &&  
-            <svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <div className="bg-[url('img/stars.jpg')] text-stone-200 text-md p-4 rounded-3xl font-custom2 flex flex-col justify-center items-center relative">
+
+            <div className="flex flex-col justify-center items-center absolute ">
+                <p className="bg-stone-800 bg-opacity-50 p-1 rounded-xl">Moonrise: {moonrise ? moonrise : "??:??"}</p>
+                <p className="bg-stone-800 bg-opacity-50 p-1 rounded-xl">Moonset: {moonset ? moonset : "??:??"}</p>
+                <p className="bg-stone-800 bg-opacity-50 p-1 rounded-xl">{moonPhaseName ? moonPhaseName : "unknown"} ({moonPhaseAngle ? moonPhaseAngle : "unknown"}%)</p>
+                <p className="bg-stone-800 bg-opacity-50 p-1 rounded-xl">Transit: {moonPhaseTransitTime ? moonPhaseTransitTime : "??:??"}</p>
+                <p className="bg-stone-800 bg-opacity-50 p-1 rounded-xl">{moonAge ? `${moonAge} days` : "unknown"}</p>
+            </div>
+
+            {moonPhaseAngle > 50 &&  
+            <svg width="250" height="250" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <g transform="rotate(0, 50, 50)">
                     <circle cx="50" cy="50" r="50" fill="#d1d1d1"/>
-                    <path id="crescent" fill="#303030" d={`M 50 0 A 50 50 0 1 1 50 100 A ${moonIlluminatedFraction - 50} 50 0 1 0 50 0 Z`}/>
+                    <path id="crescent" fill="#303030" d={`M 50 0 A 50 50 0 1 1 50 100 A ${moonPhaseAngle - 50} 50 0 1 0 50 0 Z`}/>
                 </g>
             </svg>}
-            {moonIlluminatedFraction <= 50 &&
-            <svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+
+            {moonPhaseAngle <= 50 &&
+            <svg width="250" height="250" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <g transform="rotate(180, 50, 50)">
                     <circle cx="50" cy="50" r="50" fill="#303030"/>
-                    <path id="crescent" fill="#d1d1d1" d={`M 50 0 A 50 50 0 1 1 50 100 A ${50 - moonIlluminatedFraction} 50 0 1 0 50 0 Z`}/>
+                    <path id="crescent" fill="#d1d1d1" d={`M 50 0 A 50 50 0 1 1 50 100 A ${50 - moonPhaseAngle} 50 0 1 0 50 0 Z`}/>
                 </g>
             </svg>}
+
         </div>
     );
 }
 
-
-/*
-<svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="50" cy="50" r="50" fill="white"/>
-    <path id="crescent" fill="darkgray" d="M 50 0 A 50 50 0 1 1 50 100 A X 50 0 1 0 50 0 Z"/>
-</svg>
-*/
+// https://moonphases.co.uk/moon-phases

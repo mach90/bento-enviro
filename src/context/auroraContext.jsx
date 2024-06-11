@@ -60,6 +60,8 @@ function AuroraProvider ({children}) {
                 }
                 const data = await response.json();
                 const auroraEntryNumber = (Math.trunc(longitude + 180)*181) + Math.trunc(latitude + 90); 
+
+                // console.log(data)
                 
                 dispatch({ type: 'dataReceived', payload: data.coordinates.at(auroraEntryNumber).at(2)});
             } catch (error) {

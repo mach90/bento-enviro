@@ -9,17 +9,20 @@ export default function CardWeather() {
             
             {!windSpeed && <p className="font-custom1 text-3xl">No wind recorded</p>}
 
-            {windSpeed && 
+            {windSpeed && <>
                 <p className="flex items-center gap-2 text-3xl font-custom1">
-                    <Wind size={24}/>{(windSpeed * 3.6).toFixed(0)} km/h
+                    {(windSpeed * 3.6).toFixed(0)} km/h
                 </p>
-            }
+                <p className="text-xl font-custom2">
+                    {windDirection >= 0 ? windDirection : "???"}°
+                </p>
+                <p>
+                    <Wind size={80} transform={`rotate(${windDirection + 90})`} />
+                </p>
+            </>}
 
-            {windSpeed &&
+            {/* {windSpeed &&
                 <>
-                    <p className="text-xl font-custom2">
-                        {windDirection}°
-                    </p>
 
                     <p>
                         <svg width="80" height="80" viewBox="0 0 100 100" style={{ transform: `rotate(${windDirection}deg)` }}>
@@ -28,7 +31,7 @@ export default function CardWeather() {
                         </svg>
                     </p>
                 </>
-            }
+            } */}
 
             {windGust && 
                 <p className="font-custom2 text-xl">

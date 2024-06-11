@@ -30,12 +30,19 @@ export default function CardNightsky() {
     }
 
     return (
-        <div className="bg-yellow-500">
-            <p>SQM {sqm} (mag./arc sec2)</p>
-            <p>Tot. bright. {totalBrightness} (mcd/m²)</p>
-            <p>Artif. bright. {artificialBrightness} (μcd/m²)</p>
-            <p>Ratio {ratioBrightness}</p>
-            <p>Bortle class: {getNumberCode(sqm)}</p>
+        <div className=" p-6 bg-[url('img/lightpollution.jpg')] bg-right-bottom rounded-3xl">
+            <p className="font-custom2 text-orange-100">Sky Quality Meter (mag./arc sec2)</p>
+            <p className="font-custom1 mb-2 text-lg text-orange-200">{sqm} / 22</p>
+            <p className="font-custom2 text-orange-100">Total brightness (mcd/m²)</p>
+            <p className="font-custom1 mb-2 text-lg text-orange-200">{totalBrightness}</p>
+            <p className="font-custom2 text-orange-100">Artifificial brightness (mcd/m²)</p>
+            <p className="font-custom1 mb-2 text-lg text-orange-200">{artificialBrightness / 1000}</p>
+            <p className="font-custom2 text-orange-100 text-sm">Natural brightness (mcd/m²)</p>
+            <p className="font-custom1 mb-2 text-sm text-orange-200">0.17</p>
+            <p className="font-custom2 text-orange-100">Ratio (artificial/natural brightnesses)</p>
+            <p className="font-custom1 mb-2 text-lg text-orange-200">{ratioBrightness}</p>
+            <p className="font-custom2 text-orange-100">Bortle class</p>
+            <p className="font-custom1 mb-2 text-lg text-orange-200">{getNumberCode(sqm)}</p>
             {/* <p>Elevation: higher = darker sky</p> */}
             {/* <p>
             - SQM Sky quality meter {sqm} (mag./arc sec2): higher = darker sky, max 22 

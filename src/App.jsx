@@ -9,7 +9,9 @@ import { NightskyProvider } from "./context/nightskyContext";
 // import { MoonProvider } from "./context/moonContext";
 // import { SunProvider } from "./context/sunContext";
 import { WebcamProvider } from "./context/webcamContext";
+
 import Container from "./components/Container";
+import Questions from "./components/Questions";
 import CardLogo from "./components/CardLogo";
 import CardWeather from "./components/CardWeather";
 import CardForecast from "./components/CardForecast";
@@ -84,6 +86,8 @@ export default function App() {
         </AirProvider>
 
         <CardAllergy />
+        
+        <Questions />
 
       </Container>
   )
