@@ -6,7 +6,7 @@ import { ForecastProvider } from "./context/forecastContext";
 import { AirProvider } from "./context/airContext";
 import { AuroraProvider } from "./context/auroraContext";
 import { NightskyProvider } from "./context/nightskyContext";
-// import { MoonProvider } from "./context/moonContext";
+import { MoonProvider } from "./context/moonContext";
 // import { SunProvider } from "./context/sunContext";
 import { WebcamProvider } from "./context/webcamContext";
 
@@ -66,11 +66,11 @@ export default function App() {
           <CardForecast />
         </ForecastProvider>
 
-        <CardMoon />
+        {/* <CardMoon /> */}
 
-        {/* <MoonProvider>
+        <MoonProvider>
           <CardMoon />
-        </MoonProvider> */}
+        </MoonProvider>
 
         <NightskyProvider>
           <CardNightsky />

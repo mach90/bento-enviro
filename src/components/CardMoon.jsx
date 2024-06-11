@@ -1,15 +1,15 @@
-// import { useMoon } from "../context/moonContext";
+import { useMoon } from "../context/moonContext";
 
 export default function CardMoon() {
-    // const {moonAge, moonIlluminatedFraction, moonPhaseAngle, moonPhaseName,moonPhaseTransitTime, moonrise, moonset} = useMoon();
+    const {moonAge, moonPhaseAngle, moonPhaseName,moonPhaseTransitTime, moonrise, moonset} = useMoon();
 
-    const moonAge = 12; 
-    // const moonIlluminatedFraction = 90; 
-    const moonPhaseAngle = 1; 
-    const moonPhaseName = "Something crescent";
-    const moonPhaseTransitTime = "12:34"; 
-    const moonrise = "12:34"; 
-    const moonset = "12:34";
+    // const moonAge = 12; 
+    // // const moonIlluminatedFraction = 90; 
+    // const moonPhaseAngle = 1; 
+    // const moonPhaseName = "Something crescent";
+    // const moonPhaseTransitTime = "12:34"; 
+    // const moonrise = "12:34"; 
+    // const moonset = "12:34";
 
     return (
         <div className="bg-[url('img/stars.jpg')] text-stone-200 text-md p-4 rounded-3xl font-custom2 flex flex-col justify-center items-center relative">
