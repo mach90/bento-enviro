@@ -5,7 +5,7 @@ export default function CardWeather() {
     const {windSpeed, windDirection, windGust} = useWeather();
     
     return (
-        <div className="bg-[url('img/wind-bg.jpg')] bg-center text-blue-900 p-4 rounded-3xl flex flex-col justify-center items-center">
+        <div className="bg-gray-50 text-gray-600 p-4 rounded-3xl flex flex-col justify-center items-center shadow-md">
             
             {!windSpeed && <p className="font-custom1 text-3xl">No wind recorded</p>}
 
@@ -16,7 +16,7 @@ export default function CardWeather() {
                 <p className="text-xl font-custom2">
                     {windDirection >= 0 ? windDirection : "???"}°
                 </p>
-                <p>
+                <p className="text-gray-400">
                     <Wind size={80} transform={`rotate(${windDirection + 90})`} />
                 </p>
             </>}

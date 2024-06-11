@@ -1,8 +1,10 @@
 # Bento Enviro
-Yes it's another weather app
+Yes it's another weather app.
 
 # To do
-- [ ] All cards functionnal
+- [ ] Sat Weather Radar Imagery API
+- [ ] Pollens API
 - [ ] Caching data
 - [ ] Manual refresh
-- [ ] Search city feed lat lon and refetch
+- [ ] Auto refresh
+- [ ] Search city

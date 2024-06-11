@@ -30,7 +30,7 @@ export default function CardNightsky() {
     }
 
     return (
-        <div className=" p-6 bg-[url('img/lightpollution.jpg')] bg-right-bottom rounded-3xl">
+        <div className=" p-6 bg-[url('img/lightpollution.jpg')] bg-right-bottom rounded-3xl shadow-md">
             <p className="font-custom2 text-orange-100">Sky Quality Meter (mag./arc sec2)</p>
             <p className="font-custom1 mb-2 text-lg text-orange-200">{sqm} / 22</p>
             <p className="font-custom2 text-orange-100">Total brightness (mcd/m²)</p>

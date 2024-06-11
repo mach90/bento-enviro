@@ -4,7 +4,7 @@ export default function CardAir() {
     const {aqi, attributions, co, no2, o3, pm10, pm25, so2} = useAir();
 
     return (
-        <div className="bg-stone-300 bg-[url('img/pollution.jpg')]  bg-center rounded-3xl py-2">
+        <div className="bg-stone-300 bg-[url('img/pollution.jpg')] shadow-md bg-center rounded-3xl py-2">
 
             <p className="font-custom1 text-xl p-2 text-center">Air Quality Score</p>
 

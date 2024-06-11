@@ -12,7 +12,7 @@ export default function CardMoon() {
     // const moonset = "12:34";
 
     return (
-        <div className="bg-[url('img/stars.jpg')] text-stone-200 text-md p-4 rounded-3xl font-custom2 flex flex-col justify-center items-center relative">
+        <div className="bg-[url('img/stars.jpg')] text-stone-200 text-md p-4 rounded-3xl font-custom2 flex flex-col justify-center items-center relative shadow-md">
 
             <div className="flex flex-col justify-center items-center absolute ">
                 <p className="bg-stone-800 bg-opacity-50 p-1 rounded-xl">Moonrise: {moonrise ? moonrise : "??:??"}</p>
