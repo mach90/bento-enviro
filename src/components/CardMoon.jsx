@@ -1,4 +1,4 @@
-import { useMoon } from "../context/moonContext";s
+import { useMoon } from "../context/moonContext";
 
 export default function CardMoon() {
     const {moonAge, moonIlluminatedFraction, moonPhaseName,moonPhaseTransitTime, moonrise, moonset} = useMoon();
