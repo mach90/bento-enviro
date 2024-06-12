@@ -18,7 +18,6 @@ export default function CardAir() {
             {attributions && <p className="font-custom2 text-sm text-center p-1">{attributions}</p>}
 
             <div className="font-custom2 text-sm mt-2 p-2 text-stone-900">
-
                 <div className="flex flex-row justify-between items-center mb-2  p-1">
                     <p className="font-custom2 text-md">Carbon monoxide (μg/m3)</p>
                     <p className="font-custom1 text-lg">{co ? co : "No data"}</p>
@@ -48,14 +47,7 @@ export default function CardAir() {
                     <p className="font-custom2 text-md">Sulfure dioxide (μg/m3)</p>
                     <p className="font-custom1 text-lg">{so2 ? so2 : "No data"}</p>
                 </div>
-
             </div>
         </div>
     );
 }
-
-//https://dashboard.iqair.com/personal/api-keys
-//https://aqicn.org/json-api/doc/#api-Geolocalized_Feed
-
-
-//https://openweathermap.org/api/air-pollution 🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺🔺

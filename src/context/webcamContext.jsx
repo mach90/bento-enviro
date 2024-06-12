@@ -1,7 +1,7 @@
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
 IMPORTS
 ████████████████████████████████████████████████████████████████████████████████████████████████████ */
-import { createContext, useContext, useReducer, useEffect, useState } from "react";
+import { createContext, useContext, useReducer, useEffect } from "react";
 
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
 CONTEXT
@@ -29,27 +29,27 @@ function reducer(state, action) {
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
 PROVIDER COMPONENT
 ████████████████████████████████████████████████████████████████████████████████████████████████████ */
-function WebcamProvider ({children}) {
-    const [latitude, setLatitude] = useState(null);
-    const [longitude, setLongitude] = useState(null);
+function WebcamProvider ({children, latitude, longitude}) {
+    // const [latitude, setLatitude] = useState(null);
+    // const [longitude, setLongitude] = useState(null);
 	const [{webcams}, dispatch] = useReducer(reducer, initialState);
 
-    useEffect(() => {
-    if (navigator.geolocation) { //if browser has geolocation feature
-        navigator.geolocation.getCurrentPosition(
-            function(position) {
-                const {latitude} = position.coords;
-                const {longitude} = position.coords;
-                setLatitude(latitude);
-                setLongitude(longitude);
-            },
-            function() {
-                alert("Could not get your position");
-            }
-        );
-    }
+    // useEffect(() => {
+    // if (navigator.geolocation) { //if browser has geolocation feature
+    //     navigator.geolocation.getCurrentPosition(
+    //         function(position) {
+    //             const {latitude} = position.coords;
+    //             const {longitude} = position.coords;
+    //             setLatitude(latitude);
+    //             setLongitude(longitude);
+    //         },
+    //         function() {
+    //             alert("Could not get your position");
+    //         }
+    //     );
+    // }
 
-    }, [latitude, longitude]);
+    // }, [latitude, longitude]);
 
 	useEffect(() => {
         const fetchWebcam = async () => {

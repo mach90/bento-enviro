@@ -1,7 +1,7 @@
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
 IMPORTS
 ████████████████████████████████████████████████████████████████████████████████████████████████████ */
-import { createContext, useContext, useReducer, useEffect, useState } from "react";
+import { createContext, useContext, useReducer, useEffect } from "react";
 
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
 CONTEXT
@@ -47,36 +47,38 @@ function reducer(state, action) {
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
 PROVIDER COMPONENT
 ████████████████████████████████████████████████████████████████████████████████████████████████████ */
-function SunProvider ({children}) {
-    const [longitude, setLongitude] = useState(null);
-    const [latitude, setLatitude] = useState(null);
+function SunProvider ({children, latitude, longitude}) {
+    // const [longitude, setLongitude] = useState(null);
+    // const [latitude, setLatitude] = useState(null);
 	const [{sunrise, sunset, solarNoon, dayLength, civilTwilightBegin, civilTwilightEnd, nauticalTwilightBegin, nauticalTwilightEnd, astronomicalTwilightBegin, astronomicalTwilightEnd}, dispatch] = useReducer(reducer, initialState);
 
-    useEffect(() => {
-    if (navigator.geolocation) { //if browser has geolocation feature
-        navigator.geolocation.getCurrentPosition(
-            function(position) {
-                const {longitude} = position.coords;
-                const {latitude} = position.coords;
-                setLongitude(longitude);
-                setLatitude(latitude);
-            },
-            function() {
-                alert("Could not get your position");
-            }
-        );
-    }
+    // useEffect(() => {
+    // if (navigator.geolocation) { //if browser has geolocation feature
+    //     navigator.geolocation.getCurrentPosition(
+    //         function(position) {
+    //             const {longitude} = position.coords;
+    //             const {latitude} = position.coords;
+    //             setLongitude(longitude);
+    //             setLatitude(latitude);
+    //         },
+    //         function() {
+    //             alert("Could not get your position");
+    //         }
+    //     );
+    // }
 
-    }, [longitude, latitude]);
+    // }, [longitude, latitude]);
 
 	useEffect(() => {
         const fetchSun = async () => {
             if(latitude && longitude) try {
-                const response = await fetch(`https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}`);
+                const browserTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                const response = await fetch(`https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}&formatted=0&tzid=${browserTimeZone}`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
                 const data = await response.json();
+                // console.log(data)
                 
                 dispatch({ type: 'dataReceived', payload: data.results});
             } catch (error) {

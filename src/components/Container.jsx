@@ -9,6 +9,7 @@ function Container({children}) {
 export default Container;
 
 /*
+Reminder
 sm: '480px',
 md: '768px',
 lg: '976px',

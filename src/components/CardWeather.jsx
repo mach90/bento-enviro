@@ -1,10 +1,8 @@
 import { useWeather } from "../context/weatherContext";
-import { Thermometer, CircleGauge, Droplets } from 'lucide-react';
-// import { Thermometer, CircleGauge, Droplets, MoveDown, MoveUp } from 'lucide-react';
+import { Thermometer, CircleGauge, Droplets, Eye } from 'lucide-react';
 
 export default function CardWeather() {
-    const {city, dt, timezone, description, temp, feels, pressure, humidity, clouds } = useWeather();
-    // const {city, dt, timezone, description, temp, feels, pressure, humidity, minTemp, maxTemp, clouds } = useWeather();
+    const {city, dt, timezone, description, temp, feels, pressure, humidity, clouds, visibility } = useWeather();
     
     const formattedDate = dt ? new Date(dt * 1000).toLocaleString() : "No timestamp";
 
@@ -13,11 +11,11 @@ export default function CardWeather() {
 
             <div className="w-full">
                 <p className="font-custom1 font-600 text-3xl border-b-2 border-gray-400 text-gray-600">
-                    {city ? city.toUpperCase() : "Can't find your city"}
+                    {city ? city.toUpperCase() : "Unknown location"}
                 </p>
 
                 <p className="font-custom2 mt-1 text-gray-400">
-                    {formattedDate} (UTC{timezone > 0 ? "+" : ""}{timezone ? timezone / 3600 : "??"})
+                    {formattedDate} (UTC{timezone > 0 ? "+" : ""}{timezone || timezone === 0 ? timezone / 3600 : "??"})
                 </p>
 
                 <p className="font-custom1 text-3xl mt-4 text-gray-600">
@@ -36,10 +34,6 @@ export default function CardWeather() {
                     Feels like {feels ? feels.toFixed(0) : "??"}°C
                 </p>
 
-                {/* <p className="font-custom2 text-2xl flex gap-1 mt-2 items-center justify-center">
-                    <MoveUp size={16} />{maxTemp ? maxTemp.toFixed(0) : "??"}°C / <MoveDown size={16}/>{minTemp ? minTemp.toFixed(0) : "??"}°C
-                </p> */}
-
                 <p className="font-custom1 text-2xl flex gap-1 items-center justify-center mt-4 text-gray-600">
                     <CircleGauge size={16}/>{pressure ? pressure : "??"} hPa
                 </p>
@@ -47,10 +41,14 @@ export default function CardWeather() {
                 <p className="font-custom1 text-2xl flex gap-1 items-center justify-center mt-4 text-gray-600">
                     <Droplets size={16}/>{humidity ? humidity : "??"}%
                 </p>
+
+                <p className="font-custom1 text-2xl flex gap-1 items-center justify-center mt-4 text-gray-600">
+                    <Eye size={16}/>{visibility ? visibility : "??"} km
+                </p>
             </div>
 
             <div>
-                <svg width="30" height="300" xmlns="http://www.w3.org/2000/svg" transform="rotate(180)">
+                <svg width="30" height="400" xmlns="http://www.w3.org/2000/svg" transform="rotate(180)">
                     <rect x="0" y="90%" width="100%" height="1.5" fill="#4b5563" />
                     <rect x="0" y="80%" width="100%" height="1.5" fill="#4b5563" />
                     <rect x="0" y="70%" width="100%" height="1.5" fill="#4b5563" />
@@ -61,7 +59,22 @@ export default function CardWeather() {
                     <rect x="0" y="20%" width="100%" height="1.5" fill="#4b5563" />
                     <rect x="0" y="10%" width="100%" height="1.5" fill="#4b5563" />
                     <rect x="25%" y="0" width="50%" height="100%"  fill="#ddd" />
-                    <rect x="25%" y="0" width="50%" height={`${temp ? `${temp + 40}` : `${0}`}%`} fill="#e23f3f" />
+                    <rect x="25%" y="0" width="50%" height={`${temp ? `${temp + 40}` : `${0}`}%`} fill="#e23f3f">
+                        <animate
+                            attributeName="y"
+                            from="0%"
+                            to="0%"
+                            dur="2s"
+                            fill="freeze"
+                        />
+                        <animate
+                            attributeName="height"
+                            from="0%"
+                            to={`${temp ? `${temp + 40}` : `${0}`}%`}
+                            dur="2s"
+                            fill="freeze"
+                        />
+                    </rect>
                 </svg>
             </div>
 

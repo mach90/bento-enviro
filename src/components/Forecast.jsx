@@ -1,8 +1,6 @@
 import { Thermometer, CircleGauge, Droplets, Wind } from 'lucide-react';
 
-
 export default function Forecast({data}) {
-
     const formattedDate = data.dt ? new Date(data.dt * 1000).toLocaleString() : "No timestamp";
 
     return (
@@ -23,7 +21,7 @@ export default function Forecast({data}) {
             </p>
 
             <p className="font-custom1 text-md flex gap-1 items-center justify-center text-gray-600">
-                <Droplets size={16}/>{data.main.humidity ? data.main.humidity : "??"} hPa
+                <Droplets size={16}/>{data.main.humidity ? data.main.humidity : "??"} %
             </p>
 
             {!data.wind.speed && <p className="font-custom1 text-3xl text-gray-600">No wind recorded</p>}

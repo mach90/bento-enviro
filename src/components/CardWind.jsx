@@ -16,22 +16,10 @@ export default function CardWeather() {
                 <p className="text-xl font-custom2">
                     {windDirection >= 0 ? windDirection : "???"}°
                 </p>
-                <p className="text-gray-400">
+                <p className="text-gray-400 animate-shake">
                     <Wind size={80} transform={`rotate(${windDirection + 90})`} />
                 </p>
             </>}
-
-            {/* {windSpeed &&
-                <>
-
-                    <p>
-                        <svg width="80" height="80" viewBox="0 0 100 100" style={{ transform: `rotate(${windDirection}deg)` }}>
-                            <circle cx="50" cy="50" r="45" stroke="#none" strokeWidth="2" fill="none" />
-                            <polygon points="50,10 55,40 70,40 50,70 30,40 45,40" fill="#1e3a8a" />
-                        </svg>
-                    </p>
-                </>
-            } */}
 
             {windGust && 
                 <p className="font-custom2 text-xl">

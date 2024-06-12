@@ -14,6 +14,14 @@ const questionsAnswers = [
         answer:`A wind gust is a sudden, brief increase in wind speed, typically lasting a few seconds. These bursts of wind are stronger than the average wind speed at a given location and can be caused by various atmospheric conditions, such as turbulence, weather fronts, thunderstorms, or other rapid changes in atmospheric pressure.`,
     },
     {
+        question:`Sunrise, sunset, twilight, golden hour ?`,
+        answer:`Astronomical Twilight is the period when the Sun is between 12 and 18 degrees below the horizon. During this time, the sky is dark enough for astronomers to observe celestial objects without interference from the Sun's light. 
+        Nautical Twilight is the period when the Sun is between 6 and 12 degrees below the horizon. During this phase, the horizon is still visible at sea, which is useful for sailors to take readings of stars against the horizon. 
+        Civil Twilight is the period when the Sun is just below the horizon and there is enough light for most outdoor activities. It begins in the morning, and ends at sunrise and begins in the evening at sunset and ends when the Sun reaches 6 degrees below the horizon. 
+        Golden Hour is the period shortly after sunrise and just before sunset during which daylight is redder and softer compared to when the Sun is higher in the sky. It is considered ideal for photography and film.`,
+        link: `https://sunrise-sunset.org/glossary`,
+    },
+    {
         question:`What is moon transit time ?`,
         answer:`The term "moon transit time" typically refers to the moment when the Moon passes over the observer's meridian, which is an imaginary line running from north to south directly overhead. In astronomy and celestial navigation, this event is significant because it marks the highest point the Moon reaches in the sky as it moves along its orbit. Moon age is the number of days since the last full moon (new moon).`,
     },
@@ -59,14 +67,19 @@ const questionsAnswers = [
 function Questions() {
     return (
         <>
+        
             <div className='col-span-full mt-12 mb-6'>
                 <p className='font-custom1 text-3xl text-gray-900'>Understanding the values above</p>
                 {questionsAnswers.map(entry => <Accordion key={entry.question} question={entry.question} answer={entry.answer} link={entry.link} />)}
             </div>
+
             <div className='flex flex-col col-span-full mt-12 mb-6 bg-gray-300 p-4'>
                 <p className='font-custom1 text-3xl'>Sources and credits</p>
                 <a href="https://openweathermap.org/" target='_blank' className='font-custom2 text-gray-900 hover:text-gray-600'>
-                    Weather, Forecast, Sun: Open Weather Map
+                    Weather, Forecast: Open Weather Map
+                </a>
+                <a href="https://sunrise-sunset.org/" target='_blank' className='font-custom2 text-gray-900 hover:text-gray-600'>
+                    Sun: Sunrise-sunset
                 </a>
                 <a href="https://www.windy.com/" target='_blank' className='font-custom2 text-gray-900 hover:text-gray-600'>
                     Webcams: Windy
@@ -84,6 +97,7 @@ function Questions() {
                     Air quality: World Air Quality Index project
                 </a>
             </div>
+
         </>
     );
 }

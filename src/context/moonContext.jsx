@@ -1,7 +1,7 @@
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
 IMPORTS
 ████████████████████████████████████████████████████████████████████████████████████████████████████ */
-import { createContext, useContext, useReducer, useEffect, useState } from "react";
+import { createContext, useContext, useReducer, useEffect } from "react";
 
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
 CONTEXT
@@ -41,27 +41,27 @@ function reducer(state, action) {
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
 PROVIDER COMPONENT
 ████████████████████████████████████████████████████████████████████████████████████████████████████ */
-function MoonProvider ({children}) {
-    const [longitude, setLongitude] = useState(null);
-    const [latitude, setLatitude] = useState(null);
+function MoonProvider ({children, latitude, longitude}) {
+    // const [longitude, setLongitude] = useState(null);
+    // const [latitude, setLatitude] = useState(null);
 	const [{moonAge, moonIlluminatedFraction, moonPhaseAngle, moonPhaseName,moonPhaseTransitTime, moonrise, moonset}, dispatch] = useReducer(reducer, initialState);
 
-    useEffect(() => {
-    if (navigator.geolocation) { //if browser has geolocation feature
-        navigator.geolocation.getCurrentPosition(
-            function(position) {
-                const {longitude} = position.coords;
-                const {latitude} = position.coords;
-                setLongitude(longitude);
-                setLatitude(latitude);
-            },
-            function() {
-                alert("Could not get your position");
-            }
-        );
-    }
+    // useEffect(() => {
+    // if (navigator.geolocation) { //if browser has geolocation feature
+    //     navigator.geolocation.getCurrentPosition(
+    //         function(position) {
+    //             const {longitude} = position.coords;
+    //             const {latitude} = position.coords;
+    //             setLongitude(longitude);
+    //             setLatitude(latitude);
+    //         },
+    //         function() {
+    //             alert("Could not get your position");
+    //         }
+    //     );
+    // }
 
-    }, [longitude, latitude]);
+    // }, [longitude, latitude]);
 
 	useEffect(() => {
         const fetchMoon = async () => {
@@ -71,7 +71,6 @@ function MoonProvider ({children}) {
                     throw new Error('Network response was not ok');
                 }
                 const data = await response.json();
-                console.log(data)
                 
                 dispatch({ type: 'dataReceived', payload: data});
             } catch (error) {

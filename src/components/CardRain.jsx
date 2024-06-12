@@ -9,41 +9,41 @@ export default function CardWeather() {
             
             {!rain && !snow && <p className="font-custom1 text-3xl">No fall recorded</p>}
 
-            {rain?.['1h'] && <>
+            {rain?.['1h'] && <div className='bg-[url(img/rain.gif)] bg-bottom w-full flex flex-col justify-center items-center'>
                 <p className="flex items-center gap-2 font-custom1 text-2xl">
                     <CloudRain size={24} /> {rain?.['1h']} mm
                 </p>
                 <p className="font-custom2 text-lg">
                     Last hour
                 </p>
-            </>}
+            </div>}
 
-            {rain?.['3h'] && <>
+            {rain?.['3h'] && <div className='bg-[url(img/rain.gif)] bg-bottom w-full flex flex-col justify-center items-center'>
                 <p className="flex items-center gap-2 font-custom2 text-2xl">
                     <CloudRain size={16} /> {rain?.['3h']} mm
                 </p>
                 <p className="font-custom2 text-lg">
                     Last 3 hours
                 </p>
-            </>}
+            </div>}
 
-            {snow?.['1h'] && <>
+            {snow?.['1h'] && <div className='bg-[url(img/snow.gif)] w-full flex flex-col justify-center items-center'>
                 <p className="flex items-center gap-2 font-custom1 text-2xl">
                     <CloudSnow size={24} /> {snow?.['1h']} mm
                 </p>
                 <p className="font-custom2 text-lg">
                     Last hour
                 </p>
-            </>}
+            </div>}
 
-            {snow?.['3h'] && <>
+            {snow?.['3h'] && <div className='bg-[url(img/snow.gif)] w-full flex flex-col justify-center items-center'>
                 <p className="flex items-center gap-2 font-custom2 text-2xl">
                     <CloudSnow size={16} /> {snow?.['3h']} mm
                 </p>
                 <p className="font-custom2 text-lg">
                     Last 3 hours
                 </p>
-            </>}
+            </div>}
             
         </div>
     )

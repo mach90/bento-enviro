@@ -1,7 +1,7 @@
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
 IMPORTS
 ████████████████████████████████████████████████████████████████████████████████████████████████████ */
-import { createContext, useContext, useReducer, useEffect, useState } from "react";
+import { createContext, useContext, useReducer, useEffect } from "react";
 
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
 CONTEXT
@@ -29,27 +29,27 @@ function reducer(state, action) {
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
 PROVIDER COMPONENT
 ████████████████████████████████████████████████████████████████████████████████████████████████████ */
-function ForecastProvider ({children}) {
-    const [latitude, setLatitude] = useState(null);
-    const [longitude, setLongitude] = useState(null);
+function ForecastProvider ({children, latitude, longitude}) {
+    // const [latitude, setLatitude] = useState(null);
+    // const [longitude, setLongitude] = useState(null);
 	const [{forecast}, dispatch] = useReducer(reducer, initialState);
 
-    useEffect(() => {
-    if (navigator.geolocation) { //if browser has geolocation feature
-        navigator.geolocation.getCurrentPosition(
-            function(position) {
-                const {latitude} = position.coords;
-                const {longitude} = position.coords;
-                setLatitude(latitude);
-                setLongitude(longitude);
-            },
-            function() {
-                alert("Could not get your position");
-            }
-        );
-    }
+    // useEffect(() => {
+    // if (navigator.geolocation) { //if browser has geolocation feature
+    //     navigator.geolocation.getCurrentPosition(
+    //         function(position) {
+    //             const {latitude} = position.coords;
+    //             const {longitude} = position.coords;
+    //             setLatitude(latitude);
+    //             setLongitude(longitude);
+    //         },
+    //         function() {
+    //             alert("Could not get your position");
+    //         }
+    //     );
+    // }
 
-    }, [latitude, longitude]);
+    // }, [latitude, longitude]);
 
 	useEffect(() => {
         const fetchForecast = async () => {
@@ -84,6 +84,3 @@ function useForecast() {
 EXPORTS
 ████████████████████████████████████████████████████████████████████████████████████████████████████ */
 export {ForecastProvider, useForecast};
-
-
-//https://openweathermap.org/forecast5

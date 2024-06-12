@@ -1,7 +1,7 @@
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
 IMPORTS
 ████████████████████████████████████████████████████████████████████████████████████████████████████ */
-import { createContext, useContext, useReducer, useEffect, useState } from "react";
+import { createContext, useContext, useReducer, useEffect } from "react";
 import pako from "pako";
 
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
@@ -36,28 +36,27 @@ function reducer(state, action) {
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
 PROVIDER COMPONENT
 ████████████████████████████████████████████████████████████████████████████████████████████████████ */
-function NightskyProvider ({children}) {
-    const [latitude, setLatitude] = useState(null);
-    const [longitude, setLongitude] = useState(null);
+function NightskyProvider ({children, latitude, longitude}) {
+    // const [latitude, setLatitude] = useState(null);
+    // const [longitude, setLongitude] = useState(null);
 	const [{sqm, totalBrightness, artificialBrightness, ratioBrightness}, dispatch] = useReducer(reducer, initialState);
 
-    
-    useEffect(() => {
-    if (navigator.geolocation) { //if browser has geolocation feature
-        navigator.geolocation.getCurrentPosition(
-            function(position) {
-                const {latitude} = position.coords;
-                const {longitude} = position.coords;
-                setLatitude(latitude);
-                setLongitude(longitude);
-            },
-            function() {
-                alert("Could not get your position");
-            }
-        );
-    }
+    // useEffect(() => {
+    // if (navigator.geolocation) { //if browser has geolocation feature
+    //     navigator.geolocation.getCurrentPosition(
+    //         function(position) {
+    //             const {latitude} = position.coords;
+    //             const {longitude} = position.coords;
+    //             setLatitude(latitude);
+    //             setLongitude(longitude);
+    //         },
+    //         function() {
+    //             alert("Could not get your position");
+    //         }
+    //     );
+    // }
 
-    }, [latitude, longitude]);
+    // }, [latitude, longitude]);
 
     /* ////////////////////////////////////////////////////////////////////////////////////////////////////
     FULL CREDIT TO 
@@ -65,7 +64,7 @@ function NightskyProvider ({children}) {
     FOR THE DATA AND ALGORITHMS
     //////////////////////////////////////////////////////////////////////////////////////////////////// */
     useEffect(() => {
-        getInfoFromLonLat({ lat: latitude, lng: longitude }, 2016);
+        getInfoFromLonLat({ lat: latitude, lng: longitude }, 2022);
     }, [latitude, longitude]);
 
     function getInfoFromLonLat(elatlng,year) {
@@ -179,7 +178,6 @@ function useNightsky() {
 EXPORTS
 ████████████████████████████████████████████████████████████████████████████████████████████████████ */
 export {NightskyProvider, useNightsky};
-
 
 /*
 The World Atlas dataset contains calculated artificial brightness in mcd/cm2 (ARTIFICIAL_BRIGHTNESS ). Assuming that the natural brightness of the night sky is 22.00 mag./arc sec2 or 0.171168465 mcd/m2, you can then calculate other properties:

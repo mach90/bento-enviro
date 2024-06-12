@@ -1,7 +1,7 @@
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
 IMPORTS
 ████████████████████████████████████████████████████████████████████████████████████████████████████ */
-import { createContext, useContext, useReducer, useEffect, useState } from "react";
+import { createContext, useContext, useReducer, useEffect } from "react";
 
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
 CONTEXT
@@ -29,27 +29,27 @@ function reducer(state, action) {
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
 PROVIDER COMPONENT
 ████████████████████████████████████████████████████████████████████████████████████████████████████ */
-function AuroraProvider ({children}) {
-    const [longitude, setLongitude] = useState(null);
-    const [latitude, setLatitude] = useState(null);
+function AuroraProvider ({children, latitude, longitude}) {
+    // const [longitude, setLongitude] = useState(null);
+    // const [latitude, setLatitude] = useState(null);
 	const [{auroraData}, dispatch] = useReducer(reducer, initialState);
 
-    useEffect(() => {
-    if (navigator.geolocation) { //if browser has geolocation feature
-        navigator.geolocation.getCurrentPosition(
-            function(position) {
-                const {longitude} = position.coords;
-                const {latitude} = position.coords;
-                setLongitude(longitude);
-                setLatitude(latitude);
-            },
-            function() {
-                alert("Could not get your position");
-            }
-        );
-    }
+    // useEffect(() => {
+    // if (navigator.geolocation) { //if browser has geolocation feature
+    //     navigator.geolocation.getCurrentPosition(
+    //         function(position) {
+    //             const {longitude} = position.coords;
+    //             const {latitude} = position.coords;
+    //             setLongitude(longitude);
+    //             setLatitude(latitude);
+    //         },
+    //         function() {
+    //             alert("Could not get your position");
+    //         }
+    //     );
+    // }
 
-    }, [longitude, latitude]);
+    // }, [longitude, latitude]);
 
 	useEffect(() => {
         const fetchAurora = async () => {
