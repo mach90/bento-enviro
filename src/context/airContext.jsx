@@ -3,7 +3,7 @@ IMPORTS
 ████████████████████████████████████████████████████████████████████████████████████████████████████ */
 import { createContext, useContext, useReducer, useEffect } from "react";
 const apiurl = "https://api.waqi.info/feed";
-const apikey = "287fe24eb02c3f1a7b5ea92c4fc4631eb6e3dc76";
+const apikey = import.meta.env.VITE_API_AIRKEY;
 
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
 CONTEXT

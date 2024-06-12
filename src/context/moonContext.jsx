@@ -8,7 +8,7 @@ CONTEXT
 ████████████████████████████████████████████████████████████████████████████████████████████████████ */
 const MoonContext = createContext();
 const apiurl = "https://my.meteoblue.com/packages/sunmoon";
-const apikey = "MlxzusqgTwXchA5B";
+const apikey = import.meta.env.VITE_API_MOONKEY;
 
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
 REDUCER + INITIAL STATE

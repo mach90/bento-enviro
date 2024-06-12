@@ -3,7 +3,8 @@ IMPORTS
 ████████████████████████████████████████████████████████████████████████████████████████████████████ */
 import { createContext, useContext, useReducer, useEffect } from "react";
 const apiurl = "https://api.windy.com/webcams/api/v3/map/clusters";
-const apikey = "0jJpTsHfK99YUGbj4WbASVsRUvaU2l9R";
+const apikey = import.meta.env.VITE_API_WEBCAMKEY;
+
 
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
 CONTEXT
