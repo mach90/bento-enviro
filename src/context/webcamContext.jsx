@@ -68,7 +68,7 @@ function WebcamProvider ({children, latitude, longitude}) {
                     method: 'GET',
                     headers: {
                         'Accept': 'application/json',
-                        'x-windy-api-key': `${apikey}`,
+                        'x-windy-api-key': apikey,
                     }
                 };
                 const response = await fetch(url, options);
