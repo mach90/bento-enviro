@@ -2,7 +2,7 @@
 IMPORTS
 ████████████████████████████████████████████████████████████████████████████████████████████████████ */
 import { createContext, useContext, useReducer, useEffect } from "react";
-const apiurl = import.meta.env.VITE_API_WEATHERURL;
+const apiurl = "https://api.openweathermap.org/data/2.5/weather";
 const apikey = import.meta.env.VITE_API_WEATHERKEY;
 
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
