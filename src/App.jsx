@@ -8,7 +8,7 @@ import { ForecastProvider } from "./context/forecastContext";
 import { AirProvider } from "./context/airContext";
 import { AuroraProvider } from "./context/auroraContext";
 import { NightskyProvider } from "./context/nightskyContext";
-// import { MoonProvider } from "./context/moonContext";
+import { MoonProvider } from "./context/moonContext";
 import { WebcamProvider } from "./context/webcamContext";
 import { SunProvider } from "./context/sunContext";
 
@@ -23,7 +23,7 @@ import CardAir from "./components/CardAir";
 import CardAurora from "./components/CardAurora";
 import CardWebcam from "./components/CardWebcam";
 import CardNightsky from "./components/CardNightsky";
-// import CardMoon from "./components/CardMoon";
+import CardMoon from "./components/CardMoon";
 import CardSun from "./components/CardSun";
 import CardWind from "./components/CardWind";
 import CardRain from "./components/CardRain";
@@ -85,10 +85,9 @@ export default function App() {
           <CardForecast />
         </ForecastProvider>
 
-        {/* <MoonProvider latitude={latitude} longitude={longitude}>
+        <MoonProvider latitude={latitude} longitude={longitude}>
           <CardMoon />
-        </MoonProvider> */}
-
+        </MoonProvider>
 
         <NightskyProvider latitude={latitude} longitude={longitude}>
           <CardNightsky />
