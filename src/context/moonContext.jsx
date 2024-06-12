@@ -7,6 +7,8 @@ import { createContext, useContext, useReducer, useEffect } from "react";
 CONTEXT
 ████████████████████████████████████████████████████████████████████████████████████████████████████ */
 const MoonContext = createContext();
+const apiurl = "https://my.meteoblue.com/packages/sunmoon";
+const apikey = "MlxzusqgTwXchA5B";
 
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
 REDUCER + INITIAL STATE
@@ -66,7 +68,7 @@ function MoonProvider ({children, latitude, longitude}) {
 	useEffect(() => {
         const fetchMoon = async () => {
             if(latitude && longitude) try {
-                const response = await fetch(`https://my.meteoblue.com/packages/sunmoon?apikey=MlxzusqgTwXchA5B&lat=${latitude}&lon=${longitude}&asl=186&format=json`);
+                const response = await fetch(`${apiurl}?apikey=${apikey}&lat=${latitude}&lon=${longitude}&asl=186&format=json`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }

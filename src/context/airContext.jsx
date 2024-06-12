@@ -2,6 +2,8 @@
 IMPORTS
 ████████████████████████████████████████████████████████████████████████████████████████████████████ */
 import { createContext, useContext, useReducer, useEffect } from "react";
+const apiurl = "https://api.waqi.info/feed";
+const apikey = "287fe24eb02c3f1a7b5ea92c4fc4631eb6e3dc76";
 
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
 CONTEXT
@@ -68,7 +70,7 @@ function AirProvider ({children, latitude, longitude}) {
 	useEffect(() => {
         const fetchAir = async () => {
             if(latitude && longitude) try {
-                const response = await fetch(`https://api.waqi.info/feed/geo:${latitude};${longitude}/?token=287fe24eb02c3f1a7b5ea92c4fc4631eb6e3dc76`);
+                const response = await fetch(`${apiurl}/geo:${latitude};${longitude}/?token=${apikey}`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }

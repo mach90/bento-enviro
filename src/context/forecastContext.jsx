@@ -2,6 +2,8 @@
 IMPORTS
 ████████████████████████████████████████████████████████████████████████████████████████████████████ */
 import { createContext, useContext, useReducer, useEffect } from "react";
+const apiurl = "https://api.openweathermap.org/data/2.5/forecast";
+const apikey = "46d9827b0d0d06ee89c1a28f33fd2b1e";
 
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
 CONTEXT
@@ -54,7 +56,7 @@ function ForecastProvider ({children, latitude, longitude}) {
 	useEffect(() => {
         const fetchForecast = async () => {
             if(latitude && longitude) try {
-                const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=46d9827b0d0d06ee89c1a28f33fd2b1e&units=metric`);
+                const response = await fetch(`${apiurl}?lat=${latitude}&lon=${longitude}&appid=${apikey}&units=metric`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }

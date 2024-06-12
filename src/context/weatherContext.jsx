@@ -2,8 +2,8 @@
 IMPORTS
 ████████████████████████████████████████████████████████████████████████████████████████████████████ */
 import { createContext, useContext, useReducer, useEffect } from "react";
-const apiurl = import.meta.env.VITE_REACT_APP_OPENWEATHERMAP_URL;
-const apikey = import.meta.env.VITE_REACT_APP_OPENWEATHERMAP_KEY;
+const apiurl = import.meta.env.VITE_API_WEATHERURL;
+const apikey = import.meta.env.VITE_API_WEATHERKEY;
 
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
 CONTEXT

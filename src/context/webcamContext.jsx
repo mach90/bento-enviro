@@ -2,6 +2,8 @@
 IMPORTS
 ████████████████████████████████████████████████████████████████████████████████████████████████████ */
 import { createContext, useContext, useReducer, useEffect } from "react";
+const apiurl = "https://api.windy.com/webcams/api/v3/map/clusters";
+const apikey = "0jJpTsHfK99YUGbj4WbASVsRUvaU2l9R";
 
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
 CONTEXT
@@ -60,12 +62,12 @@ function WebcamProvider ({children, latitude, longitude}) {
                 const latitudeNorth = latitude + length;
                 const longitudeWest = longitude - length;
                 const longitudeEast = longitude + length;
-                const url = `https://api.windy.com/webcams/api/v3/map/clusters?lang=en&northLat=${latitudeNorth}&southLat=${latitudeSouth}&eastLon=${longitudeEast}&westLon=${longitudeWest}&zoom=10&include=images,player`;
+                const url = `${apiurl}?lang=en&northLat=${latitudeNorth}&southLat=${latitudeSouth}&eastLon=${longitudeEast}&westLon=${longitudeWest}&zoom=10&include=images,player`;
                 const options = {
                     method: 'GET',
                     headers: {
                         'Accept': 'application/json',
-                        'x-windy-api-key': '0jJpTsHfK99YUGbj4WbASVsRUvaU2l9R',
+                        'x-windy-api-key': `${apikey}`,
                     }
                 };
                 const response = await fetch(url, options);

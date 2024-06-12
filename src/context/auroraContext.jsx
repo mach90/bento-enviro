@@ -2,6 +2,7 @@
 IMPORTS
 ████████████████████████████████████████████████████████████████████████████████████████████████████ */
 import { createContext, useContext, useReducer, useEffect } from "react";
+const apiurl = "https://services.swpc.noaa.gov/json/ovation_aurora_latest.json";
 
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
 CONTEXT
@@ -54,7 +55,7 @@ function AuroraProvider ({children, latitude, longitude}) {
 	useEffect(() => {
         const fetchAurora = async () => {
             if(latitude && longitude) try {
-                const response = await fetch(`https://services.swpc.noaa.gov/json/ovation_aurora_latest.json`);
+                const response = await fetch(`${apiurl}`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }

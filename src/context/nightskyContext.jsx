@@ -3,6 +3,7 @@ IMPORTS
 ████████████████████████████████████████████████████████████████████████████████████████████████████ */
 import { createContext, useContext, useReducer, useEffect } from "react";
 import pako from "pako";
+const apiurl = "https://djlorenz.github.io/astronomy/binary_tiles";
 
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
 CONTEXT
@@ -138,9 +139,7 @@ function NightskyProvider ({children, latitude, longitude}) {
         }
 
         if ( tiley >= 1 && tiley <= 28 ) {
-            // const url = `../binary_tiles/${year}/binary_tile_${tilex}_${tiley}.dat.gz`;
-            const url = `https://djlorenz.github.io/astronomy/binary_tiles/${year}/binary_tile_${tilex}_${tiley}.dat.gz`;
-            // console.log(url)
+            const url = `${apiurl}/${year}/binary_tile_${tilex}_${tiley}.dat.gz`;
             
             xhr = new XMLHttpRequest();
             xhr.responseType = 'arraybuffer';

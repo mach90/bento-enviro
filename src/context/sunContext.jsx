@@ -2,6 +2,7 @@
 IMPORTS
 ████████████████████████████████████████████████████████████████████████████████████████████████████ */
 import { createContext, useContext, useReducer, useEffect } from "react";
+const apiurl = "https://api.sunrise-sunset.org/json";
 
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
 CONTEXT
@@ -73,7 +74,7 @@ function SunProvider ({children, latitude, longitude}) {
         const fetchSun = async () => {
             if(latitude && longitude) try {
                 const browserTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-                const response = await fetch(`https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}&formatted=0&tzid=${browserTimeZone}`);
+                const response = await fetch(`${apiurl}?lat=${latitude}&lng=${longitude}&formatted=0&tzid=${browserTimeZone}`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
