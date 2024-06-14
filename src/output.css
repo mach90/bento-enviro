@@ -662,6 +662,18 @@ video {
   animation: shake 5s ease-in-out infinite;
 }
 
+.snap-x {
+  scroll-snap-type: x var(--tw-scroll-snap-strictness);
+}
+
+.snap-mandatory {
+  --tw-scroll-snap-strictness: mandatory;
+}
+
+.snap-center {
+  scroll-snap-align: center;
+}
+
 .flex-row {
   flex-direction: row;
 }
@@ -858,10 +870,6 @@ video {
 
 .bg-\[url\(\'img\/pollution\.jpg\'\)\] {
   background-image: url('img/pollution.jpg');
-}
-
-.bg-\[url\(\'img\/smoke\.gif\'\)\] {
-  background-image: url('img/smoke.gif');
 }
 
 .bg-\[url\(\'img\/stars\.jpg\'\)\] {

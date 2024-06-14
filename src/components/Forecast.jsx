@@ -4,7 +4,7 @@ export default function Forecast({data}) {
     const formattedDate = data.dt ? new Date(data.dt * 1000).toLocaleString() : "No timestamp";
 
     return (
-        <div className="bg-gray-50 flex flex-col gap-2 p-4 justify-center items-center w-[200px] flex-shrink-0 rounded-3xl shadow-md">
+        <div className="bg-gray-50 flex flex-col gap-2 p-4 justify-center items-center w-[200px] flex-shrink-0 rounded-3xl shadow-md snap-center">
 
             <p className="font-custom2 text-gray-600">{formattedDate}</p>
 
