@@ -12,7 +12,7 @@ export default {
     },
     extend: {
       colors: {
-        colorBackground: "#c1babd",
+        colorBackground: "#efedec",
         colorBrand: "#f6c355",
         colorCard1: "#ffffff",
         colorCard2: "#efedec",

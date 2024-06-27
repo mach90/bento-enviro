@@ -5,9 +5,9 @@ export default function CardWeather() {
     const {rain, snow} = useWeather();
 
     return (
-        <div className="bg-colorCard1 bg-center text-colorText p-4 rounded-3xl flex flex-col justify-center items-center lg:row-span-1/2 shadow-md">
+        <div className="bg-colorCard1 bg-center text-colorText p-4 rounded-2xl flex flex-col justify-center items-center shadow-md">
             
-            {!rain && !snow && <p className="font-custom1 text-3xl">No fall recorded</p>}
+            {!rain && !snow && <p className="font-custom1 text-xl">No fall recorded</p>}
 
             {rain?.['1h'] && <div className='bg-[url(img/rain.gif)] bg-bottom w-full flex flex-col justify-center items-center'>
                 <p className="flex items-center gap-2 font-custom1 text-2xl">

@@ -18,14 +18,14 @@ export default function CardMoon() {
     // const moonset = null;
 
     return (
-        <div className="bg-[url('img/stars.jpg')] text-colorBrand text-md p-4 rounded-3xl font-custom2 flex flex-col justify-center items-center relative shadow-md">
+        <div className="bg-[url('img/stars.jpg')] text-colorBrand text-md p-4 rounded-2xl font-custom2 flex flex-col justify-center items-center relative shadow-md">
 
             <div className="flex flex-col justify-center items-center absolute ">
-                <p className="bg-colorDark bg-opacity-50 p-1 rounded-xl">Moonrise: {moonrise ? moonrise : "??:??"}</p>
-                <p className="bg-colorDark bg-opacity-50 p-1 rounded-xl">Moonset: {moonset ? moonset : "??:??"}</p>
-                <p className="bg-colorDark bg-opacity-50 p-1 rounded-xl">{moonPhaseName ? moonPhaseName : "unknown"} ({moonIlluminatedFraction >= 0 ? moonIlluminatedFraction : "unknown"}%)</p>
-                <p className="bg-colorDark bg-opacity-50 p-1 rounded-xl">Transit: {moonPhaseTransitTime ? moonPhaseTransitTime : "??:??"}</p>
-                <p className="bg-colorDark bg-opacity-50 p-1 rounded-xl">{moonAge >= 0 ? `${moonAge} days` : "unknown"}</p>
+                <p className="bg-colorDark bg-opacity-50 p-1 rounded-xl text-md">Moonrise: {moonrise ? moonrise : "??:??"}</p>
+                <p className="bg-colorDark bg-opacity-50 p-1 rounded-xl text-md">Moonset: {moonset ? moonset : "??:??"}</p>
+                <p className="bg-colorDark bg-opacity-50 p-1 rounded-xl text-md">{moonPhaseName ? moonPhaseName : "unknown"} ({moonIlluminatedFraction >= 0 ? moonIlluminatedFraction : "unknown"}%)</p>
+                <p className="bg-colorDark bg-opacity-50 p-1 rounded-xl text-md">Transit: {moonPhaseTransitTime ? moonPhaseTransitTime : "??:??"}</p>
+                <p className="bg-colorDark bg-opacity-50 p-1 rounded-xl text-md">{moonAge >= 0 ? `${moonAge} days` : "unknown"}</p>
             </div>
 
             {!moonPhaseName && !moonIlluminatedFraction &&

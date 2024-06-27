@@ -65,11 +65,15 @@ export default function App() {
 
         <WeatherProvider latitude={latitude} longitude={longitude}>
           <CardStatus />
-          <CardWeather />
-          <CardWind />
         </WeatherProvider>
 
-        <CardSatellite />
+        <WeatherProvider latitude={latitude} longitude={longitude}>
+          <CardWeather />
+        </WeatherProvider>
+
+        <WeatherProvider latitude={latitude} longitude={longitude}>
+          <CardWind />
+        </WeatherProvider>
 
         <WeatherProvider latitude={latitude} longitude={longitude}>
           <CardRain />
@@ -79,13 +83,15 @@ export default function App() {
           <CardSun/>
         </SunProvider>
 
-        <WebcamProvider latitude={latitude} longitude={longitude}>
-          <CardWebcam />
-        </WebcamProvider>
+        <CardSatellite />
 
         <ForecastProvider latitude={latitude} longitude={longitude}>
           <CardForecast />
         </ForecastProvider>
+
+        <WebcamProvider latitude={latitude} longitude={longitude}>
+          <CardWebcam />
+        </WebcamProvider>
 
         <MoonProvider latitude={latitude} longitude={longitude}>
           <CardMoon />

@@ -67,14 +67,8 @@ const questionsAnswers = [
 function Questions() {
     return (
         <>
-        
-            <div className='col-span-full mt-12 mb-6'>
-                <p className='font-custom1 text-3xl text-colorDark'>Understanding the values above</p>
-                {questionsAnswers.map(entry => <Accordion key={entry.question} question={entry.question} answer={entry.answer} link={entry.link} />)}
-            </div>
-
-            <div className='flex flex-col col-span-full mt-12 mb-6 bg-colorCard1 p-4'>
-                <p className='font-custom1 text-3xl'>Sources and credits</p>
+            <div className='flex flex-col col-span-full bg-colorCard1 p-4 rounded-2xl'>
+                <p className='font-custom1 text-xl'>Sources and credits</p>
                 <a href="https://openweathermap.org/" target='_blank' className='font-custom2 text-colorDark hover:text-colorCard3'>
                     Weather, Forecast: Open Weather Map
                 </a>
@@ -97,6 +91,12 @@ function Questions() {
                     Air quality: World Air Quality Index project
                 </a>
             </div>
+        
+            <div className='col-span-2 bg-colorCard1 p-4 rounded-2xl'>
+                <p className='font-custom1 text-xl text-colorDark'>FAQ</p>
+                {questionsAnswers.map(entry => <Accordion key={entry.question} question={entry.question} answer={entry.answer} link={entry.link} />)}
+            </div>
+
 
         </>
     );

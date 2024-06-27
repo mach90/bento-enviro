@@ -31,23 +31,23 @@ export default function CardNightsky() {
 
     return (
         <div className=" p-6 bg-[url('img/lightpollution.jpg')] bg-right-bottom rounded-3xl shadow-md">
-            <p className="font-custom2 text-colorMedium">Sky Quality Meter (mag./arc sec2)</p>
-            <p className="font-custom1 mb-2 text-lg text-colorBrand">{sqm ? sqm : "??"} / 22.00</p>
+            <p className="font-custom2 text-colorMedium text-sm">Sky Quality Meter (mag./arc sec2)</p>
+            <p className="font-custom1 mb-2 text-sm text-colorBrand">{sqm ? sqm : "??"} / 22.00</p>
 
-            <p className="font-custom2 text-colorMedium">Total brightness (mcd/m²)</p>
-            <p className="font-custom1 mb-2 text-lg text-colorBrand">{totalBrightness ? totalBrightness : "?"}</p>
+            <p className="font-custom2 text-colorMedium text-sm">Total brightness (mcd/m²)</p>
+            <p className="font-custom1 mb-2 text-sm text-colorBrand">{totalBrightness ? totalBrightness : "?"}</p>
 
-            <p className="font-custom2 text-colorMedium">Artifificial brightness (mcd/m²)</p>
-            <p className="font-custom1 mb-2 text-lg text-colorBrand">{artificialBrightness ? artificialBrightness / 1000 : "?"}</p>
+            <p className="font-custom2 text-colorMedium  text-sm">Artifificial brightness (mcd/m²)</p>
+            <p className="font-custom1 mb-2 text-sm text-colorBrand">{artificialBrightness ? artificialBrightness / 1000 : "?"}</p>
 
             <p className="font-custom2 text-colorMedium text-sm">Natural brightness (mcd/m²)</p>
             <p className="font-custom1 mb-2 text-sm text-colorBrand">0.17</p>
 
-            <p className="font-custom2 text-colorMedium">Ratio (artificial/natural brightnesses)</p>
-            <p className="font-custom1 mb-2 text-lg text-colorBrand">{ratioBrightness ? ratioBrightness : "?"}</p>
+            <p className="font-custom2 text-colorMedium  text-sm">Ratio (artificial/natural brightnesses)</p>
+            <p className="font-custom1 mb-2 text-sm text-colorBrand">{ratioBrightness ? ratioBrightness : "?"}</p>
 
-            <p className="font-custom2 text-colorMedium">Bortle class</p>
-            <p className="font-custom1 mb-2 text-lg text-colorBrand">{sqm ? getNumberCode(sqm) : "???"}</p>
+            <p className="font-custom2 text-colorMedium  text-sm">Bortle class</p>
+            <p className="font-custom1 mb-2 text-sm text-colorBrand">{sqm ? getNumberCode(sqm) : "???"}</p>
         </div>
     );
 }
