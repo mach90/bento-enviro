@@ -16,6 +16,7 @@ import Container from "./components/Container";
 import Questions from "./components/Questions";
 
 import CardLogo from "./components/CardLogo";
+import CardStatus from "./components/CardStatus";
 import CardWeather from "./components/CardWeather";
 import CardForecast from "./components/CardForecast";
 import CardSatellite from "./components/CardSatellite";
@@ -63,6 +64,7 @@ export default function App() {
         <CardLogo/>
 
         <WeatherProvider latitude={latitude} longitude={longitude}>
+          <CardStatus />
           <CardWeather />
           <CardWind />
         </WeatherProvider>

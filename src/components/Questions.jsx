@@ -69,31 +69,31 @@ function Questions() {
         <>
         
             <div className='col-span-full mt-12 mb-6'>
-                <p className='font-custom1 text-3xl text-gray-900'>Understanding the values above</p>
+                <p className='font-custom1 text-3xl text-colorDark'>Understanding the values above</p>
                 {questionsAnswers.map(entry => <Accordion key={entry.question} question={entry.question} answer={entry.answer} link={entry.link} />)}
             </div>
 
-            <div className='flex flex-col col-span-full mt-12 mb-6 bg-gray-300 p-4'>
+            <div className='flex flex-col col-span-full mt-12 mb-6 bg-colorCard1 p-4'>
                 <p className='font-custom1 text-3xl'>Sources and credits</p>
-                <a href="https://openweathermap.org/" target='_blank' className='font-custom2 text-gray-900 hover:text-gray-600'>
+                <a href="https://openweathermap.org/" target='_blank' className='font-custom2 text-colorDark hover:text-colorCard3'>
                     Weather, Forecast: Open Weather Map
                 </a>
-                <a href="https://sunrise-sunset.org/" target='_blank' className='font-custom2 text-gray-900 hover:text-gray-600'>
+                <a href="https://sunrise-sunset.org/" target='_blank' className='font-custom2 text-colorDark hover:text-colorCard3'>
                     Sun: Sunrise-sunset
                 </a>
-                <a href="https://www.windy.com/" target='_blank' className='font-custom2 text-gray-900 hover:text-gray-600'>
+                <a href="https://www.windy.com/" target='_blank' className='font-custom2 text-colorDark hover:text-colorCard3'>
                     Webcams: Windy
                 </a>
-                <a href="https://www.meteoblue.com/" target='_blank' className='font-custom2 text-gray-900 hover:text-gray-600'>
+                <a href="https://www.meteoblue.com/" target='_blank' className='font-custom2 text-colorDark hover:text-colorCard3'>
                     Moon: Meteoblue
                 </a>
-                <a href="https://djlorenz.github.io/astronomy/lp2022/" target='_blank' className='font-custom2 text-gray-900 hover:text-gray-600'>
+                <a href="https://djlorenz.github.io/astronomy/lp2022/" target='_blank' className='font-custom2 text-colorDark hover:text-colorCard3'>
                     Night sky: David Lorenz
                 </a>
-                <a href="https://www.swpc.noaa.gov/" target='_blank' className='font-custom2 text-gray-900 hover:text-gray-600'>
+                <a href="https://www.swpc.noaa.gov/" target='_blank' className='font-custom2 text-colorDark hover:text-colorCard3'>
                     Aurora forecast: NOAA Space Weather Prediction Center
                 </a>
-                <a href="https://waqi.info/" target='_blank' className='font-custom2 text-gray-900 hover:text-gray-600'>
+                <a href="https://waqi.info/" target='_blank' className='font-custom2 text-colorDark hover:text-colorCard3'>
                     Air quality: World Air Quality Index project
                 </a>
             </div>

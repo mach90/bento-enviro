@@ -4,7 +4,7 @@ export default function CardAir() {
     const {aqi, attributions, co, no2, o3, pm10, pm25, so2} = useAir();
 
     return (
-        <div className="bg-stone-300 bg-[url('img/pollution.jpg')] shadow-md bg-center rounded-3xl py-2">
+        <div className="bg-colorCard1 bg-[url('img/pollution.jpg')] shadow-md bg-center rounded-3xl py-2">
 
             <p className="font-custom1 text-xl p-2 text-center">Air Quality Score</p>
 
@@ -14,10 +14,10 @@ export default function CardAir() {
             {aqi > 100 && aqi <= 150 && <div className="bg-orange-600 "><p className="font-custom1 text-3xl p-2 text-center">{aqi}</p><p className="font-custom1 text-xl p-2 text-center">Unhealthy for sensitive groups</p></div>}
             {aqi > 150 && aqi <= 200 && <div className="bg-red-600 "><p className="font-custom1 text-3xl p-2 text-center">{aqi}</p><p className="font-custom1 text-xl p-2 text-center">Unhealthy</p></div>}
             {aqi > 250 && aqi <= 300 && <div className="bg-purple-800 "><p className="font-custom1 text-3xl p-2 text-center">{aqi}</p><p className="font-custom1 text-xl p-2 text-center">Very unhealthy</p></div>}
-            {aqi > 300 && <div className="bg-stone-900 "><p className="font-custom1 text-3xl p-2 text-center">{aqi}</p><p className="font-custom1 text-xl p-2 text-center">Hazardous</p></div>}
+            {aqi > 300 && <div className="bg-colorDark "><p className="font-custom1 text-3xl p-2 text-center">{aqi}</p><p className="font-custom1 text-xl p-2 text-center">Hazardous</p></div>}
             {attributions && <p className="font-custom2 text-sm text-center p-1">{attributions}</p>}
 
-            <div className="font-custom2 text-sm mt-2 p-2 text-stone-900">
+            <div className="font-custom2 text-sm mt-2 p-2 text-colorDark">
                 <div className="flex flex-row justify-between items-center mb-2  p-1">
                     <p className="font-custom2 text-md">Carbon monoxide (μg/m3)</p>
                     <p className="font-custom1 text-lg">{co ? co : "No data"}</p>

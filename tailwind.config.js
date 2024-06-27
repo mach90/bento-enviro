@@ -11,6 +11,17 @@ export default {
       xl: '1440px'
     },
     extend: {
+      colors: {
+        colorBackground: "#c1babd",
+        colorBrand: "#f6c355",
+        colorCard1: "#ffffff",
+        colorCard2: "#efedec",
+        colorCard3: "#018b78",
+        colorCard4: "#114640",
+        colorDark: "#000000",
+        colorMedium: "#999999",
+        colorLight: "#ffffff",
+      },
       fontFamily: {
         custom1: "'Fjalla One', sans-serif",
         custom2: "'Josefin Sans', sans-serif",
