@@ -1,5 +1,5 @@
 import { useWeather } from "../context/weatherContext";
-import { Search } from "lucide-react";
+import { Search, MapPin } from "lucide-react";
 
 export default function CardStatus() {
     const {city, dt, timezone } = useWeather();
@@ -9,8 +9,8 @@ export default function CardStatus() {
     return (
         <div className="bg-colorCard1 p-4 rounded-2xl md:col-span-2 lg:col-span-2 flex flex-row gap-4 justify-between">
             <div className="flex flex-col w-max">
-                <p className="font-custom1 font-600 text-3xl border-b-2 border-colorMedium text-colorDark">
-                    {city ? city.toUpperCase() : "Unknown location"}
+                <p className="font-custom1 font-600 text-3xl border-b-2 border-colorMedium text-colorDark flex flex-row gap-1 justify-start items-center">
+                    <MapPin /> {city ? city.toUpperCase() : "Unknown location"}
                 </p>
 
                 <p className="font-custom2 mt-1 text-colorMedium">

@@ -5,7 +5,7 @@ Single Page Application displaying various informations about your environement 
 
 ## To do
 - [x] Refactoring
-- [ ] Re-design
+- [x] Re-design
 - [ ] Sat Weather Radar Imagery API
 - [ ] Pollens API
 - [ ] Caching data
