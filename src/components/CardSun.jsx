@@ -25,7 +25,7 @@ FROM WEATHER PROVIDER
 //     return (
 //         <div className="flex flex-col justify-around font-custom1 text-2xl gap-4">
 //             <p className="bg-indigo-200 rounded-t-3xl flex flex-row justify-center items-center p-2 h-full gap-2 text-indigo-900 "><Sunrise /> {sunriseDate}</p>
-//             <p className="bg-orange-300 rounded-b-3xl flex flex-row justify-center items-center p-2 h-full gap-2 text-colorDark "><Sunset /> {sunsetDate}</p>
+//             <p className="bg-orange-300 rounded-b-3xl flex flex-row justify-center items-center p-2 h-full gap-2 text-colorTextMedium "><Sunset /> {sunsetDate}</p>
 //         </div>
 //     );
 // }
@@ -51,25 +51,25 @@ export default function CardSun() {
     const astronomicalTwilightEndLocale = astronomicalTwilightEnd ? new Date(astronomicalTwilightEnd).toLocaleString(undefined, options) : "??";
 
     return (
-        <div className="flex flex-col justify-center w-full h-full">
+        <div className="flex flex-col border border-colorBorder bg-gradient-to-b from-colorAccent1t via-colorAccent2t to-colorAccent3t">
 
-            <div className="bg-colorBrand rounded-2xl flex flex-col justify-center items-center shadow-md h-full gap-2">
+            <div className="flex flex-col justify-center items-center h-full">
                 <div className="flex flex-row gap-2 justify-center items-center w-full">
-                    <p className="text-colorDark font-custom2 text-sm flex flex-row justify-center items-center gap-2"><Telescope size={14} />{astronomicalTwilightBeginLocale}</p>
-                    <p className="text-colorDark font-custom2 text-sm flex flex-row justify-center items-center gap-2"><ShipWheel size={14} />{nauticalTwilightBeginLocale}</p>
-                    <p className="text-colorDark font-custom2 text-sm flex flex-row justify-center items-center gap-2"><PersonStanding size={14} />{civilTwilightBeginLocale}</p>
+                    <p className="text-colorTextMedium font-custom2 text-sm flex flex-row justify-center items-center gap-2"><Telescope size={14} />{astronomicalTwilightBeginLocale}</p>
+                    <p className="text-colorTextMedium font-custom2 text-sm flex flex-row justify-center items-center gap-2"><ShipWheel size={14} />{nauticalTwilightBeginLocale}</p>
+                    <p className="text-colorTextMedium font-custom2 text-sm flex flex-row justify-center items-center gap-2"><PersonStanding size={14} />{civilTwilightBeginLocale}</p>
                 </div>
-                <p className="w-full flex flex-row justify-center items-center gap-2 text-colorDark font-custom1 text-md"><Sunrise /> {sunriseLocale}</p>
+                <p className="w-full flex flex-row justify-center items-center gap-2 text-colorTextLight font-custom1 text-sm"><Sunrise size={16}/> {sunriseLocale}</p>
             
-                <p className="flex flex-row justify-center items-center gap-2 text-colorDark font-custom1 text-lg mt-6"><Sun />{solarNoonLocale}</p>
+                <p className="flex flex-row justify-center items-center gap-2 text-colorTextLight font-custom1 text-md mt-6"><Sun size={16}/>{solarNoonLocale}</p>
 
-                <p className="flex flex-row justify-center items-center gap-2 text-colorDark font-custom2 text-sm mb-6">{dayLength ? `Day length ${(dayLength / 3600).toFixed(2)}h` : "??h"}</p>
+                <p className="flex flex-row justify-center items-center gap-2 text-colorTextMedium font-custom2 text-sm mb-6">{dayLength ? `Day length ${(dayLength / 3600).toFixed(2)}h` : "??h"}</p>
         
-                <p className="flex flex-row justify-center items-center gap-2 text-colorDark font-custom1 text-md w-full"><Sunset /> {sunsetLocale}</p>
+                <p className="flex flex-row justify-center items-center gap-2 text-colorTextLight font-custom1 text-sm w-full"><Sunset size={16}/> {sunsetLocale}</p>
                 <div className="flex flex-row gap-2 justify-center items-center w-full">
-                    <p className="text-colorDark font-custom2 text-sm flex flex-row justify-center items-center gap-2"><PersonStanding size={14} />{civilTwilightEndLocale}</p>
-                    <p className="text-colorDark font-custom2 text-sm flex flex-row justify-center items-center gap-2"><ShipWheel size={14} />{nauticalTwilightEndLocale}</p>
-                    <p className="text-colorDark font-custom2 text-sm flex flex-row justify-center items-center gap-2"><Telescope size={14} />{astronomicalTwilightEndLocale}</p>
+                    <p className="text-colorTextMedium font-custom2 text-sm flex flex-row justify-center items-center gap-2"><PersonStanding size={14} />{civilTwilightEndLocale}</p>
+                    <p className="text-colorTextMedium font-custom2 text-sm flex flex-row justify-center items-center gap-2"><ShipWheel size={14} />{nauticalTwilightEndLocale}</p>
+                    <p className="text-colorTextMedium font-custom2 text-sm flex flex-row justify-center items-center gap-2"><Telescope size={14} />{astronomicalTwilightEndLocale}</p>
                 </div>
             </div>
 

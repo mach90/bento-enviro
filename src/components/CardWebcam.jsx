@@ -5,8 +5,8 @@ export default function CardWebcam() {
     const {webcams} = useWebcam();
 
     return (
-        <div className="flex flex-row overflow-x-scroll shadow-md bg-colorDark p-4 rounded-2xl snap-x snap-mandatory h-full">
-            {!webcams && <p className="font-custom2 text-xl text-colorLight">No webcams found</p>}
+        <div className="relative flex flex-row overflow-x-scroll border border-colorBorder snap-x snap-mandatory h-full cursor-grab px-4 py-2">
+            {!webcams && <p className="font-custom2 text-md text-colorTextMedium">No webcams found</p>}
             {webcams && webcams.map(webcam => (
                 <div className="h-full w-full justify-between flex-shrink-0" key={webcam.webcamId}>
                     <Webcam data={webcam} />

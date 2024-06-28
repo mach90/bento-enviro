@@ -1,4 +1,5 @@
 import Accordion from './Accordion';
+import { SquareArrowOutDownRight } from 'lucide-react';
 
 const questionsAnswers = [
     {
@@ -67,36 +68,37 @@ const questionsAnswers = [
 function Questions() {
     return (
         <>
-            <div className='flex flex-col col-span-full bg-colorCard1 p-4 rounded-2xl'>
-                <p className='font-custom1 text-xl'>Sources and credits</p>
-                <a href="https://openweathermap.org/" target='_blank' className='font-custom2 text-colorDark hover:text-colorCard3'>
-                    Weather, Forecast: Open Weather Map
+            <div className='relative flex flex-col p-4 border border-colorBorder text-sm justify-end items-end'>
+                <p className='font-custom1 text-lg text-colorTextLight mb-2'>Sources and credits</p>
+                <a href="https://openweathermap.org/" target='_blank' className='font-custom2 text-colorTextMedium hover:text-colorTextLight'>
+                    <strong className='underline'>Weather:</strong> <em>Open Weather Map</em>
                 </a>
-                <a href="https://sunrise-sunset.org/" target='_blank' className='font-custom2 text-colorDark hover:text-colorCard3'>
-                    Sun: Sunrise-sunset
+                <a href="https://sunrise-sunset.org/" target='_blank' className='font-custom2 text-colorTextMedium hover:text-colorTextLight'>
+                    <strong className='underline'>Sun:</strong> <em>Sunrise-sunset</em>
                 </a>
-                <a href="https://www.windy.com/" target='_blank' className='font-custom2 text-colorDark hover:text-colorCard3'>
-                    Webcams: Windy
+                <a href="https://www.windy.com/" target='_blank' className='font-custom2 text-colorTextMedium hover:text-colorTextLight'>
+                    <strong className='underline'>Webcams:</strong> <em>Windy</em>
                 </a>
-                <a href="https://www.meteoblue.com/" target='_blank' className='font-custom2 text-colorDark hover:text-colorCard3'>
-                    Moon: Meteoblue
+                <a href="https://www.meteoblue.com/" target='_blank' className='font-custom2 text-colorTextMedium hover:text-colorTextLight'>
+                    <strong className='underline'>Moon:</strong> <em>Meteoblue</em>
                 </a>
-                <a href="https://djlorenz.github.io/astronomy/lp2022/" target='_blank' className='font-custom2 text-colorDark hover:text-colorCard3'>
-                    Night sky: David Lorenz
+                <a href="https://djlorenz.github.io/astronomy/lp2022/" target='_blank' className='font-custom2 text-colorTextMedium hover:text-colorTextLight'>
+                    <strong className='underline'>Night sky:</strong> <em>David Lorenz</em>
                 </a>
-                <a href="https://www.swpc.noaa.gov/" target='_blank' className='font-custom2 text-colorDark hover:text-colorCard3'>
-                    Aurora forecast: NOAA Space Weather Prediction Center
+                <a href="https://www.swpc.noaa.gov/" target='_blank' className='font-custom2 text-colorTextMedium hover:text-colorTextLight'>
+                    <strong className='underline'>Aurora forecast:</strong> <em>NOAA SWPC</em>
                 </a>
-                <a href="https://waqi.info/" target='_blank' className='font-custom2 text-colorDark hover:text-colorCard3'>
-                    Air quality: World Air Quality Index project
+                <a href="https://waqi.info/" target='_blank' className='font-custom2 text-colorTextMedium hover:text-colorTextLight'>
+                    <strong className='underline'>Air quality:</strong> <em>WAQI</em>
                 </a>
+
+                <p className='absolute top-1 left-1 text-colorTextMedium'><SquareArrowOutDownRight size={32} /></p>
             </div>
         
-            <div className='col-span-2 bg-colorCard1 p-4 rounded-2xl'>
-                <p className='font-custom1 text-xl text-colorDark'>FAQ</p>
+            <div className='col-span-2 p-4 border border-colorBorder'>
+                <p className='font-custom1 text-lg text-colorTextLight'>FAQ</p>
                 {questionsAnswers.map(entry => <Accordion key={entry.question} question={entry.question} answer={entry.answer} link={entry.link} />)}
             </div>
-
 
         </>
     );

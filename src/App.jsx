@@ -85,13 +85,13 @@ export default function App() {
 
         <CardSatellite />
 
-        <ForecastProvider latitude={latitude} longitude={longitude}>
-          <CardForecast />
-        </ForecastProvider>
-
         <WebcamProvider latitude={latitude} longitude={longitude}>
           <CardWebcam />
         </WebcamProvider>
+
+        <ForecastProvider latitude={latitude} longitude={longitude}>
+          <CardForecast />
+        </ForecastProvider>
 
         <MoonProvider latitude={latitude} longitude={longitude}>
           <CardMoon />

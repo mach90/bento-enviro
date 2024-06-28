@@ -9,45 +9,61 @@ export default function CardNightsky() {
     function getNumberCode(skyMag) {
         switch (true) {
             case (skyMag >= 21.99 && skyMag <= 22.00):
-                return "1 (excellent dark sky)";
+                return "1";
             case (skyMag >= 21.89 && skyMag < 21.99):
-                return "2 (average dark sky)";
+                return "2";
             case (skyMag >= 21.69 && skyMag < 21.89):
-                return "3 (rural sky)";
+                return "3";
             case (skyMag >= 20.49 && skyMag < 21.69):
-                return "4 (rural/suburban transition)";
+                return "4";
             case (skyMag >= 19.50 && skyMag < 20.49):
-                return "5 (suburban)";
+                return "5";
             case (skyMag >= 18.94 && skyMag < 19.50):
-                return "6 (bright suburban)";
+                return "6";
             case (skyMag >= 18.38 && skyMag < 18.94):
-                return "7 (suburban/urban transition)";
+                return "7";
             case (skyMag < 18.38):
-                return "8/9 (city/inner city sky)";
+                return "8/9";
             default:
                 return "Invalid Sky Mag";
         }
     }
 
     return (
-        <div className=" p-6 bg-[url('img/lightpollution.jpg')] bg-right-bottom rounded-3xl shadow-md">
-            <p className="font-custom2 text-colorMedium text-sm">Sky Quality Meter (mag./arc sec2)</p>
-            <p className="font-custom1 mb-2 text-sm text-colorBrand">{sqm ? sqm : "??"} / 22.00</p>
+        <div className="p-4 flex flex-col justify-end gap-2 border border-colorBorder bg-gradient-to-bl from-colorAccent3t via-colorAccent3t to-colorAccent2t">
+            <div className="flex flex-row gap-1 items-center">
+                <p className="font-custom1 text-colorTextMedium text-sm">SQM</p>
+                <p className="font-custom1 text-colorTextLight text-sm">{sqm ? sqm : "??"}/22.00</p>
+                <p className="font-custom1 text-xs text-colorTextMedium">mag./arc sec2</p>
+            </div>
 
-            <p className="font-custom2 text-colorMedium text-sm">Total brightness (mcd/m²)</p>
-            <p className="font-custom1 mb-2 text-sm text-colorBrand">{totalBrightness ? totalBrightness : "?"}</p>
+            <div className="flex flex-row gap-1 items-center">
+                <p className="font-custom1 text-colorTextMedium text-sm">Total bright.</p>
+                <p className="font-custom1 text-colorTextLight text-sm">{totalBrightness ? totalBrightness : "?"}</p>
+                <p className="font-custom1 text-xs text-colorTextMedium">mcd/m2</p>
+            </div>
 
-            <p className="font-custom2 text-colorMedium  text-sm">Artifificial brightness (mcd/m²)</p>
-            <p className="font-custom1 mb-2 text-sm text-colorBrand">{artificialBrightness ? artificialBrightness / 1000 : "?"}</p>
+            <div className="flex flex-row gap-1 items-center">
+                <p className="font-custom1 text-colorTextMedium text-sm">Artificial bright.</p>
+                <p className="font-custom1 text-colorTextLight text-sm">{artificialBrightness ? artificialBrightness / 1000 : "?"}</p>
+                <p className="font-custom1 text-xs text-colorTextMedium">mcd/m2</p>
+            </div>
+            
+            <div className="flex flex-row gap-1 items-center">
+                <p className="font-custom1 text-colorTextMedium text-sm">Natural bright.</p>
+                <p className="font-custom1 text-colorTextLight text-sm">0.17</p>
+                <p className="font-custom1 text-xs text-colorTextMedium">mcd/m2</p>
+            </div>
+            
+            <div className="flex flex-row gap-1 items-center">
+                <p className="font-custom1 text-colorTextMedium text-sm">Ratio</p>
+                <p className="font-custom1 text-colorTextLight text-sm">{ratioBrightness ? ratioBrightness : "?"}</p>
+            </div>
 
-            <p className="font-custom2 text-colorMedium text-sm">Natural brightness (mcd/m²)</p>
-            <p className="font-custom1 mb-2 text-sm text-colorBrand">0.17</p>
-
-            <p className="font-custom2 text-colorMedium  text-sm">Ratio (artificial/natural brightnesses)</p>
-            <p className="font-custom1 mb-2 text-sm text-colorBrand">{ratioBrightness ? ratioBrightness : "?"}</p>
-
-            <p className="font-custom2 text-colorMedium  text-sm">Bortle class</p>
-            <p className="font-custom1 mb-2 text-sm text-colorBrand">{sqm ? getNumberCode(sqm) : "???"}</p>
+            <div className="flex flex-row gap-1 items-center">
+                <p className="font-custom1 text-colorTextMedium text-sm">Bortle class</p>
+                <p className="font-custom1 text-colorTextLight text-sm">{sqm ? getNumberCode(sqm) : "???"}</p>
+            </div>
         </div>
     );
 }
