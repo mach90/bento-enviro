@@ -6,9 +6,9 @@ Single Page Application displaying various informations about your environement 
 ## To do
 - [x] Refactoring
 - [x] Re-design
+- [x] Geolocate button
+- [x] Search city
+- [ ] Store/Load location in and from Local Storage
 - [ ] Sat Weather Radar Imagery API (high)
 - [ ] Pollens API (moderate)
-- [ ] Caching data (high)
-- [ ] Manual refresh (moderate)
-- [ ] Auto refresh (high)
-- [ ] Search city (high)
+- [ ] Caching data
