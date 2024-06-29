@@ -95,7 +95,7 @@ function Questions() {
                 <p className='absolute top-1 left-1 text-colorTextMedium'><SquareArrowOutDownRight size={32} /></p>
             </div>
         
-            <div className='col-span-2 p-4 border border-colorBorder'>
+            <div className='col-span-full p-4 border border-colorBorder'>
                 <p className='font-custom1 text-lg text-colorTextLight'>FAQ</p>
                 {questionsAnswers.map(entry => <Accordion key={entry.question} question={entry.question} answer={entry.answer} link={entry.link} />)}
             </div>

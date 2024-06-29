@@ -5,7 +5,7 @@ export default function CardWeather() {
     const { description, temp, feels, pressure, humidity, clouds, visibility } = useWeather();
     
     return (
-        <div className="p-4 flex flex-row justify-between items-center border border-colorBorder rounded-tr-lg">
+        <div className="p-4 flex flex-row justify-between items-center border border-colorBorder">
 
             <div className="mr-8">
                 <svg width="8" height="200" xmlns="http://www.w3.org/2000/svg" transform="rotate(180)">

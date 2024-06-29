@@ -51,7 +51,7 @@ export default function CardSun() {
     const astronomicalTwilightEndLocale = astronomicalTwilightEnd ? new Date(astronomicalTwilightEnd).toLocaleString(undefined, options) : "??";
 
     return (
-        <div className="flex flex-col border border-colorBorder bg-gradient-to-b from-colorAccent1t via-colorAccent2t to-colorAccent3t">
+        <div className="flex flex-col border border-colorBorder bg-gradient-to-b from-colorAccent1t via-colorAccent2t to-colorAccent3t p-4">
 
             <div className="flex flex-col justify-center items-center h-full">
                 <div className="flex flex-row gap-2 justify-center items-center w-full">

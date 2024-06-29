@@ -5,7 +5,7 @@ export default function CardWeather() {
     const {windSpeed, windDirection, windGust} = useWeather();
     
     return (
-        <div className="bg-gradient-to-tr from-transparent to-colorAccent4t p-4 border border-colorBorder flex flex-col justify-center items-center rounded-tl-lg">
+        <div className="bg-gradient-to-tr from-transparent to-colorAccent4t p-4 border border-colorBorder flex flex-col justify-center items-center">
             
             {!windSpeed && <p className="font-custom1 text-lg text-colorTextMedium">No wind recorded</p>}
 
