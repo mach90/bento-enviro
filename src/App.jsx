@@ -1,7 +1,7 @@
 /* ////////////////////////////////////////////////////////////////////////////////////////////////////
 IMPORTS
 //////////////////////////////////////////////////////////////////////////////////////////////////// */
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { WeatherProvider } from "./context/weatherContext";
 import { ForecastProvider } from "./context/forecastContext";
@@ -28,7 +28,7 @@ import CardSun from "./components/CardSun";
 import CardWind from "./components/CardWind";
 import CardRain from "./components/CardRain";
 import CardAllergy from "./components/CardAllergy";
-import CardQuestions from "./components/CardQuestions";
+import CardSources from "./components/CardSources";
 
 import { Search, MapPin, Locate } from "lucide-react";
 
@@ -38,9 +38,17 @@ APP COMPONENT
 export default function App() {
   const [cityQuery, setCityQuery] = useState(null);
   const [data, setData] = useState(null);
+  const [latitude, setLatitude] = useState(() => {
+    const storedLatitude = localStorage.getItem('latitude');
+    return storedLatitude ? JSON.parse(storedLatitude) : 43.6;
+  });
+  const [longitude, setLongitude] = useState(() => {
+    const storedLongitude = localStorage.getItem('longitude');
+    return storedLongitude ? JSON.parse(storedLongitude) : 1.44;
+  });
+  const [isFocused, setIsFocused] = useState(false);
+  const inputRef = useRef(null);
 
-  const [latitude, setLatitude] = useState(43.6);
-  const [longitude, setLongitude] = useState(1.44);
 
   /* //////////////////////////////////////////////////
   GET GEOLOCATION
@@ -66,11 +74,11 @@ export default function App() {
   ////////////////////////////////////////////////// */
   function handleSubmit(e) {
     e.preventDefault();
-    const cityQueryInputFormatted = e.target.cityQueryInput.value;
-    setCityQuery(cityQueryInputFormatted);
+    setCityQuery(e.target.cityQueryInput.value);
+    inputRef.current.focus();
   }
 
-  function handleSelectedCity(e, city) {
+  function handleSelectedCity(city) {
     setLatitude(Number(city.lat));
     setLongitude(Number(city.lon));
     setCityQuery(null);
@@ -83,23 +91,32 @@ export default function App() {
   FETCH TEST
   ////////////////////////////////////////////////// */
   useEffect(() => {
-  const searchCity = async () => {
-    if(cityQuery) try {
-        const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${cityQuery}`);
-        if (!response.ok) {
-            throw new Error('❌❌❌ Thrown Error');
-        }
-        const data = await response.json();
-        setData(data);
-        console.log(data)
+    const searchCity = async () => {
+      if(cityQuery) try {
+          const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${cityQuery}`);
+          if (!response.ok) {
+              throw new Error('❌❌❌ Thrown Error');
+          }
+          const data = await response.json();
+          setData(data);
+      } catch (error) {
+          console.error(`❌❌❌❌❌❌ ${error}`);
+      }
+    };
 
-    } catch (error) {
-        console.log(`❌❌❌❌❌❌ ${error}`);
-    }
-  };
-
-  searchCity();
+    searchCity();
   }, [cityQuery]);
+
+  /* //////////////////////////////////////////////////
+  LOCAL STORAGE
+  ////////////////////////////////////////////////// */
+  useEffect(() => {
+    localStorage.setItem('latitude', JSON.stringify(latitude));
+  }, [latitude]);
+
+  useEffect(()=> {
+    localStorage.setItem('longitude', JSON.stringify(longitude));
+  }, [longitude]);
 
   /* //////////////////////////////////////////////////
   JSX
@@ -113,39 +130,25 @@ export default function App() {
         <CardLocation />
       </WeatherProvider>
 
-      <div className="p-4 border border-colorBorder col-span-full xl:col-span-3 flex flex-col md:flex-row gap-4 w-full bg-gradient-to-br from-colorAccent1t to-transparent">
+      <div className="p-4 border border-colorBorder col-span-full xl:col-span-3 flex flex-col md:flex-row gap-4 w-full bg-gradient-to-br from-colorAccent1t to-transparent z-10">
         <div className="relative flex flex-row md:flex-row gap-3 items-center h-full w-full">
 
-        <button 
-        className="bg-colorAccent2 hover:bg-colorAccent2hover rounded-xl flex flex-row gap-1 p-2 justify-center items-center text-custom1 text-sm text-colorTextLight"
-        onClick={getGeolocation}    
-        ><Locate /></button>
+        <button className="bg-colorAccent2 hover:bg-colorAccent2hover rounded-xl flex flex-row gap-1 p-2 justify-center items-center text-custom1 text-sm text-colorTextLight" onClick={getGeolocation}><Locate /></button>
 
         <form onSubmit={(e) => handleSubmit(e)} className="flex flex-row gap-2 formRoot w-full">
-        <input 
-        id="cityQueryInput" 
-        type="text" 
-        placeholder="Search for a city_" 
-        className="bg-colorBackground border border-colorBorder p-2 text-custom1 text-sm justify-start items-center text-colorTextMedium w-full">
-        </input>
-        <button 
-        id="submitForm" 
-        type="submit" 
-        className="bg-colorAccent1 hover:bg-colorAccent1hover rounded-xl flex flex-row p-2 justify-center items-center text-custom1 text-sm text-colorTextLight">
-        <Search />
-        </button>
+          <input id="cityQueryInput" type="text" placeholder="Search for a city or an address_" onFocus={() => setIsFocused(true)}onBlur={() => setIsFocused(false)} ref={inputRef} className="bg-colorBackground border border-colorBorder p-2 text-custom1 text-sm justify-start items-center text-colorTextMedium w-full"></input>
+          <button id="submitForm" type="submit" className="bg-colorAccent1 hover:bg-colorAccent1hover rounded-xl flex flex-row p-2 justify-center items-center text-custom1 text-sm text-colorTextLight"><Search /></button>
         </form>
 
         {data && cityQuery && <div className="absolute top-0 left-0 bg-colorAccent1 text-colorTextLight border border-colorBorder p-2 flex flex-col gap-2 text-xs w-full mt-16">
         {data.map(city => 
-        <button key={city.place_id} className="p-1 bg-gradient-to-r from-colorBackground to-transparent flex flex-row gap-2 items-center" onClick={(e) => handleSelectedCity(e, city)}>
+        <button key={city.place_id} className="p-1 bg-gradient-to-r from-colorBackground to-transparent flex flex-row gap-2 items-center" onClick={() => handleSelectedCity(city)}>
         <MapPin /> {city.display_name}
         </button>
         )}
         </div>}
         </div>
       </div>
-
 
       <WeatherProvider latitude={latitude} longitude={longitude}>
         <CardWeather />
@@ -191,7 +194,7 @@ export default function App() {
 
       <CardAllergy />
       
-      <CardQuestions />
+      <CardSources />
 
     </Container>
   )

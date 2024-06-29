@@ -8,7 +8,8 @@ Single Page Application displaying various informations about your environement 
 - [x] Re-design
 - [x] Geolocate button
 - [x] Search city
-- [ ] Store/Load location in and from Local Storage
-- [ ] Sat Weather Radar Imagery API (high)
-- [ ] Pollens API (moderate)
+- [x] Store/Load location in and from Local Storage
+- [ ] Refactor App.jsx
+- [ ] Sat Weather Radar Imagery API
+- [ ] Pollens API
 - [ ] Caching data

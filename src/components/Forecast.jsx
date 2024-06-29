@@ -27,11 +27,11 @@ export default function Forecast({data}) {
             {!data.wind.speed && <p className="font-custom1 text-sm text-colorTextMedium mt-2">No wind recorded</p>}
 
             {data.wind.speed && <>
-                <p className="flex flex-row gap-1 text-center text-sm font-custom1 items-center">
+                <div className="flex flex-row gap-1 text-center text-sm font-custom1 items-center">
                     <Wind size={16} transform={`rotate(${data.wind.deg + 90})`} className='text-colorTextMedium'/>
                     <p className='text-colorTextLight'>{(data.wind.speed * 3.6).toFixed(0)} km/h</p>
                     <p className='text-colorTextMedium'>{data.wind.deg >= 0 ? data.wind.deg : "???"}°</p>
-                </p>
+                </div>
                 
             </>}
 

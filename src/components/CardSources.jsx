@@ -65,11 +65,11 @@ import { SquareArrowOutDownRight } from 'lucide-react';
 //     },
 // ]
 
-export default function CardQuestions() {
+export default function CardSources() {
     return (
         <>
             <div className='relative flex flex-col p-4 border border-colorBorder text-sm justify-end items-end'>
-                <p className='font-custom1 text-lg text-colorTextLight mb-2'>Sources and credits</p>
+                <p className='font-custom1 text-lg text-colorTextLight mb-2'>APIs, Credits</p>
                 <a href="https://openweathermap.org/" target='_blank' className='font-custom2 text-colorTextMedium hover:text-colorTextLight'>
                     <strong className='underline'>Weather:</strong> <em>Open Weather Map</em>
                 </a>
