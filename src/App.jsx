@@ -29,6 +29,7 @@ import CardWind from "./components/CardWind";
 import CardRain from "./components/CardRain";
 import CardAllergy from "./components/CardAllergy";
 import CardSources from "./components/CardSources";
+import CardFAQ from "./components/CardFAQ";
 
 import { Search, MapPin, Locate } from "lucide-react";
 
@@ -195,6 +196,8 @@ export default function App() {
       <CardAllergy />
       
       <CardSources />
+
+      <CardFAQ />
 
     </Container>
   )

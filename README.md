@@ -13,3 +13,4 @@ Single Page Application displaying various informations about your environement 
 - [ ] Sat Weather Radar Imagery API
 - [ ] Pollens API
 - [ ] Caching data
+- [ ] Limit fetch per user
