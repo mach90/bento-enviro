@@ -64,10 +64,13 @@ const questionsAnswers = [
     },
 ]
 
+const cardFaqContainerStyle = "flex flex-col justify-start items-start gap-2 text-sm col-span-full md:col-span-full rounded-lg shadow-md";
+const cardFaqTitleStyle = "font-heading font-bold text-lg text-textTransparent";
+
 function CardFAQ() {
     return (
-        <div className="p-4 border border-colorBorder text-sm justify-end items-end col-span-full">
-                <p className='font-custom1 text-lg text-colorTextLight'>FAQ</p>
+        <div className={cardFaqContainerStyle}>
+                <p className={cardFaqTitleStyle}>FAQ</p>
                 {questionsAnswers.map(entry => <Accordion key={entry.question} question={entry.question} answer={entry.answer} link={entry.link} />)}
         </div>
     );

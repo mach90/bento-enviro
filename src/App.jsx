@@ -1,8 +1,29 @@
-/* ////////////////////////////////////////////////////////////////////////////////////////////////////
+/* ████████████████████████████████████████████████████████████████████████████████████████████████████
 IMPORTS
-//////////////////////////////////////////////////////////////////////////////////////////////////// */
+████████████████████████████████████████████████████████████████████████████████████████████████████ */
+/* //////////////////////////////////////////////////
+DEPENDENCIES
+////////////////////////////////////////////////// */
 import { useEffect, useRef, useState } from "react";
+/* //////////////////////////////////////////////////
+STYLES
+////////////////////////////////////////////////// */
+import './index.css';
+const searchPositionCardStyle = "p-4 col-span-full xl:col-span-3 flex flex-col md:flex-row gap-4 w-full bg-cardDark z-10 rounded-lg shadow-md";
 
+const searchPositionContainerStyle = "relative flex flex-row md:flex-row gap-3 items-center h-full w-full";
+
+const geolocationButtonStyle = "bg-buttonDark hover:brightness-150 rounded-xl flex flex-row gap-1 p-2 justify-center items-center text-heading text-sm text-textDark";
+
+const searchPositionFormStyle = "flex flex-row gap-2 formRoot w-full";
+const searchBarStyle = "bg-inputDark p-2 text-heading text-sm justify-start items-center text-textDark w-full";
+const searchButtonStyle = "bg-buttonDark hover:brightness-150 rounded-xl flex flex-row p-2 justify-center items-center text-heading text-sm text-textDark";
+
+const searchListContainerStyle = "absolute top-0 left-0 bg-cardDark border border-borderDark p-2 flex flex-col gap-2 text-xs w-full mt-16";
+const searchListItemStyle = "p-1 text-textDark hover:bg-inputDark flex flex-row gap-2 items-center";
+/* //////////////////////////////////////////////////
+CONTEXT
+////////////////////////////////////////////////// */
 import { WeatherProvider } from "./context/weatherContext";
 import { ForecastProvider } from "./context/forecastContext";
 import { AirProvider } from "./context/airContext";
@@ -11,9 +32,10 @@ import { NightskyProvider } from "./context/nightskyContext";
 import { MoonProvider } from "./context/moonContext";
 import { WebcamProvider } from "./context/webcamContext";
 import { SunProvider } from "./context/sunContext";
-
+/* //////////////////////////////////////////////////
+COMPONENTS
+////////////////////////////////////////////////// */
 import Container from "./components/Container";
-
 import CardLogo from "./components/CardLogo";
 import CardLocation from "./components/CardLocation";
 import CardWeather from "./components/CardWeather";
@@ -30,13 +52,18 @@ import CardRain from "./components/CardRain";
 import CardAllergy from "./components/CardAllergy";
 import CardSources from "./components/CardSources";
 import CardFAQ from "./components/CardFAQ";
-
+/* //////////////////////////////////////////////////
+ICONS
+////////////////////////////////////////////////// */
 import { Search, MapPin, Locate } from "lucide-react";
 
-/* ////////////////////////////////////////////////////////////////////////////////////////////////////
+/* ████████████████████████████████████████████████████████████████████████████████████████████████████
 APP COMPONENT
-//////////////////////////////////////////////////////////////////////////////////////////////////// */
+████████████████████████████████████████████████████████████████████████████████████████████████████ */
 export default function App() {
+  /* //////////////////////////////////////////////////
+  STATE
+  ////////////////////////////////////////////////// */
   const [cityQuery, setCityQuery] = useState(null);
   const [data, setData] = useState(null);
   const [latitude, setLatitude] = useState(() => {
@@ -48,11 +75,14 @@ export default function App() {
     return storedLongitude ? JSON.parse(storedLongitude) : 1.44;
   });
   const [isFocused, setIsFocused] = useState(false);
-  const inputRef = useRef(null);
-
 
   /* //////////////////////////////////////////////////
-  GET GEOLOCATION
+  REF
+  ////////////////////////////////////////////////// */
+  const inputRef = useRef(null);
+
+  /* //////////////////////////////////////////////////
+  GEOLOCATION API
   ////////////////////////////////////////////////// */
   function getGeolocation(){
     if (navigator.geolocation) { //if browser has geolocation feature
@@ -119,9 +149,9 @@ export default function App() {
     localStorage.setItem('longitude', JSON.stringify(longitude));
   }, [longitude]);
 
-  /* //////////////////////////////////////////////////
+  /* ////////////////////////////////////////////////////////////////////////////////////////////////////
   JSX
-  ////////////////////////////////////////////////// */
+  //////////////////////////////////////////////////////////////////////////////////////////////////// */
   return (
     <Container>
 
@@ -131,19 +161,19 @@ export default function App() {
         <CardLocation />
       </WeatherProvider>
 
-      <div className="p-4 border border-colorBorder col-span-full xl:col-span-3 flex flex-col md:flex-row gap-4 w-full bg-gradient-to-br from-colorAccent1t to-transparent z-10">
-        <div className="relative flex flex-row md:flex-row gap-3 items-center h-full w-full">
+      <div className={searchPositionCardStyle}>
+        <div className={searchPositionContainerStyle}>
 
-        <button className="bg-colorAccent2 hover:bg-colorAccent2hover rounded-xl flex flex-row gap-1 p-2 justify-center items-center text-custom1 text-sm text-colorTextLight" onClick={getGeolocation}><Locate /></button>
+        <button className={geolocationButtonStyle} onClick={getGeolocation}><Locate /></button>
 
-        <form onSubmit={(e) => handleSubmit(e)} className="flex flex-row gap-2 formRoot w-full">
-          <input id="cityQueryInput" type="text" placeholder="Search for a city or an address_" onFocus={() => setIsFocused(true)}onBlur={() => setIsFocused(false)} ref={inputRef} className="bg-colorBackground border border-colorBorder p-2 text-custom1 text-sm justify-start items-center text-colorTextMedium w-full"></input>
-          <button id="submitForm" type="submit" className="bg-colorAccent1 hover:bg-colorAccent1hover rounded-xl flex flex-row p-2 justify-center items-center text-custom1 text-sm text-colorTextLight"><Search /></button>
+        <form onSubmit={(e) => handleSubmit(e)} className={searchPositionFormStyle}>
+          <input id="cityQueryInput" type="text" placeholder="Search for a city or an address" onFocus={() => setIsFocused(true)}onBlur={() => setIsFocused(false)} ref={inputRef} className={searchBarStyle}></input>
+          <button id="submitForm" type="submit" className={searchButtonStyle}><Search /></button>
         </form>
 
-        {data && cityQuery && <div className="absolute top-0 left-0 bg-colorAccent1 text-colorTextLight border border-colorBorder p-2 flex flex-col gap-2 text-xs w-full mt-16">
+        {data && cityQuery && <div className={searchListContainerStyle}>
         {data.map(city => 
-        <button key={city.place_id} className="p-1 bg-gradient-to-r from-colorBackground to-transparent flex flex-row gap-2 items-center" onClick={() => handleSelectedCity(city)}>
+        <button key={city.place_id} className={searchListItemStyle} onClick={() => handleSelectedCity(city)}>
         <MapPin /> {city.display_name}
         </button>
         )}
@@ -154,6 +184,10 @@ export default function App() {
       <WeatherProvider latitude={latitude} longitude={longitude}>
         <CardWeather />
       </WeatherProvider>
+
+      <ForecastProvider latitude={latitude} longitude={longitude}>
+        <CardForecast />
+      </ForecastProvider>
 
       <WeatherProvider latitude={latitude} longitude={longitude}>
         <CardWind />
@@ -172,10 +206,6 @@ export default function App() {
       <WebcamProvider latitude={latitude} longitude={longitude}>
         <CardWebcam />
       </WebcamProvider>
-
-      <ForecastProvider latitude={latitude} longitude={longitude}>
-        <CardForecast />
-      </ForecastProvider>
 
       <MoonProvider latitude={latitude} longitude={longitude}>
         <CardMoon />

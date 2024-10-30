@@ -1,16 +1,23 @@
 # Bento Enviro
 
 ## What is it ?
-Single Page Application displaying various informations about your environement (weather, forecast and more) in a Bento UI.
+Single Page Application aggregating diverse environmental data from multiple APIs and presenting it through a concise Bento-style UI.
 
-## To do
-- [x] Refactoring
-- [x] Re-design
-- [x] Geolocate button
-- [x] Search city
-- [x] Store/Load location in and from Local Storage
-- [ ] Refactor App.jsx
-- [ ] Sat Weather Radar Imagery API
-- [ ] Pollens API
-- [ ] Caching data
-- [ ] Limit fetch per user
+## TO FIX
+
+
+## TO DO
+- [ ] Find a Sat Weather Radar Imagery API 🔴
+- [ ] Find a Pollens API 🔴
+- [ ] Another source for Moon & Sun data https://github.com/andrmoel/astronomy-bundle-js 🔴
+- [ ] Fetching improved 🔴
+    - [ ] Caching data 🔴
+    - [ ] Limit fetch per user 🔴
+- [ ] https://swiperjs.com/ 🔴
+
+### LEGEND
+🟢 100% done
+🟡 75% done
+🟠 50% done
+🟤 25% done
+🔴 0% done

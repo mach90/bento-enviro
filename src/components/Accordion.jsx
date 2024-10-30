@@ -1,4 +1,10 @@
+import { CircleChevronDown, CircleChevronUp } from "lucide-react";
 import { useState } from "react";
+
+const accordionContainerStyle = "border border-borderTransparent flex flex-col cursor-pointer rounded-lg w-96";
+const accordionToggleStyle = "flex flex-row gap-2 items-center font-heading font-bold p-4 text-textTransparent text-sm";
+const accordionParagraphStyle = "font-body text-sm p-4 text-justify text-textTransparent border-t border-borderTransparent";
+const accordionLinkStyle = "text-textTransparentVariant hover:text-textTransparent";
 
 export default function Accordion({question, answer, link}) {
     const [isOpen, setIsOpen] = useState(false);
@@ -8,16 +14,16 @@ export default function Accordion({question, answer, link}) {
     }
 
     return (
-        <div className="flex flex-col cursor-help">
+        <div className={accordionContainerStyle}>
 
-            <div onClick={manageOpen} className="p-2 font-custom1 text-sm flex flex-row items-center gap-4">
-                <p className="text-colorTextMedium bg-gradient-to-r from-colorAccent3t to-colorAccent1t p-1">{question}</p> 
-                <p className="text-colorTextMedium">{isOpen ? "▲" : "▼" }</p>
-            </div>
-
+            <div onClick={manageOpen} className={accordionToggleStyle}>
+                <div>{isOpen ? <CircleChevronDown /> : <CircleChevronUp /> }</div>
+                <div>{question}</div>
+            </div> 
+            
             {isOpen && 
-            <div onClick={manageOpen} className="font-custom2 text-sm py-3 px-3 text-justify text-colorTextMedium">
-                {answer} {link && <a className="text-colorAccent2" href={link} target="_blank">Learn more...</a>}
+            <div onClick={manageOpen} className={accordionParagraphStyle}>
+                {answer} {link && <a className={accordionLinkStyle} href={link} target="_blank">Learn more...</a>}
             </div>}
             
         </div>

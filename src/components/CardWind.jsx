@@ -1,28 +1,34 @@
 import { useWeather } from "../context/weatherContext";
 import { Wind } from 'lucide-react';
 
+const cardWindContainerStyle = "bg-cardPrimary p-4 flex flex-col justify-center items-center rounded-lg shadow-md";
+const cardWindNoDataStyle = "font-heading text-lg text-textPrimaryVariant";
+const cardWindWindspeedStyle = "flex items-center gap-2 text-lg font-heading text-textPrimary";
+const cardWindMeasureStyle = "font-body text-md text-textPrimaryVariant";
+const cardWindIconStyle = "text-textPrimaryVariant animate-shake";
+
 export default function CardWeather() {
     const {windSpeed, windDirection, windGust} = useWeather();
     
     return (
-        <div className="bg-gradient-to-tr from-transparent to-colorAccent4t p-4 border border-colorBorder flex flex-col justify-center items-center">
+        <div className={cardWindContainerStyle}>
             
-            {!windSpeed && <p className="font-custom1 text-lg text-colorTextMedium">No wind recorded</p>}
+            {!windSpeed && <p className={cardWindNoDataStyle}>No wind recorded</p>}
 
             {windSpeed && <>
-                <p className="flex items-center gap-2 text-lg font-custom1 text-colorTextLight">
+                <p className={cardWindWindspeedStyle}>
                     {(windSpeed * 3.6).toFixed(0)} km/h
                 </p>
-                <p className="text-md font-custom2 text-colorTextMedium">
+                <p className={cardWindMeasureStyle}>
                     {windDirection >= 0 ? windDirection : "???"}°
                 </p>
-                <p className="text-colorTextMedium animate-shake">
+                <p className={cardWindIconStyle}>
                     <Wind size={48} transform={`rotate(${windDirection + 90})`} />
                 </p>
             </>}
 
             {windGust && 
-                <p className="font-custom2 text-md text-colorTextMedium">
+                <p className={cardWindMeasureStyle}>
                     {(windGust * 3.6).toFixed(0)} km/h gusts
                 </p>
             }

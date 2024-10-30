@@ -1,5 +1,11 @@
 import { useNightsky } from "../context/nightskyContext";
 
+const cardNightskyContainerStyle = "p-4 flex flex-col justify-end gap-2 bg-cardAlternate rounded-lg shadow-md";
+const cardNightskyDataContainerStyle = "flex flex-row gap-1 items-center";
+const cardNightskyDataTitleStyle = "font-heading text-textAlternateVariant text-sm";
+const cardNightskyDataValueStyle = "font-heading text-textAlternate text-sm";
+const cardNightskyDataUnitStyle = "font-heading text-xs text-textAlternateVariant";
+
 /* //////////////////////////////////////////////////
 CARDNIGHTSKY COMPONENT
 ////////////////////////////////////////////////// */
@@ -30,39 +36,39 @@ export default function CardNightsky() {
     }
 
     return (
-        <div className="p-4 flex flex-col justify-end gap-2 border border-colorBorder bg-gradient-to-bl from-colorAccent3t via-colorAccent3t to-colorAccent2t">
-            <div className="flex flex-row gap-1 items-center">
-                <p className="font-custom1 text-colorTextMedium text-sm">SQM</p>
-                <p className="font-custom1 text-colorTextLight text-sm">{sqm ? sqm : "??"}/22.00</p>
-                <p className="font-custom1 text-xs text-colorTextMedium">mag./arc sec2</p>
+        <div className={cardNightskyContainerStyle}>
+            <div className={cardNightskyDataContainerStyle}>
+                <p className={cardNightskyDataTitleStyle}>SQM</p>
+                <p className={cardNightskyDataValueStyle}>{sqm ? sqm : "??"}/22.00</p>
+                <p className={cardNightskyDataUnitStyle}>mag./arc sec2</p>
             </div>
 
-            <div className="flex flex-row gap-1 items-center">
-                <p className="font-custom1 text-colorTextMedium text-sm">Total bright.</p>
-                <p className="font-custom1 text-colorTextLight text-sm">{totalBrightness ? totalBrightness : "?"}</p>
-                <p className="font-custom1 text-xs text-colorTextMedium">mcd/m2</p>
+            <div className={cardNightskyDataContainerStyle}>
+                <p className={cardNightskyDataTitleStyle}>Total bright.</p>
+                <p className={cardNightskyDataValueStyle}>{totalBrightness ? totalBrightness : "?"}</p>
+                <p className={cardNightskyDataUnitStyle}>mcd/m2</p>
             </div>
 
-            <div className="flex flex-row gap-1 items-center">
-                <p className="font-custom1 text-colorTextMedium text-sm">Artificial bright.</p>
-                <p className="font-custom1 text-colorTextLight text-sm">{artificialBrightness ? artificialBrightness / 1000 : "?"}</p>
-                <p className="font-custom1 text-xs text-colorTextMedium">mcd/m2</p>
+            <div className={cardNightskyDataContainerStyle}>
+                <p className={cardNightskyDataTitleStyle}>Artificial bright.</p>
+                <p className={cardNightskyDataValueStyle}>{artificialBrightness ? artificialBrightness / 1000 : "?"}</p>
+                <p className={cardNightskyDataUnitStyle}>mcd/m2</p>
             </div>
             
-            <div className="flex flex-row gap-1 items-center">
-                <p className="font-custom1 text-colorTextMedium text-sm">Natural bright.</p>
-                <p className="font-custom1 text-colorTextLight text-sm">0.17</p>
-                <p className="font-custom1 text-xs text-colorTextMedium">mcd/m2</p>
+            <div className={cardNightskyDataContainerStyle}>
+                <p className={cardNightskyDataTitleStyle}>Natural bright.</p>
+                <p className={cardNightskyDataValueStyle}>0.17</p>
+                <p className={cardNightskyDataUnitStyle}>mcd/m2</p>
             </div>
             
-            <div className="flex flex-row gap-1 items-center">
-                <p className="font-custom1 text-colorTextMedium text-sm">Ratio</p>
-                <p className="font-custom1 text-colorTextLight text-sm">{ratioBrightness ? ratioBrightness : "?"}</p>
+            <div className={cardNightskyDataContainerStyle}>
+                <p className={cardNightskyDataTitleStyle}>Ratio</p>
+                <p className={cardNightskyDataValueStyle}>{ratioBrightness ? ratioBrightness : "?"}</p>
             </div>
 
-            <div className="flex flex-row gap-1 items-center">
-                <p className="font-custom1 text-colorTextMedium text-sm">Bortle class</p>
-                <p className="font-custom1 text-colorTextLight text-sm">{sqm ? getNumberCode(sqm) : "???"}</p>
+            <div className={cardNightskyDataContainerStyle}>
+                <p className={cardNightskyDataTitleStyle}>Bortle class</p>
+                <p className={cardNightskyDataValueStyle}>{sqm ? getNumberCode(sqm) : "???"}</p>
             </div>
         </div>
     );

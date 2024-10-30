@@ -1,5 +1,9 @@
 import { useMoon } from "../context/moonContext";
 
+const cardMoonContainerStyle = "bg-cardDark p-4 flex flex-col justify-center items-center relative rounded-lg shadow-md";
+const cardMoonDataContainerStyle = "bg-cardDark w-max rounded-xl flex flex-col justify-center items-center absolute";
+const cardMoonDataItemStyle = " text-textDark font-heading text-md px-1";
+
 export default function CardMoon() {
     const {moonAge, moonIlluminatedFraction, moonPhaseName,moonPhaseTransitTime, moonrise, moonset} = useMoon();
 
@@ -18,14 +22,14 @@ export default function CardMoon() {
     // const moonset = null;
 
     return (
-        <div className="text-colorTextLight text-md p-4 border border-colorBorder font-custom1 flex flex-col justify-center items-center relative">
+        <div className={cardMoonContainerStyle}>
 
-            <div className="flex flex-col justify-center items-center absolute ">
-                <p className="bg-colorBackground p-1 text-sm">Moonrise: {moonrise ? moonrise : "??:??"}</p>
-                <p className="bg-colorBackground p-1 text-sm">Moonset: {moonset ? moonset : "??:??"}</p>
-                <p className="bg-colorBackground p-1 text-sm">{moonPhaseName ? moonPhaseName : "unknown"} ({moonIlluminatedFraction >= 0 ? moonIlluminatedFraction : "unknown"}%)</p>
-                <p className="bg-colorBackground p-1 text-sm">Transit: {moonPhaseTransitTime ? moonPhaseTransitTime : "??:??"}</p>
-                <p className="bg-colorBackground p-1 text-sm">{moonAge >= 0 ? `${moonAge} days` : "unknown"}</p>
+            <div className={cardMoonDataContainerStyle}>
+                <p className={cardMoonDataItemStyle}>Moonrise: {moonrise ? moonrise : "??:??"}</p>
+                <p className={cardMoonDataItemStyle}>Moonset: {moonset ? moonset : "??:??"}</p>
+                <p className={cardMoonDataItemStyle}>{moonPhaseName ? moonPhaseName : "unknown"} ({moonIlluminatedFraction >= 0 ? moonIlluminatedFraction : "unknown"}%)</p>
+                <p className={cardMoonDataItemStyle}>Transit: {moonPhaseTransitTime ? moonPhaseTransitTime : "??:??"}</p>
+                <p className={cardMoonDataItemStyle}>{moonAge >= 0 ? `${moonAge} days` : "unknown"}</p>
             </div>
 
             {!moonPhaseName && !moonIlluminatedFraction &&
@@ -39,7 +43,7 @@ export default function CardMoon() {
             <svg width="250" height="250" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <g transform="rotate(0, 50, 50)">
                     <circle cx="50" cy="50" r="50" fill="#1e1f1e"/>
-                    <path id="crescent" fill="#efedec" d={`M 50 0 A 50 50 0 1 1 50 100 A ${50 - moonIlluminatedFraction} 50 0 1 0 50 0 Z`}/>
+                    <path id="crescent" fill="#ffffff" d={`M 50 0 A 50 50 0 1 1 50 100 A ${50 - moonIlluminatedFraction} 50 0 1 0 50 0 Z`}/>
                 </g>
             </svg>}
 
@@ -47,7 +51,7 @@ export default function CardMoon() {
             <svg width="250" height="250" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <g transform="rotate(0, 50, 50)">
                     <circle cx="50" cy="50" r="50" fill="#1e1f1e"/>
-                    <path id="crescent" fill="#efedec" d={`M 50 0 A 50 50 0 1 1 50 100 A ${50 - moonIlluminatedFraction} 50 0 1 0 50 0 Z`}/>
+                    <path id="crescent" fill="#ffffff" d={`M 50 0 A 50 50 0 1 1 50 100 A ${50 - moonIlluminatedFraction} 50 0 1 0 50 0 Z`}/>
                 </g>
             </svg>}
 
@@ -55,14 +59,14 @@ export default function CardMoon() {
             <svg width="250" height="250" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <g transform="rotate(0, 50, 50)">
                     <circle cx="50" cy="50" r="50" fill="#1e1f1e"/>
-                    <path id="crescent" fill="#efedec" d={`M 50 0 A 50 50 0 1 1 50 100 A ${50 - moonIlluminatedFraction} 50 0 1 0 50 0 Z`}/>
+                    <path id="crescent" fill="#ffffff" d={`M 50 0 A 50 50 0 1 1 50 100 A ${50 - moonIlluminatedFraction} 50 0 1 0 50 0 Z`}/>
                 </g>
             </svg>}
 
             {moonPhaseName === "waxing gibbous" && 
             <svg width="250" height="250" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <g transform="rotate(180, 50, 50)">
-                    <circle cx="50" cy="50" r="50" fill="#efedec"/>
+                    <circle cx="50" cy="50" r="50" fill="#ffffff"/>
                     <path id="crescent" fill="#1e1f1e" d={`M 50 0 A 50 50 0 1 1 50 100 A ${50 - moonIlluminatedFraction} 50 0 1 0 50 0 Z`}/>
                 </g>
             </svg>}
@@ -70,7 +74,7 @@ export default function CardMoon() {
             {moonPhaseName === "full" && 
             <svg width="250" height="250" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <g transform="rotate(180, 50, 50)">
-                    <circle cx="50" cy="50" r="50" fill="#efedec"/>
+                    <circle cx="50" cy="50" r="50" fill="#ffffff"/>
                     <path id="crescent" fill="#1e1f1e" d={`M 50 0 A 50 50 0 1 1 50 100 A ${50 - moonIlluminatedFraction} 50 0 1 0 50 0 Z`}/>
                 </g>
             </svg>}
@@ -78,7 +82,7 @@ export default function CardMoon() {
             {moonPhaseName === "waning gibbous" && 
             <svg width="250" height="250" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <g transform="rotate(0, 50, 50)">
-                    <circle cx="50" cy="50" r="50" fill="#efedec"/>
+                    <circle cx="50" cy="50" r="50" fill="#ffffff"/>
                     <path id="crescent" fill="#1e1f1e" d={`M 50 0 A 50 50 0 1 1 50 100 A ${50 - moonIlluminatedFraction} 50 0 1 0 50 0 Z`}/>
                 </g>
             </svg>}
@@ -87,7 +91,7 @@ export default function CardMoon() {
             <svg width="250" height="250" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <g transform="rotate(180, 50, 50)">
                     <circle cx="50" cy="50" r="50" fill="#1e1f1e"/>
-                    <path id="crescent" fill="#efedec" d={`M 50 0 A 50 50 0 1 1 50 100 A ${50 - moonIlluminatedFraction} 50 0 1 0 50 0 Z`}/>
+                    <path id="crescent" fill="#ffffff" d={`M 50 0 A 50 50 0 1 1 50 100 A ${50 - moonIlluminatedFraction} 50 0 1 0 50 0 Z`}/>
                 </g>
             </svg>}
 
@@ -95,7 +99,7 @@ export default function CardMoon() {
             <svg width="250" height="250" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <g transform="rotate(180, 50, 50)">
                     <circle cx="50" cy="50" r="50" fill="#1e1f1e"/>
-                    <path id="crescent" fill="#efedec" d={`M 50 0 A 50 50 0 1 1 50 100 A ${50 - moonIlluminatedFraction} 50 0 1 0 50 0 Z`}/>
+                    <path id="crescent" fill="#ffffff" d={`M 50 0 A 50 50 0 1 1 50 100 A ${50 - moonIlluminatedFraction} 50 0 1 0 50 0 Z`}/>
                 </g>
             </svg>}
 

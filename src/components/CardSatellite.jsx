@@ -1,10 +1,12 @@
-// import fakeSatelliteImage from '../img/satellite.jpg';
+import fakeSatelliteImage from '../img/satellite.jpg';
+
+const cardSatelliteContainerStyle = "bg-cardSecondary flex flex-col justify-center items-center cursor-not-allowed rounded-lg shadow-md p-6";
 
 export default function CardSatellite() {
     return (
-        <div className="border border-colorBorder flex flex-col justify-center items-center p-2 cursor-not-allowed">
-            {/* <img src={fakeSatelliteImage} alt="satimage" className="w-full" /> */}
-            <p className="text-center text-colorTextMedium font-custom1 text-md">Satellite viewer not yet implemented</p>
+        <div className={cardSatelliteContainerStyle}>
+            <img src={fakeSatelliteImage} alt="satimage" className="w-full rounded-md" />
+            {/* <p className="text-center text-textAlternateVariant font-heading text-md">Satellite viewer not yet implemented</p> */}
         </div>
     );
 }
