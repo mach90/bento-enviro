@@ -1,8 +1,8 @@
 import { useMoon } from "../context/moonContext";
 
-const cardMoonContainerStyle = "bg-cardDark p-4 flex flex-col justify-center items-center relative rounded-lg shadow-md col-span-1 row-span-1";
-const cardMoonDataContainerStyle = "bg-cardDark w-max rounded-xl flex flex-col justify-center items-center absolute";
-const cardMoonDataItemStyle = " text-textDark font-heading text-sm px-1";
+const cardMoonContainerStyle = "bg-cardFifth p-4 flex flex-col justify-center items-center relative rounded-lg shadow-md col-span-1 row-span-1";
+const cardMoonDataContainerStyle = "bg-cardFifth w-max rounded-xl flex flex-col justify-center items-center absolute";
+const cardMoonDataItemStyle = " text-textFifth font-heading text-sm px-1";
 
 export default function CardMoon() {
     const {moonAge, moonIlluminatedFraction, moonPhaseName,moonPhaseTransitTime, moonrise, moonset} = useMoon();

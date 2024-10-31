@@ -3,7 +3,7 @@ import Forecast from "./Forecast";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
-const cardForecastContainerStyle = "bg-cardDark cursor-grab rounded-lg shadow-md";
+const cardForecastContainerStyle = "bg-cardSecond cursor-grab rounded-lg shadow-md";
 
 export default function CardForecast() {
     const {forecast} = useForecast();

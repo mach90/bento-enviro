@@ -1,6 +1,6 @@
 import { useAurora } from "../context/auroraContext";
 
-const cardAuroraContainerStyle = "relative flex flex-col justify-center bg-cardDark rounded-lg shadow-md p-4 col-span-1 row-span-1";
+const cardAuroraContainerStyle = "relative flex flex-col justify-center bg-cardFifth rounded-lg shadow-md col-span-1 row-span-1";
 const cardAuroraKpStyle = "absolute bg-stone-900 bg-opacity-80 text-lime-500 p-4 font-custom1 text-3xl";
 
 export default function CardAurora() {

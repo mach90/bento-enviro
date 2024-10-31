@@ -1,10 +1,10 @@
 import { useNightsky } from "../context/nightskyContext";
 
-const cardNightskyContainerStyle = "p-4 flex flex-col justify-end gap-2 bg-cardAlternate rounded-lg shadow-md col-span-1 row-span-1";
+const cardNightskyContainerStyle = "p-4 flex flex-col justify-end gap-2 bg-cardFifth rounded-lg shadow-md col-span-1 row-span-1";
 const cardNightskyDataContainerStyle = "flex flex-row gap-1 items-center";
-const cardNightskyDataTitleStyle = "font-heading text-textAlternateVariant text-sm";
-const cardNightskyDataValueStyle = "font-heading text-textAlternate text-sm";
-const cardNightskyDataUnitStyle = "font-heading text-xs text-textAlternateVariant";
+const cardNightskyDataTitleStyle = "font-heading text-textFifthVariant text-sm";
+const cardNightskyDataValueStyle = "font-heading text-textFifth text-sm";
+const cardNightskyDataUnitStyle = "font-heading text-xs text-textFifthVariant";
 
 /* //////////////////////////////////////////////////
 CARDNIGHTSKY COMPONENT

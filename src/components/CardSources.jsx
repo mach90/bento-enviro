@@ -1,9 +1,9 @@
 import { SquareArrowOutDownRight } from "lucide-react";
 
-const cardSourcesContainerStyle = "bg-cardSecondary relative flex flex-col p-4 text-sm justify-end items-end rounded-lg shadow-md col-span-1 row-span-1 lg:col-span-2";
-const cardSourcesTitleStyle = "font-heading text-lg text-textSecondary mb-2";
-const cardSourcesLinkStyle = "font-body text-textSecondaryVariant hover:text-textSecondary";
-const cardSourcesIconStyle = "absolute top-1 left-1 text-textSecondary";
+const cardSourcesContainerStyle = "bg-cardThird relative flex flex-col p-4 text-sm justify-end items-end rounded-lg shadow-md col-span-1 row-span-1";
+const cardSourcesTitleStyle = "font-heading text-lg text-textThird mb-2";
+const cardSourcesLinkStyle = "font-body text-textThirdVariant hover:text-textThird";
+const cardSourcesIconStyle = "absolute top-1 left-1 text-textThird";
 
 export default function CardSources() {
     return (

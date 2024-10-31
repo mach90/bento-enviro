@@ -9,18 +9,18 @@ import { useEffect, useRef, useState } from "react";
 STYLES
 ////////////////////////////////////////////////// */
 import './index.css';
-const searchPositionCardStyle = "p-4 flex flex-col md:flex-row gap-4 w-full bg-cardDark z-10 rounded-lg shadow-md col-span-1 row-span-1 md:col-span-2 lg:col-span-4 xl:col-span-3";
+const searchPositionCardStyle = "p-4 flex flex-col md:flex-row gap-4 w-full bg-cardThird z-10 rounded-lg shadow-md col-span-1 row-span-1 md:col-span-2 lg:col-span-4 xl:col-span-3";
 
 const searchPositionContainerStyle = "relative flex flex-row md:flex-row gap-3 items-center h-full w-full";
 
-const geolocationButtonStyle = "bg-buttonDark hover:brightness-150 rounded-xl flex flex-row gap-1 p-2 justify-center items-center text-heading text-sm text-textDark";
+const geolocationButtonStyle = "bg-buttonThird hover:brightness-150 rounded-xl flex flex-row gap-1 p-2 justify-center items-center text-heading text-sm text-textThird";
 
 const searchPositionFormStyle = "flex flex-row gap-2 formRoot w-full";
-const searchBarStyle = "bg-inputDark p-2 text-heading text-sm justify-start items-center text-textDark w-full";
-const searchButtonStyle = "bg-buttonDark hover:brightness-150 rounded-xl flex flex-row p-2 justify-center items-center text-heading text-sm text-textDark";
+const searchBarStyle = "bg-inputThird border-2 border-borderThird p-2 text-heading text-sm justify-start items-center text-textThird placeholder-placeholderThird w-full rounded-lg";
+const searchButtonStyle = "bg-buttonThird hover:brightness-150 rounded-xl flex flex-row p-2 justify-center items-center text-heading text-sm text-textThird";
 
-const searchListContainerStyle = "absolute top-0 left-0 bg-cardDark border border-borderDark p-2 flex flex-col gap-2 text-xs w-full mt-16";
-const searchListItemStyle = "p-1 text-textDark hover:bg-inputDark flex flex-row gap-2 items-center";
+const searchListContainerStyle = "absolute top-0 left-0 bg-cardThird border border-borderThird p-2 flex flex-col gap-2 text-xs w-full mt-16";
+const searchListItemStyle = "p-1 text-textThird hover:bg-inputThird flex flex-row gap-2 items-center";
 /* //////////////////////////////////////////////////
 CONTEXT
 ////////////////////////////////////////////////// */
@@ -201,11 +201,11 @@ export default function App() {
         <CardSun/>
       </SunProvider>
 
-      <CardSatellite />
-
       <WebcamProvider latitude={latitude} longitude={longitude}>
         <CardWebcam />
       </WebcamProvider>
+
+      <CardSatellite latitude={latitude} longitude={longitude}/>
 
       <MoonProvider latitude={latitude} longitude={longitude}>
         <CardMoon />

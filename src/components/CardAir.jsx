@@ -1,9 +1,9 @@
 import { useAir } from "../context/airContext";
 import { TriangleAlert } from "lucide-react";
 
-const cardAirContainerStyle = "bg-cardSecondary relative flex flex-col gap-4 p-6 justify-between items-start rounded-lg shadow-md col-span-1 row-span-1";
-const cardAirScoreContainerStyle = "text-textSecondary";
-const cardAirScoreTextStyle = "font-heading text-md font-600 text-textSecondary"
+const cardAirContainerStyle = "bg-cardSecond relative flex flex-col gap-4 p-6 justify-between items-start rounded-lg shadow-md col-span-1 row-span-1";
+const cardAirScoreContainerStyle = "text-textSecond";
+const cardAirScoreTextStyle = "font-heading text-md font-600 text-textSecond"
 
 const cardAirScoreIsGood = "absolute top-1 right-1 text-green-800";
 const cardAirScoreIsModerate = "absolute top-1 right-1 text-yellow-800";
@@ -14,9 +14,9 @@ const cardAirScoreIsHazardous = "absolute top-1 right-1 text-stone-950";
 
 const cardAirDataContainerStyle = "font-body text-sm flex flex-col";
 const cardAirDataRowStyle = "flex flex-row gap-2 items-center";
-const cardAirDataTitleStyle = "font-heading text-sm text-textSecondaryVariant";
-const cardAirDataValueStyle = "font-heading text-sm text-textSecondary";
-const cardAirDataUnitStyle = "font-heading text-xs text-textSecondaryVariant";
+const cardAirDataTitleStyle = "font-heading text-sm text-textSecondVariant";
+const cardAirDataValueStyle = "font-heading text-sm text-textSecond";
+const cardAirDataUnitStyle = "font-heading text-xs text-textSecondVariant";
 
 export default function CardAir() {
     const {aqi, attributions, co, no2, o3, pm10, pm25, so2} = useAir();

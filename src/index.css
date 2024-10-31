@@ -18,12 +18,19 @@ COLORS
     --neutral-600: #666666;
     --neutral-700: #4d4d4d;
     --neutral-800: #333333;
-    --neutral-900: #262626;
+    --neutral-900: #1d1d1d;
     --neutral-1000: #000000;
-    --color-variant1: #f8f8f8;
-    --color-variant2: #eaa754;
-    --color-variant3: #d37254;
-    --color-variant4: #1f4354;
+    --text-0: #FFFFFF;
+    --text-300: #C1D2F8;
+    --text-500: #7A9FF4;
+    --text-700: #4379F4;
+    --text-800: #1f4aae;
+    --text-1000: #031337;
+    --color-variant1: #FBFBFB;
+    --color-variant2: #D0DCF8;
+    --color-variant3: #3C75F5;
+    --color-variant4: #5BEE9E;
+    --color-variant5: #161616;
 }
 
 /* ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -32,41 +39,4 @@ SCROLLBAR
 ::-webkit-scrollbar {
     display: none;
 }
-
-/* :root {
---scrollbar-track-color: #efedec;
---scrollbar-thumb-color: #018b78;
---scrollbar-thumb-hover-color: #114640;
-}
-
-*::-webkit-scrollbar {
-height: 5px;
-width: 5px;
-}
-
-*::-webkit-scrollbar-track {
-border-radius: 0px;
-background-color: var(--scrollbar-track-color);
-}
-
-*::-webkit-scrollbar-track:hover {
-background-color: var(--scrollbar-track-color);
-}
-
-*::-webkit-scrollbar-track:active {
-background-color: var(--scrollbar-track-color);
-}
-
-*::-webkit-scrollbar-thumb {
-border-radius: 0px;
-background-color: var(--scrollbar-thumb-color);
-}
-
-*::-webkit-scrollbar-thumb:hover {
-background-color: var(--scrollbar-thumb-hover-color);
-}
-
-*::-webkit-scrollbar-thumb:active {
-background-color: var(--scrollbar-thumb-hover-color);
-} */
         

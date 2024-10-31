@@ -1,8 +1,8 @@
 import logo from "../../public/logo.svg";
 
-const cardLogoContainerStyle = "bg-cardPrimary flex flex-col justify-center items-start p-4 rounded-lg shadow-md col-span-1 row-span-1";
-const cardLogoTitleStyle = "flex justify-center items-center text-lg font-heading font-700 gap-x-2 text-textPrimary";
-const cardLogoSubtitleStyle = "font-heading text-md text-textPrimaryVariant";
+const cardLogoContainerStyle = "bg-cardFifth flex flex-col justify-center items-start p-4 rounded-lg shadow-md col-span-1 row-span-1";
+const cardLogoTitleStyle = "flex justify-center items-center text-lg font-heading font-black gap-x-2 text-textFifth";
+const cardLogoSubtitleStyle = "font-heading text-md text-textFifthVariant";
 
 export default function CardLogo() {
     return (

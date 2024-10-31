@@ -1,10 +1,10 @@
 import { Thermometer, CircleGauge, Droplets, Wind } from 'lucide-react';
 
 const cardForecastItemDataContainerStyle = "h-full w-full flex flex-col justify-between items-center p-4";
-const cardForecastItemDescriptionStyle = "font-heading text-lg text-textDark";
-const cardForecastItemPrecisionStyle = "font-body text-sm text-textDarkVariant";
-const cardForecastItemTemperatureStyle = "font-heading font-bold text-lg flex gap-1 items-center justify-start border-2 border-borderAlternate text-textAlternate px-4 py-2 w-max rounded-lg bg-cardAlternate";
-const cardForecastItemMeasureStyle = "font-heading text-md flex gap-2 items-center justify-start text-textDark";
+const cardForecastItemDescriptionStyle = "font-heading text-lg text-textSecond";
+const cardForecastItemPrecisionStyle = "font-body text-sm text-textSecondVariant";
+const cardForecastItemTemperatureStyle = "font-heading font-bold text-lg flex gap-1 items-center justify-start border-2 border-borderFirst text-textFirst px-4 py-2 w-max rounded-lg bg-cardFirst";
+const cardForecastItemMeasureStyle = "font-heading text-md flex gap-2 items-center justify-start text-textSecond";
 
 export default function Forecast({data}) {
     const formattedDate = data.dt ? new Date(data.dt * 1000).toLocaleString() : "No timestamp";

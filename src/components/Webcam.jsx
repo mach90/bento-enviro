@@ -1,6 +1,6 @@
-const cardWebcamItemContainerStyle = "relative flex flex-col snap-center justify-between h-full p-4";
-const cardWebcamItemInfoStyle = "font-heading text-sm text-textDark w-full";
-const cardWebcamItemDateStyle = "font-heading text-sm text-textDarkVariant w-full";
+const cardWebcamItemContainerStyle = "relative flex flex-col snap-center justify-center h-full p-4";
+const cardWebcamItemInfoStyle = "font-heading text-sm text-textFifth w-full";
+const cardWebcamItemDateStyle = "font-heading text-sm text-textFifthVariant w-full";
 
 export default function Webcam({data}) {
     
