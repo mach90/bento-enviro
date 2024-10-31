@@ -1,8 +1,8 @@
 import { useMoon } from "../context/moonContext";
 
-const cardMoonContainerStyle = "bg-cardDark p-4 flex flex-col justify-center items-center relative rounded-lg shadow-md";
+const cardMoonContainerStyle = "bg-cardDark p-4 flex flex-col justify-center items-center relative rounded-lg shadow-md col-span-1 row-span-1";
 const cardMoonDataContainerStyle = "bg-cardDark w-max rounded-xl flex flex-col justify-center items-center absolute";
-const cardMoonDataItemStyle = " text-textDark font-heading text-md px-1";
+const cardMoonDataItemStyle = " text-textDark font-heading text-sm px-1";
 
 export default function CardMoon() {
     const {moonAge, moonIlluminatedFraction, moonPhaseName,moonPhaseTransitTime, moonrise, moonset} = useMoon();
@@ -33,14 +33,14 @@ export default function CardMoon() {
             </div>
 
             {!moonPhaseName && !moonIlluminatedFraction &&
-            <svg width="250" height="250" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <g transform="rotate(0, 50, 50)">
                     <circle cx="50" cy="50" r="50" fill="#1e1f1e"/>
                 </g>
             </svg>}
 
             {moonPhaseName === "new" && 
-            <svg width="250" height="250" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <g transform="rotate(0, 50, 50)">
                     <circle cx="50" cy="50" r="50" fill="#1e1f1e"/>
                     <path id="crescent" fill="#ffffff" d={`M 50 0 A 50 50 0 1 1 50 100 A ${50 - moonIlluminatedFraction} 50 0 1 0 50 0 Z`}/>
@@ -48,7 +48,7 @@ export default function CardMoon() {
             </svg>}
 
             {moonPhaseName === "waxing crescent" && 
-            <svg width="250" height="250" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <g transform="rotate(0, 50, 50)">
                     <circle cx="50" cy="50" r="50" fill="#1e1f1e"/>
                     <path id="crescent" fill="#ffffff" d={`M 50 0 A 50 50 0 1 1 50 100 A ${50 - moonIlluminatedFraction} 50 0 1 0 50 0 Z`}/>
@@ -56,7 +56,7 @@ export default function CardMoon() {
             </svg>}
 
             {moonPhaseName === "first quarter" && 
-            <svg width="250" height="250" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <g transform="rotate(0, 50, 50)">
                     <circle cx="50" cy="50" r="50" fill="#1e1f1e"/>
                     <path id="crescent" fill="#ffffff" d={`M 50 0 A 50 50 0 1 1 50 100 A ${50 - moonIlluminatedFraction} 50 0 1 0 50 0 Z`}/>
@@ -64,7 +64,7 @@ export default function CardMoon() {
             </svg>}
 
             {moonPhaseName === "waxing gibbous" && 
-            <svg width="250" height="250" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <g transform="rotate(180, 50, 50)">
                     <circle cx="50" cy="50" r="50" fill="#ffffff"/>
                     <path id="crescent" fill="#1e1f1e" d={`M 50 0 A 50 50 0 1 1 50 100 A ${50 - moonIlluminatedFraction} 50 0 1 0 50 0 Z`}/>
@@ -72,7 +72,7 @@ export default function CardMoon() {
             </svg>}
 
             {moonPhaseName === "full" && 
-            <svg width="250" height="250" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <g transform="rotate(180, 50, 50)">
                     <circle cx="50" cy="50" r="50" fill="#ffffff"/>
                     <path id="crescent" fill="#1e1f1e" d={`M 50 0 A 50 50 0 1 1 50 100 A ${50 - moonIlluminatedFraction} 50 0 1 0 50 0 Z`}/>
@@ -80,7 +80,7 @@ export default function CardMoon() {
             </svg>}
 
             {moonPhaseName === "waning gibbous" && 
-            <svg width="250" height="250" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <g transform="rotate(0, 50, 50)">
                     <circle cx="50" cy="50" r="50" fill="#ffffff"/>
                     <path id="crescent" fill="#1e1f1e" d={`M 50 0 A 50 50 0 1 1 50 100 A ${50 - moonIlluminatedFraction} 50 0 1 0 50 0 Z`}/>
@@ -88,7 +88,7 @@ export default function CardMoon() {
             </svg>}
 
             {moonPhaseName === "last quarter" && 
-            <svg width="250" height="250" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <g transform="rotate(180, 50, 50)">
                     <circle cx="50" cy="50" r="50" fill="#1e1f1e"/>
                     <path id="crescent" fill="#ffffff" d={`M 50 0 A 50 50 0 1 1 50 100 A ${50 - moonIlluminatedFraction} 50 0 1 0 50 0 Z`}/>
@@ -96,7 +96,7 @@ export default function CardMoon() {
             </svg>}
 
             {moonPhaseName === "waning crescent" && 
-            <svg width="250" height="250" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <g transform="rotate(180, 50, 50)">
                     <circle cx="50" cy="50" r="50" fill="#1e1f1e"/>
                     <path id="crescent" fill="#ffffff" d={`M 50 0 A 50 50 0 1 1 50 100 A ${50 - moonIlluminatedFraction} 50 0 1 0 50 0 Z`}/>

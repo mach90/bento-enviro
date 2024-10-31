@@ -64,7 +64,7 @@ const questionsAnswers = [
     },
 ]
 
-const cardFaqContainerStyle = "flex flex-col justify-start items-start gap-2 text-sm col-span-full md:col-span-full rounded-lg shadow-md";
+const cardFaqContainerStyle = "flex flex-col justify-start items-center gap-2 text-sm col-span-full md:col-span-full rounded-lg shadow-md border p-4 w-full";
 const cardFaqTitleStyle = "font-heading font-bold text-lg text-textTransparent";
 
 function CardFAQ() {

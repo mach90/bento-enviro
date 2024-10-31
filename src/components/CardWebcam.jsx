@@ -3,7 +3,7 @@ import Webcam from "./Webcam";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
-const cardWebcamContainerStyle = "bg-cardDark h-full w-full cursor-grab rounded-lg shadow-md";
+const cardWebcamContainerStyle = "bg-cardDark h-full w-full cursor-grab rounded-lg shadow-md col-span-1 row-span-1 md:col-span-2 md:row-span-2";
 
 export default function CardWebcam() {
     const {webcams} = useWebcam();
@@ -13,7 +13,7 @@ export default function CardWebcam() {
         <Swiper className={cardWebcamContainerStyle}>
             {/* {!webcams && <p className="font-custom2 text-md text-colorTextMedium">No webcams found</p>} */}
             {webcams && webcams.map(webcam => (
-                    <SwiperSlide><Webcam data={webcam} key={webcam.webcamId}/></SwiperSlide>
+                    <SwiperSlide key={webcam.webcamId}><Webcam data={webcam}/></SwiperSlide>
             ))}
         </Swiper>
         // </div>

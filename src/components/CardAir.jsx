@@ -1,7 +1,7 @@
 import { useAir } from "../context/airContext";
 import { TriangleAlert } from "lucide-react";
 
-const cardAirContainerStyle = "bg-cardSecondary relative flex flex-col gap-4 p-6 justify-between items-start rounded-lg shadow-md";
+const cardAirContainerStyle = "bg-cardSecondary relative flex flex-col gap-4 p-6 justify-between items-start rounded-lg shadow-md col-span-1 row-span-1";
 const cardAirScoreContainerStyle = "text-textSecondary";
 const cardAirScoreTextStyle = "font-heading text-md font-600 text-textSecondary"
 

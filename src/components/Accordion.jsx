@@ -1,7 +1,7 @@
 import { CircleChevronDown, CircleChevronUp } from "lucide-react";
 import { useState } from "react";
 
-const accordionContainerStyle = "border border-borderTransparent flex flex-col cursor-pointer rounded-lg w-96";
+const accordionContainerStyle = "border border-borderTransparent flex flex-col cursor-pointer rounded-lg w-full md:w-96";
 const accordionToggleStyle = "flex flex-row gap-2 items-center font-heading font-bold p-4 text-textTransparent text-sm";
 const accordionParagraphStyle = "font-body text-sm p-4 text-justify text-textTransparent border-t border-borderTransparent";
 const accordionLinkStyle = "text-textTransparentVariant hover:text-textTransparent";

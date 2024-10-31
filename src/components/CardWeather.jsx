@@ -1,7 +1,7 @@
 import { useWeather } from "../context/weatherContext";
 import { Thermometer, CircleGauge, Droplets, Eye } from 'lucide-react';
 
-const cardWeatherContainerStyle = "bg-cardAlternate p-4 flex flex-row justify-between items-center rounded-lg shadow-md";
+const cardWeatherContainerStyle = "bg-cardAlternate p-4 flex flex-row justify-between items-center rounded-lg shadow-md col-span-1 row-span-1 md:col-span-2 lg:col-span-1";
 const cardWeatherDataContainerStyle = "h-full w-full flex flex-col justify-between";
 const cardWeatherDescriptionStyle = "font-heading text-lg text-textAlternate";
 const cardWeatherPrecisionStyle = "font-body text-sm text-textAlternateVariant";

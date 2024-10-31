@@ -13,12 +13,12 @@ export default {
     extend: {
       colors: {
         cardPrimary: "var(--color-variant1)",
-        textPrimary: "var(--neutral-1000)",
-        textPrimaryVariant: "var(--neutral-800)",
+        textPrimary: "var(--color-variant4)",
+        textPrimaryVariant: "var(--color-variant3)",
 
         cardSecondary: "var(--color-variant2)",
-        borderSecondary: "var(--neutral-0)",
-        textSecondary: "var(--neutral-0)",
+        borderSecondary: "var(--color-variant4)",
+        textSecondary: "var(--color-variant4)",
         textSecondaryVariant: "var(--neutral-800)",
 
         cardAlternate: "var(--color-variant3)",

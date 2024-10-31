@@ -1,7 +1,7 @@
 import { useSun } from "../context/sunContext";
 import { Sunrise,  Sunset, Sun, Telescope, ShipWheel, PersonStanding} from 'lucide-react';
 
-const cardSunContainerStyle = "flex flex-col bg-cardAlternate p-4 shadow-md rounded-lg gap-4";
+const cardSunContainerStyle = "flex flex-col bg-cardAlternate p-4 shadow-md rounded-lg gap-4 col-span-1 row-span-1";
 const cardSunDataContainerStyle = "flex flex-col justify-center items-center h-full";
 const cardSunTrioStyle = "flex flex-row gap-2 justify-center items-center w-full";
 const cardSunTrioItemStyle = "text-textAlternateVariant font-body text-sm flex flex-row justify-center items-center gap-2";

@@ -1,7 +1,7 @@
 import { useWeather } from "../context/weatherContext";
 import { Wind } from 'lucide-react';
 
-const cardWindContainerStyle = "bg-cardPrimary p-4 flex flex-col justify-center items-center rounded-lg shadow-md";
+const cardWindContainerStyle = "bg-cardPrimary p-4 flex flex-col justify-center items-center rounded-lg shadow-md col-span-1 row-span-1";
 const cardWindNoDataStyle = "font-heading text-lg text-textPrimaryVariant";
 const cardWindWindspeedStyle = "flex items-center gap-2 text-lg font-heading text-textPrimary";
 const cardWindMeasureStyle = "font-body text-md text-textPrimaryVariant";
