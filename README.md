@@ -7,13 +7,13 @@ Single Page Application aggregating diverse environmental data from multiple API
 
 
 ## TO DO
-- [ ] Find a Sat Weather Radar Imagery API 🔴
-- [ ] Find a Pollens API 🔴
+- [x] Find a Sat Weather Radar Imagery API 🟢
+- [x] https://swiperjs.com/ 🟢
 - [ ] Another source for Moon & Sun data https://github.com/andrmoel/astronomy-bundle-js 🔴
+- [ ] Find a Pollens API 🔴
 - [ ] Fetching improved 🔴
     - [ ] Caching data 🔴
     - [ ] Limit fetch per user 🔴
-- [ ] https://swiperjs.com/ 🔴
 
 ### LEGEND
 🟢 100% done
