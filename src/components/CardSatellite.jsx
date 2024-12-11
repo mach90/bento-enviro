@@ -3,7 +3,6 @@ import fakeSatelliteImage from '../img/satellite.jpg';
 const cardSatelliteContainerStyle = "bg-cardFifth flex flex-col justify-center items-center cursor-not-allowed rounded-lg shadow-md col-span-1 row-span-1 md:col-span-2 md:row-span-2";
 
 export default function CardSatellite({latitude, longitude}) {
-    console.log(latitude, longitude)
     return (
         <div className={cardSatelliteContainerStyle}>
             {/* <img src={fakeSatelliteImage} alt="satimage" className="w-full h-full rounded-md" /> */}

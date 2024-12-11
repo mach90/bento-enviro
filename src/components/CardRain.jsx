@@ -1,56 +1,69 @@
 import { useWeather } from "../context/weatherContext";
 import { CloudRain, CloudSnow } from 'lucide-react';
 
-const cardRainContainerStyle = "bg-cardFirst p-4 flex flex-col justify-center items-center rounded-lg shadow-md col-span-1 row-span-1";
-const cardRainNoDataStyle = "font-heading text-lg text-textFirstVariant";
-const cardRainMeasureMainStyle = "flex items-center gap-2 font-heading text-lg text-textFirst";
-const cardRainMeasureSecondStyle = "flex items-center gap-2 font-body text-lg text-textFirst";
-const cardRainDateStyle = "font-body text-md text-textFirstVariant";
+const cardRainContainerStyle = "relative bg-first flex justify-end items-end p-4 rounded-b-xl";
+const cardRainDataContainerStyle = "absolute inset-0 flex flex-col gap-2 justify-center items-center h-full w-full";
+const cardRainNoDataStyle = "font-body text-body text-800";
+const cardRainMeasureMainStyle = "flex items-center gap-2 font-heading text-heading text-0";
+const cardRainMeasureSecondStyle = "flex items-center gap-2 font-body text-body text-0";
+const cardRainDateStyle = "font-body text-body text-200";
 
-export default function CardWeather() {
+export default function CardRain({unit}) {
     const {rain, snow} = useWeather();
+
+    const rain1hConverted = unit === "metric" ? rain?.['1h'] : rain?.['1h'] * 0.03937008;
+    const rain3hConverted = unit === "metric" ? rain?.['3h'] : rain?.['3h'] * 0.03937008;
+    const snow1hConverted = unit === "metric" ? snow?.['1h'] / 10 : snow?.['1h'] * 0.03937008;
+    const snow3hConverted = unit === "metric" ? snow?.['3h'] / 10: snow?.['3h'] * 0.03937008;
 
     return (
         <div className={cardRainContainerStyle}>
             
-            {!rain && !snow && <p className={cardRainNoDataStyle}>No fall recorded</p>}
+            <div className={cardRainDataContainerStyle}>
+                {!rain && !snow && <p className={cardRainNoDataStyle}>No fall recorded</p>}
 
-            {rain?.['1h'] && <div className='bg-[url(img/rain.gif)] bg-bottom w-full flex flex-col justify-center items-center'>
-                <p className={cardRainMeasureMainStyle}>
-                    <CloudRain size={24} /> {rain?.['1h']} mm
-                </p>
-                <p className={cardRainDateStyle}>
-                    Last hour
-                </p>
-            </div>}
+                {rain?.['1h'] && <div className='bg-bottom w-full flex flex-col justify-center items-center'>
+                    <p className={cardRainDateStyle}>
+                        Last hour
+                    </p>
+                    <p className={cardRainMeasureMainStyle}>
+                        <CloudRain size={24} /> {parseFloat(rain1hConverted.toPrecision(2))} {unit === "metric" ? "mm" : "in"}
+                    </p>
+                </div>}
 
-            {rain?.['3h'] && <div className='bg-[url(img/rain.gif)] bg-bottom w-full flex flex-col justify-center items-center'>
-                <p className={cardRainMeasureSecondStyle}>
-                    <CloudRain size={16} /> {rain?.['3h']} mm
-                </p>
-                <p className={cardRainDateStyle}>
-                    Last 3 hours
-                </p>
-            </div>}
+                {snow?.['1h'] && <div className='w-full flex flex-col justify-center items-center'>
+                    <p className={cardRainDateStyle}>
+                        Last hour
+                    </p>
+                    <p className={cardRainMeasureMainStyle}>
+                        <CloudSnow size={24} /> {parseFloat(snow1hConverted.toPrecision(2))} {unit === "metric" ? "cm" : "in"}
+                    </p>
+                </div>}
 
-            {snow?.['1h'] && <div className='bg-[url(img/snow.gif)] w-full flex flex-col justify-center items-center'>
-                <p className={cardRainMeasureMainStyle}>
-                    <CloudSnow size={24} /> {snow?.['1h']} mm
-                </p>
-                <p className={cardRainDateStyle}>
-                    Last hour
-                </p>
-            </div>}
+                {rain?.['3h'] && <div className='bg-bottom w-full flex flex-col justify-center items-center'>
+                    <p className={cardRainDateStyle}>
+                        Last 3 hours
+                    </p>
+                    <p className={cardRainMeasureSecondStyle}>
+                        <CloudRain size={16} /> {parseFloat(rain3hConverted.toPrecision(2))} {unit === "metric" ? "mm" : "in"}
+                    </p>
+                </div>}
 
-            {snow?.['3h'] && <div className='bg-[url(img/snow.gif)] w-full flex flex-col justify-center items-center'>
-                <p className={cardRainMeasureSecondStyle}>
-                    <CloudSnow size={16} /> {snow?.['3h']} mm
-                </p>
-                <p className={cardRainDateStyle}>
-                    Last 3 hours
-                </p>
-            </div>}
+
+                {snow?.['3h'] && <div className='w-full flex flex-col justify-center items-center'>
+                    <p className={cardRainDateStyle}>
+                        Last 3 hours
+                    </p>
+                    <p className={cardRainMeasureSecondStyle}>
+                        <CloudSnow size={16} /> {parseFloat(snow3hConverted.toPrecision(2))} {unit === "metric" ? "cm" : "in"}
+                    </p>
+                </div>}
+            </div>
             
+            {rain && <div className={`opacity-15 w-full h-full bg-[url(img/rain.gif)] bg-no-repeat bg-cover border-b-8 border-fourth`}></div>}
+
+            {snow && <div className={`opacity-15 w-full h-full bg-[url(img/snow.gif)] bg-no-repeat bg-cover border-b-8 border-100`}></div>}
+
         </div>
     )
 }

@@ -6,9 +6,22 @@ TAILWINDCSS
 @tailwind utilities;
 
 /* ////////////////////////////////////////////////////////////////////////////////////////////////////
+CUSTOM FONT
+//////////////////////////////////////////////////////////////////////////////////////////////////// */
+@layer base {
+  @font-face {
+    font-family: 'DepartureMono';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url(/fonts/departuremono.woff2) format('woff2');
+  }
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////
 COLORS
 //////////////////////////////////////////////////////////////////////////////////////////////////// */
-:root {
+/* :root {
     --neutral-0: #ffffff;
     --neutral-100: #d9d9d9;
     --neutral-200: #bfbfbf;
@@ -20,18 +33,23 @@ COLORS
     --neutral-800: #333333;
     --neutral-900: #1d1d1d;
     --neutral-1000: #000000;
-    --text-0: #FFFFFF;
-    --text-300: #C1D2F8;
-    --text-500: #7A9FF4;
-    --text-700: #4379F4;
-    --text-800: #1f4aae;
-    --text-1000: #031337;
-    --color-variant1: #FBFBFB;
-    --color-variant2: #D0DCF8;
-    --color-variant3: #3C75F5;
-    --color-variant4: #5BEE9E;
-    --color-variant5: #161616;
-}
+    --text-0: #EEEEEE;
+    --text-100: #DADADA;
+    --text-200: #C6C6C6;
+    --text-300: #B3B3B3;
+    --text-400: #9F9F9F;
+    --text-500: #8B8B8B;
+    --text-600: #777777;
+    --text-700: #646464;
+    --text-800: #505050;
+    --text-900: #4A4A4A;
+    --text-1000: #444444;
+    --color-variant1: #1C1C1C;
+    --color-variant2: #53595F;
+    --color-variant3: #D8C9B7;
+    --color-variant4: #6B70;
+    --color-variant5: #E1B12E;
+} */
 
 /* ////////////////////////////////////////////////////////////////////////////////////////////////////
 SCROLLBAR
@@ -39,4 +57,3 @@ SCROLLBAR
 ::-webkit-scrollbar {
     display: none;
 }
-        

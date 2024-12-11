@@ -9,18 +9,18 @@ import { useEffect, useRef, useState } from "react";
 STYLES
 ////////////////////////////////////////////////// */
 import './index.css';
-const searchPositionCardStyle = "p-4 flex flex-col md:flex-row gap-4 w-full bg-cardThird z-10 rounded-lg shadow-md col-span-1 row-span-1 md:col-span-2 lg:col-span-4 xl:col-span-3";
+const searchPositionCardStyle = "p-2 flex flex-col md:flex-row gap-4 w-full h-full bg-second z-10 col-span-1 row-span-1 md:col-span-2 lg:col-span-4 xl:col-span-3";
 
-const searchPositionContainerStyle = "relative flex flex-row md:flex-row gap-3 items-center h-full w-full";
+const searchPositionContainerStyle = "relative flex flex-row md:flex-row gap-2 items-center h-full w-full";
 
-const geolocationButtonStyle = "bg-buttonThird hover:brightness-150 rounded-xl flex flex-row gap-1 p-2 justify-center items-center text-heading text-sm text-textThird";
+const geolocationButtonStyle = "bg-1000 hover:brightness-125 flex flex-row gap-1 p-2 justify-center items-center text-500 h-full";
 
-const searchPositionFormStyle = "flex flex-row gap-2 formRoot w-full";
-const searchBarStyle = "bg-inputThird border-2 border-borderThird p-2 text-heading text-sm justify-start items-center text-textThird placeholder-placeholderThird w-full rounded-lg";
-const searchButtonStyle = "bg-buttonThird hover:brightness-150 rounded-xl flex flex-row p-2 justify-center items-center text-heading text-sm text-textThird";
+const searchPositionFormStyle = "flex flex-row gap-2 formRoot w-full h-full";
+const searchBarStyle = "bg-second border-2 border-1000 p-2 justify-start items-center text-100 font-body text-body placeholder-1000 w-full h-full";
+const searchButtonStyle = "bg-1000 hover:brightness-125 flex flex-row p-2 justify-center items-center text-500 h-full";
 
-const searchListContainerStyle = "absolute top-0 left-0 bg-cardThird border border-borderThird p-2 flex flex-col gap-2 text-xs w-full mt-16";
-const searchListItemStyle = "p-1 text-textThird hover:bg-inputThird flex flex-row gap-2 items-center";
+const searchListContainerStyle = "absolute top-0 left-0 bg-first p-2 flex flex-col gap-2 font-exp text-exp w-full h-max mt-16 border-2 border-300";
+const searchListItemStyle = "p-1 text-300 hover:bg-fourth hover:text-1000 flex flex-row gap-2 items-center";
 /* //////////////////////////////////////////////////
 CONTEXT
 ////////////////////////////////////////////////// */
@@ -75,6 +75,7 @@ export default function App() {
     return storedLongitude ? JSON.parse(storedLongitude) : 1.44;
   });
   const [isFocused, setIsFocused] = useState(false);
+  const [unit, setUnit] = useState("metric");
 
   /* //////////////////////////////////////////////////
   REF
@@ -149,6 +150,12 @@ export default function App() {
     localStorage.setItem('longitude', JSON.stringify(longitude));
   }, [longitude]);
 
+  /* //////////////////////////////////////////////////
+  UNIT
+  ////////////////////////////////////////////////// */
+  function handleUnit(unit) {
+    setUnit(unit);
+  }
   /* ////////////////////////////////////////////////////////////////////////////////////////////////////
   JSX
   //////////////////////////////////////////////////////////////////////////////////////////////////// */
@@ -167,7 +174,7 @@ export default function App() {
         <button className={geolocationButtonStyle} onClick={getGeolocation}><Locate /></button>
 
         <form onSubmit={(e) => handleSubmit(e)} className={searchPositionFormStyle}>
-          <input id="cityQueryInput" type="text" placeholder="Search for a city or an address" onFocus={() => setIsFocused(true)}onBlur={() => setIsFocused(false)} ref={inputRef} className={searchBarStyle}></input>
+          <input id="cityQueryInput" type="text" placeholder="Search for a city or an address_" onFocus={() => setIsFocused(true)}onBlur={() => setIsFocused(false)} ref={inputRef} className={searchBarStyle}></input>
           <button id="submitForm" type="submit" className={searchButtonStyle}><Search /></button>
         </form>
 
@@ -182,19 +189,19 @@ export default function App() {
       </div>
 
       <WeatherProvider latitude={latitude} longitude={longitude}>
-        <CardWeather />
+        <CardWeather unit={unit} handleUnit={handleUnit} />
       </WeatherProvider>
 
       <ForecastProvider latitude={latitude} longitude={longitude}>
-        <CardForecast />
+        <CardForecast unit={unit} />
       </ForecastProvider>
 
       <WeatherProvider latitude={latitude} longitude={longitude}>
-        <CardWind />
+        <CardWind unit={unit} />
       </WeatherProvider>
 
       <WeatherProvider latitude={latitude} longitude={longitude}>
-        <CardRain />
+        <CardRain unit={unit} />
       </WeatherProvider>
 
       <SunProvider latitude={latitude} longitude={longitude}>
@@ -216,7 +223,7 @@ export default function App() {
       </NightskyProvider>
 
       <AuroraProvider latitude={latitude} longitude={longitude}>
-        <CardAurora />
+        <CardAurora latitude={latitude} />
       </AuroraProvider>
 
       <AirProvider latitude={latitude} longitude={longitude}>

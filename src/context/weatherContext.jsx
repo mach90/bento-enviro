@@ -32,6 +32,7 @@ const initialState = {
     sunrise: null,
     sunset: null,
     visibility: null,
+    country: null,
     }
     
     function reducer(state, action) {
@@ -56,6 +57,7 @@ const initialState = {
                 sunrise: action.payload.sys.sunrise,
                 sunset: action.payload.sys.sunset,
                 visibility: action.payload.visibility/1000,
+                country: action.payload.sys.country,
                 status: "ready",
         };
         case "dataFailed": return {...state, status: "error"};
@@ -69,7 +71,7 @@ PROVIDER COMPONENT
 function WeatherProvider ({children, latitude, longitude}) {
     // const [latitude, setLatitude] = useState(null);
     // const [longitude, setLongitude] = useState(null);
-	const [{city, dt, timezone, description, temp, feels, pressure, humidity, minTemp, maxTemp, windSpeed, windDirection, windGust, clouds, rain, snow, sunrise, sunset, visibility}, dispatch] = useReducer(reducer, initialState);
+	const [{city, dt, timezone, description, temp, feels, pressure, humidity, minTemp, maxTemp, windSpeed, windDirection, windGust, clouds, rain, snow, sunrise, sunset, visibility, country}, dispatch] = useReducer(reducer, initialState);
 
     // useEffect(() => {
     // if (navigator.geolocation) { //if browser has geolocation feature
@@ -106,7 +108,7 @@ function WeatherProvider ({children, latitude, longitude}) {
         fetchWeather();
     }, [latitude, longitude]);
 
-    return <WeatherContext.Provider value={{city, dt, timezone, description, temp, feels, pressure, humidity, minTemp, maxTemp, windSpeed, windDirection, windGust, clouds, rain, snow, sunrise, sunset, visibility}}>{children}</WeatherContext.Provider>
+    return <WeatherContext.Provider value={{city, dt, timezone, description, temp, feels, pressure, humidity, minTemp, maxTemp, windSpeed, windDirection, windGust, clouds, rain, snow, sunrise, sunset, visibility, country}}>{children}</WeatherContext.Provider>
 }
 
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████

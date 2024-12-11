@@ -1,22 +1,78 @@
+import { useState, useRef } from "react";
 import { useWebcam } from "../context/webcamContext";
-import Webcam from "./Webcam";
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectFade } from "swiper/modules";
 import 'swiper/css';
+import 'swiper/css/effect-fade';
+import Webcam from "./Webcam";
 
-const cardWebcamContainerStyle = "bg-cardFifth h-full w-full cursor-grab rounded-lg shadow-md col-span-1 row-span-1 md:col-span-1 md:row-span-1";
+const carWebcamContainerStyle = "flex flex-col gap-2 bg-second h-full w-full p-4 rounded-xl shadow-inset shadow-black";
+const cardWebcamContainerInnerStyle = "bg-black p-2 rounded-lg  w-full";
+const cardWebcamSliderStyle = "bg-first h-full min-h-60 w-full cursor-grab rounded-2xl col-span-1 row-span-1";
+const cardWebcomButtonsContainerStyle = "flex flex-row justify-center items-center gap-1 border-y-2 border-1000 py-1"
+const cardWebcamButtonStyle = "font-exp text-exp bg-first p-1 text-400 rounded-lg min-w-6";
 
 export default function CardWebcam() {
     const {webcams} = useWebcam();
+    const [brightness, setBrightness] = useState(100); //50, 75, 100, 125, 150;
+    const swiperRef = useRef(null);
+
+    function handleIncreaseBrightness() {
+        if(brightness === 150) return;
+        setBrightness(brightness + 25);
+    }
+
+    function handleDecreaseBrightness() {
+        if(brightness === 50) return;
+        setBrightness(brightness - 25);
+    }
+
+    const handleNextSlide = () => {
+        if(webcams.length === 0 || !webcams) return;
+        if (swiperRef.current) {
+            swiperRef.current.swiper.slideNext();
+        }
+    };
+
+    const handlePrevSlide = () => {
+        if(webcams.length === 0 || !webcams) return;
+        if (swiperRef.current) {
+            swiperRef.current.swiper.slidePrev();
+        }
+    };
 
     return (
-        // <div className="bg-red-600 relative flex flex-row overflow-x-scroll border border-colorBorder snap-x snap-mandatory h-full cursor-grab px-4 py-2">
-        <Swiper className={cardWebcamContainerStyle}>
-            {/* {!webcams && <p className="font-custom2 text-md text-colorTextMedium">No webcams found</p>} */}
-            {webcams && webcams.map(webcam => (
-                    <SwiperSlide key={webcam.webcamId}><Webcam data={webcam}/></SwiperSlide>
-            ))}
-        </Swiper>
-        // </div>
-        // </div>
+        <div className={carWebcamContainerStyle}>
+            <div className={cardWebcamContainerInnerStyle}>
+                <Swiper 
+                    ref={swiperRef}
+                    loop={true} 
+                    modules={[EffectFade]} 
+                    effect="fade" 
+                    className={`${cardWebcamSliderStyle} + brightness-${brightness}`}
+                >
+                    {!webcams || webcams.length === 0 &&
+                        <SwiperSlide>
+                            <div className="bg-blue-600 p-2 h-full w-full text-lime-500 text-body font-body">NO WEBCAM</div>
+                        </SwiperSlide>
+                    }
+                    {webcams && webcams.map((webcam, i) => (
+                        <SwiperSlide key={webcam.webcamId}>
+                            <Webcam data={webcam} i={i} count={webcams.length} />
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </div>
+            <div className={cardWebcomButtonsContainerStyle}>
+                <p className="text-1000">•</p>
+                <p className="text-1000">•</p>
+                <button className={cardWebcamButtonStyle} onClick={handleDecreaseBrightness} disabled={brightness === 50}>BRT-</button> 
+                <button className={cardWebcamButtonStyle} onClick={handleIncreaseBrightness} disabled={brightness === 150}>BRT+</button> 
+                <button className={cardWebcamButtonStyle} onClick={handlePrevSlide}>▼</button> 
+                <button className={cardWebcamButtonStyle} onClick={handleNextSlide}>▲</button>
+                <p className="text-1000">•</p>
+                <p className="text-1000">•</p>
+            </div>
+        </div>
     );
 }
