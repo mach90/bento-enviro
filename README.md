@@ -6,6 +6,7 @@ Single Page Application aggregating diverse environmental data from multiple API
 ## TO FIX
 - [ ] Menu behavior
 - [ ] Text size and responsiveness
+- [x] CSS dynamic states 🟢
 
 ## TO DO
 - [x] Find a Sat Weather Radar Imagery API 🟢
@@ -25,3 +26,14 @@ Single Page Application aggregating diverse environmental data from multiple API
 🟠 50% done
 🟤 25% done
 🔴 0% done
+
+### SOURCES
+- Weather: Open Weather Map
+- Sun: Sunrise-sunset
+- Webcams: Windy
+- Moon: Meteoblue (4485 calls left 12/12/24, expires 10/06/2025)
+- Night sky: David Lorenz
+- Aurora forecast: NOAA SWPC
+- Air quality: WAQI
+- City search: Nominatim OSM
+- Satellite: Windy

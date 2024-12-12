@@ -93,6 +93,19 @@ export default {
       },
       animation: {
         shake: 'shake 5s ease-in-out infinite',
+        spin0: 'spin 0s linear infinite', //beaufort force 0, <= 1km/h
+        spin1: 'spin 10s linear infinite', //beaufort force 1, <= 5km/h
+        spin2: 'spin 6s linear infinite', //beaufort force 2, <= 11km/h
+        spin3: 'spin 4s linear infinite', //beaufort force 3, <= 19km/h
+        spin4: 'spin 2.5s linear infinite', //beaufort force 4, <= 28km/h
+        spin5: 'spin 1.5s linear infinite', //beaufort force 5, <= 38km/h
+        spin6: 'spin 1s linear infinite', //beaufort force 6, <= 49km/h
+        spin7: 'spin 0.75s linear infinite', //beaufort force 7, <= 61km/h
+        spin8: 'spin 0.5s linear infinite', //beaufort force 8, <= 74km/h
+        spin9: 'spin 0.3s linear infinite', //beaufort force 9, <= 88km/h
+        spin10: 'spin 0.15s linear infinite', //beaufort force 10, <= 102km/h
+        spin11: 'spin 0.1s linear infinite', //beaufort force 11, <= 117km/h
+        spin12: 'spin 0.05s linear infinite', //beaufort force 12, > 117km/h
       },
     },
   },

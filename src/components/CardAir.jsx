@@ -15,7 +15,8 @@ const cardAirScoreIsHazardous = "absolute top-1 right-1 text-stone-600 opacity-3
 const cardAirDataContainerStyle = "flex flex-col z-10";
 const cardAirDataRowStyle = "flex flex-row gap-2 items-center";
 const cardAirDataTitleStyle = "font-body text-body text-600";
-const cardAirDataValueStyle = "font-body text-body text-800";
+const cardAirDataNeutralValueStyle = "font-body text-body text-1000";
+const cardAirDataBadValueStyle = "font-body text-body text-red-700";
 const cardAirDataUnitStyle = "font-exp text-exp text-600";
 
 export default function CardAir() {
@@ -43,37 +44,37 @@ export default function CardAir() {
             <div className={cardAirDataContainerStyle}>
                 <div className={cardAirDataRowStyle}>
                     <p className={cardAirDataTitleStyle}>CO</p>
-                    <p className={cardAirDataValueStyle}>{co ? co : "No data"}</p>
+                    {co ? co < 2.9 ? <p className={cardAirDataNeutralValueStyle}>{co}</p> : <p className={cardAirDataBadValueStyle}>{co}</p> : <p className={cardAirDataNeutralValueStyle}>...</p>}
                     <p className={cardAirDataUnitStyle}>μg/m3</p>
                 </div>
 
                 <div className={cardAirDataRowStyle}>
                     <p className={cardAirDataTitleStyle}>NO2</p>
-                    <p className={cardAirDataValueStyle}>{no2 ? no2 : "No data"}</p>
+                    {no2 ? no2 < 40 ? <p className={cardAirDataNeutralValueStyle}>{no2}</p> : <p className={cardAirDataBadValueStyle}>{no2}</p> : <p className={cardAirDataNeutralValueStyle}>...</p>}
                     <p className={cardAirDataUnitStyle}>μg/m3</p>
                 </div>
 
                 <div className={cardAirDataRowStyle}>
                     <p className={cardAirDataTitleStyle}>O3</p>
-                    <p className={cardAirDataValueStyle}>{o3 ? o3 : "No data"}</p>
+                    {o3 ? o3 < 50 ? <p className={cardAirDataNeutralValueStyle}>{o3}</p> : <p className={cardAirDataBadValueStyle}>{o3}</p> : <p className={cardAirDataNeutralValueStyle}>...</p>}
                     <p className={cardAirDataUnitStyle}>μg/m3</p>
                 </div>
 
                 <div className={cardAirDataRowStyle}>
                     <p className={cardAirDataTitleStyle}>PM10</p>
-                    <p className={cardAirDataValueStyle}>{pm10 ? pm10 : "No data"}</p>
+                    {pm10 ? pm10 < 20 ? <p className={cardAirDataNeutralValueStyle}>{pm10}</p> : <p className={cardAirDataBadValueStyle}>{pm10}</p> : <p className={cardAirDataNeutralValueStyle}>...</p>}
                     <p className={cardAirDataUnitStyle}>μg/m3</p>
                 </div>
 
                 <div className={cardAirDataRowStyle}>
                     <p className={cardAirDataTitleStyle}>PM2.5</p>
-                    <p className={cardAirDataValueStyle}>{pm25 ? pm25 : "No data"}</p>
+                    {pm25 ? pm25 < 10 ? <p className={cardAirDataNeutralValueStyle}>{pm25}</p> : <p className={cardAirDataBadValueStyle}>{pm25}</p> : <p className={cardAirDataNeutralValueStyle}>...</p>}
                     <p className={cardAirDataUnitStyle}>μg/m3</p>
                 </div>
 
                 <div className={cardAirDataRowStyle}>
                     <p className={cardAirDataTitleStyle}>SO2</p>
-                    <p className={cardAirDataValueStyle}>{so2 ? so2 : "No data"}</p>
+                    {so2 ? so2 < 20 ? <p className={cardAirDataNeutralValueStyle}>{so2}</p> : <p className={cardAirDataBadValueStyle}>{so2}</p> : <p className={cardAirDataNeutralValueStyle}>...</p>}
                     <p className={cardAirDataUnitStyle}>μg/m3</p>
                 </div>
             </div>

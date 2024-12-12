@@ -12,104 +12,91 @@ const cardWindDescription = "test-body font-body text-1000";
 export default function CardWeather({unit}) {
     const { windSpeed, windDirection, windGust } = useWeather();
     
-    // Convert wind speeds based on unit
     const windSpeedConverted = unit === "metric" ? windSpeed * 3.6 : windSpeed * 2.236936;
     const windGustConverted = unit === "metric" ? windGust * 3.6 : windGust * 2.236936;
 
-    // Calculate spin duration based on wind speed
-    const calculateSpinDuration = () => {
-        if (!windSpeed) return 0;
-    
-        const windSpeedKmh = windSpeed * 3.6;
-        
-        // Inverse relationship: faster wind = slower spin
-        const baseDuration = 20;
-        const spinDuration = Math.max(
-            0.1, 
-            baseDuration / windSpeedKmh
-        );
-        
-        return spinDuration;
-    };
-
-    // Beaufort Wind Scale Determination
     let beaufortWindDescription;
     let beaufortWindForce;
+    let fanSpeed;
 
     if(windSpeed) {   
         switch (true) {
             case windSpeed * 3.6 <= 1:
                 beaufortWindDescription = "Calm";
                 beaufortWindForce = 0;
+                fanSpeed = "animate-spin0";
                 break;
             case windSpeed * 3.6 <= 5:
                 beaufortWindDescription = "Light Air";
                 beaufortWindForce = 1;
+                fanSpeed = "animate-spin1";
                 break;
             case windSpeed * 3.6 <= 11:
                 beaufortWindDescription = "Light Breeze";
                 beaufortWindForce = 2;
+                fanSpeed = "animate-spin2";
                 break;
             case windSpeed * 3.6 <= 19:
                 beaufortWindDescription = "Gentle Breeze";
                 beaufortWindForce = 3;
+                fanSpeed = "animate-spin3";
                 break;
             case windSpeed * 3.6 <= 28:
                 beaufortWindDescription = "Moderate Breeze";
                 beaufortWindForce = 4;
+                fanSpeed = "animate-spin4";
                 break;
             case windSpeed * 3.6 <= 38:
                 beaufortWindDescription = "Fresh Breeze";
                 beaufortWindForce = 5;
+                fanSpeed = "animate-spin5";
                 break;
             case windSpeed * 3.6 <= 49:
                 beaufortWindDescription = "Strong Breeze";
                 beaufortWindForce = 6;
+                fanSpeed = "animate-spin6";
                 break;
             case windSpeed * 3.6 <= 61:
                 beaufortWindDescription = "Near Gale";
                 beaufortWindForce = 7;
+                fanSpeed = "animate-spin7";
                 break;
             case windSpeed * 3.6 <= 74:
                 beaufortWindDescription = "Gale";
                 beaufortWindForce = 8;
+                fanSpeed = "animate-spin8";
                 break;
             case windSpeed * 3.6 <= 88:
                 beaufortWindDescription = "Strong Gale";
                 beaufortWindForce = 9;
+                fanSpeed = "animate-spin9";
                 break;
             case windSpeed * 3.6 <= 102:
                 beaufortWindDescription = "Storm";
                 beaufortWindForce = 10;
+                fanSpeed = "animate-spin10";
                 break;
             case windSpeed * 3.6 <= 117:
                 beaufortWindDescription = "Violent Storm";
                 beaufortWindForce = 11;
+                fanSpeed = "animate-spin11";
                 break;
             case windSpeed * 3.6 > 117:
                 beaufortWindDescription = "Hurricane";
                 beaufortWindForce = 12;
+                fanSpeed = "animate-spin12";
                 break;
             default:
                 beaufortWindDescription = "???";
                 beaufortWindForce = "?";
+                fanSpeed = "animate-spin0";
         }
     }
 
-    // Calculate spin duration
-    const spinDuration = calculateSpinDuration();
-
     return (
         <div className={cardWindContainerStyle}>
-            <div className={cardWindFanStyle}>
-                <Fan 
-                    size={64} 
-                    style={{ 
-                        animation: spinDuration > 0 
-                            ? `spin ${spinDuration}s linear infinite` 
-                            : 'none' 
-                    }}
-                />
+            <div className={`${cardWindFanStyle} ${fanSpeed}`}>
+                <Fan size={64} />
             </div>
             <div className={cardWindInfosContainerStyle}>
                 {!windSpeed && <p className={cardWindNoDataStyle}>No wind recorded</p>}

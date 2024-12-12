@@ -14,17 +14,17 @@ const cardWebcamButtonStyle = "font-exp text-exp bg-first p-1 text-400 rounded-l
 
 export default function CardWebcam() {
     const {webcams} = useWebcam();
-    const [brightness, setBrightness] = useState(100); //50, 75, 100, 125, 150;
+    const [brightn, setBrightn] = useState(100); //50, 75, 100, 125, 150;
     const swiperRef = useRef(null);
 
-    function handleIncreaseBrightness() {
-        if(brightness === 150) return;
-        setBrightness(brightness + 25);
+    function handleIncreaseBrightn() {
+        if(brightn === 150) return;
+        setBrightn(brightn + 25);
     }
 
-    function handleDecreaseBrightness() {
-        if(brightness === 50) return;
-        setBrightness(brightness - 25);
+    function handleDecreaseBrightn() {
+        if(brightn === 50) return;
+        setBrightn(brightn - 25);
     }
 
     const handleNextSlide = () => {
@@ -49,7 +49,8 @@ export default function CardWebcam() {
                     loop={true} 
                     modules={[EffectFade]} 
                     effect="fade" 
-                    className={`${cardWebcamSliderStyle} + brightness-${brightness}`}
+                    className={cardWebcamSliderStyle}
+                    style={{ filter: `brightness(${brightn}%)` }}
                 >
                     {!webcams || webcams.length === 0 &&
                         <SwiperSlide>
@@ -66,8 +67,9 @@ export default function CardWebcam() {
             <div className={cardWebcomButtonsContainerStyle}>
                 <p className="text-1000">•</p>
                 <p className="text-1000">•</p>
-                <button className={cardWebcamButtonStyle} onClick={handleDecreaseBrightness} disabled={brightness === 50}>BRT-</button> 
-                <button className={cardWebcamButtonStyle} onClick={handleIncreaseBrightness} disabled={brightness === 150}>BRT+</button> 
+                <p>{brightn} {typeof brightn}</p>
+                <button className={cardWebcamButtonStyle} onClick={handleDecreaseBrightn} disabled={brightn === 50}>BRT-</button> 
+                <button className={cardWebcamButtonStyle} onClick={handleIncreaseBrightn} disabled={brightn === 150}>BRT+</button> 
                 <button className={cardWebcamButtonStyle} onClick={handlePrevSlide}>▼</button> 
                 <button className={cardWebcamButtonStyle} onClick={handleNextSlide}>▲</button>
                 <p className="text-1000">•</p>
