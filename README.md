@@ -3,37 +3,60 @@
 ## What is it ?
 Single Page Application aggregating diverse environmental data from multiple APIs and presenting it through a concise Bento-style UI.
 
-## TO FIX
-- [ ] Menu behavior
-- [ ] Text size and responsiveness
-- [x] CSS dynamic states 🟢
+## ⚙️ Technology
+React, Vite, TailwindCSS, Lucide, Swiper, Pako
 
-## TO DO
-- [x] Find a Sat Weather Radar Imagery API 🟢
+## 🔗 SOURCES
+- Weather: [Open Weather Map](https://openweathermap.org/)
+- Sun: [Sunrise-sunset](https://sunrise-sunset.org/)
+- Webcams: [Windy](https://www.windy.com/)
+- Moon: [Meteoblue](https://www.meteoblue.com/) (4485 12/12, 10/06)
+- Night sky: [David Lorenz](https://djlorenz.github.io/astronomy/lp2022/)
+- Aurora forecast: [NOAA SWPC](https://www.swpc.noaa.gov/)
+- Air quality: [WAQI](https://waqi.info/)
+- City search: [Nominatim OSM](https://nominatim.org/)
+- Satellite: [Windy](https://www.windy.com/)
+
+## 🔧 TO FIX
+- [x] CSS dynamic states 🟢
+- [ ] Menu behavior 🔴
+- [ ] Text size and responsiveness 🔴
+
+## 🔳 TO DO
+### App
 - [x] https://swiperjs.com/ 🟢
 - [x] Metric/US units 🟢
 - [ ] Sun Card design
-- [ ] Another source for Moon & Sun data ??? https://github.com/andrmoel/astronomy-bundle-js 🔴
-- [ ] Another source for Satellite imagery (non embedded) 🔴
-- [ ] Find a Pollens API 🔴
+### Cards from APIs
+- [x] Weather 🟢
+- [x] Weather Forecast 🟢
+- [x] Sun 🟢
+- [x] Moon 🟢
+- [x] Satellite Imagery 🟢 _alternative https://github.com/andrmoel/astronomy-bundle-js_
+- [x] Webcams 🟢
+- [x] Air quality score and pollutant 🟢
+- [x] Aurora forecast (Kp-index) 🟢
+- [x] Light pollution and bortle 🟢
+- [ ] Allergies pollutant level (grass, birch) 🔴
+- [ ] Ecoregion, biome, climate 🔴
+- [ ] Native/potential fauna, flora
+- [ ] Soil and geology infos 🔴
+- [ ] Altimeter 🔴
+- [ ] Nearby water lake, river, ocean etc 🔴
+- [ ] Marine tides, water temp etc 🔴
+- [ ] Noise pollution level 🔴
+- [ ] UV 🔴
+- [ ] Disaster alert 🔴
+- [ ] City info (population, density, currency etc.) 🔴
+
+### Fetching/Caching
 - [ ] Fetching improved 🔴
     - [ ] Caching data 🔴
     - [ ] Limit fetch per user 🔴
 
-### LEGEND
+## LEGEND
 🟢 100% done
 🟡 75% done
 🟠 50% done
 🟤 25% done
 🔴 0% done
-
-### SOURCES
-- Weather: Open Weather Map
-- Sun: Sunrise-sunset
-- Webcams: Windy
-- Moon: Meteoblue (4485 calls left 12/12/24, expires 10/06/2025)
-- Night sky: David Lorenz
-- Aurora forecast: NOAA SWPC
-- Air quality: WAQI
-- City search: Nominatim OSM
-- Satellite: Windy
