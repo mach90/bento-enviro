@@ -32,6 +32,8 @@ import { NightskyProvider } from "./context/nightskyContext";
 import { MoonProvider } from "./context/moonContext";
 import { WebcamProvider } from "./context/webcamContext";
 import { SunProvider } from "./context/sunContext";
+import { TesterProvider } from "./context/testerContext";
+
 /* //////////////////////////////////////////////////
 COMPONENTS
 ////////////////////////////////////////////////// */
@@ -52,10 +54,12 @@ import CardRain from "./components/CardRain";
 import CardAllergy from "./components/CardAllergy";
 import CardSources from "./components/CardSources";
 import CardFAQ from "./components/CardFAQ";
+import Tester from "./components/Tester";
 /* //////////////////////////////////////////////////
 ICONS
 ////////////////////////////////////////////////// */
 import { Search, MapPin, Locate } from "lucide-react";
+import CardCoordinates from "./components/CardCoordinates";
 
 /* ████████████████████████████████████████████████████████████████████████████████████████████████████
 APP COMPONENT
@@ -212,11 +216,11 @@ export default function App() {
         <CardWebcam />
       </WebcamProvider>
 
-      <CardSatellite latitude={latitude} longitude={longitude}/>
+      {/* <CardSatellite latitude={latitude} longitude={longitude}/> */}
 
-      <MoonProvider latitude={latitude} longitude={longitude}>
+      {/* <MoonProvider latitude={latitude} longitude={longitude}>
         <CardMoon />
-      </MoonProvider>
+      </MoonProvider> */}
 
       <NightskyProvider latitude={latitude} longitude={longitude}>
         <CardNightsky />
@@ -232,9 +236,17 @@ export default function App() {
 
       <CardAllergy />
       
+      <CardCoordinates latitude={latitude} longitude={longitude}/>
+      
       <CardSources />
 
+      {/* <TesterProvider latitude={latitude} longitude={longitude}>
+        <Tester latitude={latitude} longitude={longitude} />
+      </TesterProvider> */}
+
+
       <CardFAQ />
+
 
     </Container>
   )

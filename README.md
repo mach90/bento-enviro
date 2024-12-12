@@ -4,7 +4,7 @@
 Single Page Application aggregating diverse environmental data from multiple APIs and presenting it through a concise Bento-style UI.
 
 ## ⚙️ Technology
-React, Vite, TailwindCSS, Lucide, Swiper, Pako
+React, Vite, TailwindCSS, Lucide, Swiper, Pako, proj4
 
 ## 🔗 SOURCES
 - Weather: [Open Weather Map](https://openweathermap.org/)
@@ -37,6 +37,8 @@ React, Vite, TailwindCSS, Lucide, Swiper, Pako
 - [x] Air quality score and pollutant 🟢
 - [x] Aurora forecast (Kp-index) 🟢
 - [x] Light pollution and bortle 🟢
+- [x] Coordinates GPS (different formats) 🟢
+- [ ] Map viewer (terrain, vegetation, water, roads, buildings etc) 🔴
 - [ ] Allergies pollutant level (grass, birch) 🔴
 - [ ] Ecoregion, biome, climate 🔴
 - [ ] Native/potential fauna, flora
@@ -48,11 +50,12 @@ React, Vite, TailwindCSS, Lucide, Swiper, Pako
 - [ ] UV 🔴
 - [ ] Disaster alert 🔴
 - [ ] City info (population, density, currency etc.) 🔴
+- [ ] Trends (infos, socials) 🔴
 
 ### Fetching/Caching
 - [ ] Fetching improved 🔴
+    - [ ] Limit fetch per user (limits and error handling) 🔴
     - [ ] Caching data 🔴
-    - [ ] Limit fetch per user 🔴
 
 ## LEGEND
 🟢 100% done

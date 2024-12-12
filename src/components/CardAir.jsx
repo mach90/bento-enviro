@@ -1,7 +1,7 @@
 import { useAir } from "../context/airContext";
 import { Smile, TriangleAlert, OctagonAlert, Biohazard } from "lucide-react";
 
-const cardAirContainerStyle = "bg-third relative flex flex-col gap-4 p-6 justify-between items-start rounded-lg col-span-1 row-span-1 shadow-inner shadow-800 border-8 border-100";
+const cardAirContainerStyle = "bg-third relative flex flex-col gap-4 p-6 justify-between items-start rounded-lg col-span-1 row-span-1 shadow-inner shadow-800 border-8 border-500";
 const cardAirScoreContainerStyle = "text-800";
 const cardAirScoreTextStyle = "font-body text-body text-800"
 
