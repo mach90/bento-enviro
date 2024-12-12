@@ -1,7 +1,7 @@
 import { useWeather } from "../context/weatherContext";
 import { CloudRain, CloudSnow } from 'lucide-react';
 
-const cardRainContainerStyle = "relative bg-first flex justify-end items-end p-4 rounded-b-xl";
+const cardRainContainerStyle = "relative bg-first border-x-8 border-b-8 border-second flex justify-end items-end p-1 rounded-b-xl";
 const cardRainDataContainerStyle = "absolute inset-0 flex flex-col gap-2 justify-center items-center h-full w-full";
 const cardRainNoDataStyle = "font-body text-body text-800";
 const cardRainMeasureMainStyle = "flex items-center gap-2 font-heading text-heading text-0";

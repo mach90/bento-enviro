@@ -3,8 +3,8 @@
 ## What is it ?
 Single Page Application aggregating diverse environmental data from multiple APIs and presenting it through a concise Bento-style UI.
 
-## ⚙️ Technology
-React, Vite, TailwindCSS, Lucide, Swiper, Pako, proj4
+## ⚙️ TECHNOLOGIES
+React, Vite, TailwindCSS, Lucide, Swiper, Pako, proj4, DepartureMono
 
 ## 🔗 SOURCES
 - Weather: [Open Weather Map](https://openweathermap.org/)

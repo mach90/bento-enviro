@@ -1,11 +1,11 @@
 import proj4 from "proj4";
 import mgrs from "mgrs";
 
-const cardCoordinatesContainerStyle = "relative h-full w-full bg-first rounded-xl p-4";
-const cardCoordinatesScreenStyle = "flex flex-col gap-2 bg-fourth rounded-xl p-4 font-600 text-sm font-exp h-full w-full";
+const cardCoordinatesContainerStyle = "relative h-full w-full bg-second rounded-xl p-4";
+const cardCoordinatesScreenStyle = "flex flex-col gap-2 bg-first rounded-xl p-4 font-600 text-sm font-exp h-full w-full";
 const cardCoordinatesGroupStyle = "flex flex-col border-b border-800 border-dashed w-max";
-const cardCoordinatesTitleStyle = "font-exp text-exp text-200";
-const cardCoordinatesDataStyle = "font-exp text-exp text-1000";
+const cardCoordinatesTitleStyle = "font-exp text-exp text-700";
+const cardCoordinatesDataStyle = "font-exp text-exp text-500";
 
 function CardCoordinates({latitude, longitude}) {
     //latitude = 48.85826
@@ -67,14 +67,14 @@ function CardCoordinates({latitude, longitude}) {
 
               </div>
 
-            <div className="absolute flex flex-row top-0 right-0 h-16 w-24 bg-first rounded-b-xl">
+            <div className="absolute flex flex-row top-0 right-0 h-16 w-24 bg-second rounded-b-xl">
                 <div className="w-[40%] h-full flex justify-center items-end py-4">
                     <div className="w-4 h-4 rounded-full bg-600">
-                        <div className="animate-pulse w-4 h-4 rounded-full bg-red-500"></div>
+                        <div className="animate-pulse w-4 h-4 rounded-full bg-fifth"></div>
                     </div>
                 </div>
-                <div className="w-[60%] bg-background h-full border-b-8 border-b-first flex justify-end">
-                    <div className="h-full w-[80%] bg-sixth rounded-t-xl flex flex-col justify-around items-center">
+                <div className="w-[60%] bg-background h-full border-b-8 border-b-second flex justify-end">
+                    <div className="h-full w-[80%] bg-first rounded-t-xl flex flex-col justify-around items-center">
                         <div className="h-0.5 w-[35%] bg-1000"></div>
                         <div className="h-0.5 w-[35%] bg-1000"></div>
                         <div className="h-0.5 w-[35%] bg-1000"></div>

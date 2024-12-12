@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { useNightsky } from "../context/nightskyContext";
 
-const cardNightskyContainerStyle = "bg-first p-2 rounded-xl";
-const cardNightskyContainerInsideStyle = "relative flex flex-col justify-center items-center gap-2 rounded-full col-span-1 row-span-1 h-full w-full";
-const cardNightskyStarsStyle = "absolute rounded-full h-full w-full bg-[url(img/stars.jpg)] bg-cover bg-no-repeat border-8 border-black";
-const cardNightskyStarsRedStyle = "absolute rounded-full h-full w-full bg-[url(img/stars.jpg)] bg-cover bg-no-repeat border-8 border-black brightness-200 saturate-[10] hue-rotate-[150deg]";
+const cardNightskyContainerStyle = "relative bg-stone-950 p-2 rounded-full flex justify-center items-center";
+const cardNightskyContainerInsideStyle = " flex flex-col justify-center items-center gap-2 rounded-full col-span-1 row-span-1 h-72 w-72 border-8 border-black";
+const cardNightskyStarsStyle = "absolute rounded-full h-72 w-72 bg-[url(img/stars.jpg)] bg-cover bg-no-repeat border-8 border-black shadow-inner shadow-1000";
+const cardNightskyStarsRedStyle = "absolute rounded-full w-72 h-72 bg-[url(img/stars.jpg)] bg-cover bg-no-repeat border-8 border-black shadow-inner shadow-cyan-950 brightness-200 saturate-[10] hue-rotate-[150deg]";
 const cardNightskyDataContainerStyle = "flex flex-row gap-1 items-center z-10";
 const cardNightskyDataTitleStyle = "font-exp text-exp text-300";
 const cardNightskyDataValueStyle = "font-exp text-exp text-0";
 const cardNightskyDataUnitStyle = "font-exp text-exp text-300";
-const cardNightskyButtonStyle = "absolute top-2 left-2 bg-stone-950 font-exp text-exp text-600 rounded-full w-8 h-8 hover:brightness-125";
+const cardNightskyButtonStyle = "absolute top-2 bg-first font-exp text-exp text-900 rounded-full w-max h-max p-2 hover:brightness-125 border border-black";
 
 /* //////////////////////////////////////////////////
 CARDNIGHTSKY COMPONENT
@@ -87,9 +87,18 @@ export default function CardNightsky() {
     return (
         <div className={cardNightskyContainerStyle}>
             <div className={`${cardNightskyContainerInsideStyle} + ${bortleClassBackground}`}>
-                <button className={cardNightskyButtonStyle} onClick={handleVision}>VIS</button>
+                <button className={cardNightskyButtonStyle} onClick={handleVision}>MODE</button>
                 
                 <div className={`${vision === "day" ? cardNightskyStarsStyle : cardNightskyStarsRedStyle} + ${bortleClassStars}`}></div>
+
+                <div className={cardNightskyDataContainerStyle}>
+                    <p className={cardNightskyDataValueStyle}>{sqm ? bortleClassName + " sky" : "???"}</p>
+                </div>
+
+                <div className={cardNightskyDataContainerStyle}>
+                    <p className={cardNightskyDataTitleStyle}>Bortle class</p>
+                    <p className={cardNightskyDataValueStyle}>{sqm ? bortleClass + " of 9" : "???"}</p>
+                </div>
 
                 <div className={cardNightskyDataContainerStyle}>
                     <p className={cardNightskyDataTitleStyle}>SQM</p>
@@ -118,15 +127,6 @@ export default function CardNightsky() {
                 <div className={cardNightskyDataContainerStyle}>
                     <p className={cardNightskyDataTitleStyle}>Ratio</p>
                     <p className={cardNightskyDataValueStyle}>{ratioBrightness ? ratioBrightness : "?"}</p>
-                </div>
-
-                <div className={cardNightskyDataContainerStyle}>
-                    <p className={cardNightskyDataTitleStyle}>Bortle class</p>
-                    <p className={cardNightskyDataValueStyle}>{sqm ? bortleClass + " of 9" : "???"}</p>
-                </div>
-
-                <div className={cardNightskyDataContainerStyle}>
-                    <p className={cardNightskyDataValueStyle}>{sqm ? bortleClassName + " sky" : "???"}</p>
                 </div>
             </div>
         </div>
