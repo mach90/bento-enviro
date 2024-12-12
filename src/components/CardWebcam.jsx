@@ -10,7 +10,7 @@ const carWebcamContainerStyle = "flex flex-col gap-2 bg-second h-full w-full p-4
 const cardWebcamContainerInnerStyle = "bg-black p-2 rounded-lg  w-full";
 const cardWebcamSliderStyle = "bg-first h-full min-h-60 w-full cursor-grab rounded-2xl col-span-1 row-span-1";
 const cardWebcomButtonsContainerStyle = "flex flex-row justify-center items-center gap-1 border-y-2 border-1000 py-1"
-const cardWebcamButtonStyle = "font-exp text-exp bg-first p-1 text-400 rounded-lg min-w-6";
+const cardWebcamButtonStyle = "font-exp text-exp bg-first p-1 text-400 rounded-lg min-w-6 hover:brightness-125";
 
 export default function CardWebcam() {
     const {webcams} = useWebcam();
@@ -67,8 +67,7 @@ export default function CardWebcam() {
             <div className={cardWebcomButtonsContainerStyle}>
                 <p className="text-1000">•</p>
                 <p className="text-1000">•</p>
-                <p>{brightn} {typeof brightn}</p>
-                <button className={cardWebcamButtonStyle} onClick={handleDecreaseBrightn} disabled={brightn === 50}>BRT-</button> 
+                 <button className={cardWebcamButtonStyle} onClick={handleDecreaseBrightn} disabled={brightn === 50}>BRT-</button> 
                 <button className={cardWebcamButtonStyle} onClick={handleIncreaseBrightn} disabled={brightn === 150}>BRT+</button> 
                 <button className={cardWebcamButtonStyle} onClick={handlePrevSlide}>▼</button> 
                 <button className={cardWebcamButtonStyle} onClick={handleNextSlide}>▲</button>
