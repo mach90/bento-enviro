@@ -76,7 +76,6 @@ function WebcamProvider ({children, latitude, longitude}) {
                     throw new Error('Network response was not ok');
                 }
                 const data = await response.json();
-
                 dispatch({ type: 'dataReceived', payload: data});
             } catch (error) {
                 dispatch({ type: 'dataFailed'});

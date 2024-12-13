@@ -99,7 +99,6 @@ function WeatherProvider ({children, latitude, longitude}) {
                 }
                 const data = await response.json();
                 dispatch({ type: 'dataReceived', payload: data});
-                // console.log(data)
             } catch (error) {
                 dispatch({ type: 'dataFailed'});
             }

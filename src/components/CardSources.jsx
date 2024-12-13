@@ -3,6 +3,7 @@ import { SquareArrowOutDownRight } from "lucide-react";
 const cardSourcesContainerStyle = "bg-sixth relative flex flex-col p-4 justify-end items-end rounded-lg col-span-1 row-span-1";
 const cardSourcesTitleStyle = "font-heading text-heading text-500 mb-2";
 const cardSourcesLinkStyle = "font-exp text-exp text-500 hover:text-300";
+const cardSourcesTextStyle = "font-exp text-[10px] text-500 text-right";
 const cardSourcesIconStyle = "absolute top-2 left-2 text-1000";
 
 export default function CardSources() {
@@ -37,6 +38,8 @@ export default function CardSources() {
                 <a href="https://www.windy.com/" target="_blank" className={cardSourcesLinkStyle}>
                     <strong className="underline">Satellite:</strong> <em>Windy</em>
                 </a>
+                <p className={cardSourcesTextStyle}>React, Vite, Swiper, Pako, Proj4, Recharts</p>
+                <p className={cardSourcesTextStyle}>TailwindCSS, Lucide, DepartureMono</p>
 
                 <p className={cardSourcesIconStyle}><SquareArrowOutDownRight size={32} /></p>
             </div>

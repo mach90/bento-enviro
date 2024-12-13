@@ -1,8 +1,8 @@
 import { useWeather } from "../context/weatherContext";
 import { CloudRain, CloudSnow } from 'lucide-react';
 
-const cardRainContainerStyle = "relative bg-second border-x-8 border-b-8 border-second flex justify-end items-end p-1 rounded-b-xl";
-const cardRainDataContainerStyle = "absolute inset-0 flex flex-col gap-2 justify-center items-center h-full w-full z-10 backdrop-blur-sm bg-gradient-to-br from-white/10 via-30% via-white/30 to-white/10 rounded-b-lg";
+const cardRainContainerStyle = "relative bg-second border-8 border-second flex justify-end items-end p-1 rounded-xl min-h-72";
+const cardRainDataContainerStyle = "absolute inset-0 flex flex-col gap-2 justify-center items-center h-full w-full z-10 backdrop-blur-sm bg-gradient-to-br from-white/10 via-30% via-white/30 to-white/10 rounded-lg";
 const cardRainNoDataStyle = "font-body text-body text-800";
 const cardRainMeasureMainStyle = "flex items-center gap-2 font-heading text-heading text-0";
 const cardRainMeasureSecondStyle = "flex items-center gap-2 font-body text-body text-0";
@@ -61,7 +61,7 @@ export default function CardRain({unit}) {
                 </div>}
             </div>
             
-            {rain && <div className={`opacity-50 w-full h-full bg-[url(img/rain.gif)] bg-no-repeat bg-cover border-b-8 border-fourth`}></div>}
+            {rain && <div className={`opacity-50 w-full h-full bg-[url(img/rain3.gif)] bg-no-repeat bg-cover border-b-8 border-fourth`}></div>}
 
             {snow && <div className={`opacity-50 w-full h-full bg-[url(img/snow.gif)] bg-no-repeat bg-cover border-b-8 border-100`}></div>}
 

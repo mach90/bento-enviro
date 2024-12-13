@@ -9,7 +9,7 @@ import { useEffect, useRef, useState } from "react";
 STYLES
 ////////////////////////////////////////////////// */
 import './index.css';
-const searchPositionCardStyle = "p-2 flex flex-col md:flex-row gap-4 w-full h-full bg-second z-10 col-span-1 row-span-1 md:col-span-2 lg:col-span-4 xl:col-span-3";
+const searchPositionCardStyle = "p-2 flex flex-col md:flex-row gap-4 w-full h-full bg-second z-10 col-span-1 row-span-1 md:col-span-2 lg:col-span-4 xl:col-span-3 z-50";
 
 const searchPositionContainerStyle = "relative flex flex-row md:flex-row gap-2 items-center h-full w-full";
 

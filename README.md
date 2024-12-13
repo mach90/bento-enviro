@@ -4,7 +4,7 @@
 Single Page Application aggregating diverse environmental data from multiple APIs and presenting it through a concise Bento-style UI.
 
 ## ⚙️ TECHNOLOGIES
-React, Vite, TailwindCSS, Lucide, Swiper, Pako, proj4, DepartureMono
+React, Vite, TailwindCSS, Lucide, Swiper, Pako, proj4, DepartureMono, Recharts
 
 ## 🔗 SOURCES
 - Weather: [Open Weather Map](https://openweathermap.org/)
@@ -26,13 +26,13 @@ React, Vite, TailwindCSS, Lucide, Swiper, Pako, proj4, DepartureMono
 ### App
 - [x] https://swiperjs.com/ 🟢
 - [x] Metric/US units 🟢
-- [ ] Sun Card design
+- [x] Sun Card design 🟢
 ### Cards from APIs
 - [x] Weather 🟢
 - [x] Weather Forecast 🟢
 - [x] Sun 🟢
-- [x] Moon 🟢
-- [x] Satellite Imagery 🟢 _alternative https://github.com/andrmoel/astronomy-bundle-js_
+- [x] Moon 🟢 _alternative https://github.com/andrmoel/astronomy-bundle-js_
+- [x] Satellite Imagery 🟢 
 - [x] Webcams 🟢
 - [x] Air quality score and pollutant 🟢
 - [x] Aurora forecast (Kp-index) 🟢

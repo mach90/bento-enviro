@@ -1,7 +1,6 @@
 import { useState } from "react";
-// import fakeSatelliteImage from '../img/satellite.jpg';
 
-const cardSatelliteContainerStyle = "bg-second p-4 flex flex-col gap-2 justify-center items-center cursor-not-allowed rounded-lg col-span-1 row-span-1 md:col-span-2 md:row-span-2";
+const cardSatelliteContainerStyle = "bg-second p-4 flex flex-col gap-2 justify-center items-center rounded-lg col-span-1 row-span-1 md:col-span-2 md:row-span-2";
 const cardSatelliteEmbStyle1 = "w-full min-h-96 h-full bg-first rounded-lg shadow-inner shadow-stone-950 p-2";
 const cardSatelliteEmbStyle2 = "w-full min-h-96 h-full bg-first rounded-lg shadow-inner shadow-stone-950 p-2 grayscale";
 const cardSatelliteEmbStyle3 = "w-full min-h-96 h-full bg-first rounded-lg shadow-inner shadow-stone-950 p-2 sepia";

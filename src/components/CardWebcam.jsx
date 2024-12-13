@@ -51,6 +51,8 @@ export default function CardWebcam() {
                     effect="fade" 
                     className={cardWebcamSliderStyle}
                     style={{ filter: `brightness(${brightn}%)` }}
+                    onSlideChangeStart={() => setIsTransitioning(true)}
+                    onSlideChangeEnd={() => setIsTransitioning(false)}
                 >
                     {!webcams || webcams.length === 0 &&
                         <SwiperSlide>
