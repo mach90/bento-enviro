@@ -9,7 +9,7 @@ import Webcam from "./Webcam";
 const carWebcamContainerStyle = "flex flex-col gap-2 bg-second h-full w-full p-4 rounded-xl shadow-inset shadow-black";
 const cardWebcamContainerInnerStyle = "bg-black p-2 rounded-lg  w-full";
 const cardWebcamSliderStyle = "bg-first h-full min-h-60 w-full cursor-grab rounded-2xl col-span-1 row-span-1";
-const cardWebcomButtonsContainerStyle = "flex flex-row justify-center items-center gap-1 border-y-2 border-1000 py-1"
+const cardWebcomButtonsContainerStyle = "flex flex-row justify-center items-center gap-1 border-y-2 border-1000 py-1 rounded-md"
 const cardWebcamButtonStyle = "font-exp text-exp bg-first p-1 text-400 rounded-lg min-w-6 hover:brightness-125";
 
 export default function CardWebcam() {

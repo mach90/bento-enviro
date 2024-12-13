@@ -178,7 +178,7 @@ export default function App() {
         <button className={geolocationButtonStyle} onClick={getGeolocation}><Locate /></button>
 
         <form onSubmit={(e) => handleSubmit(e)} className={searchPositionFormStyle}>
-          <input id="cityQueryInput" type="text" placeholder="Search for a city or an address_" onFocus={() => setIsFocused(true)}onBlur={() => setIsFocused(false)} ref={inputRef} className={searchBarStyle}></input>
+          <input id="cityQueryInput" type="text" placeholder="Search for a city, place, address, ICAO" onFocus={() => setIsFocused(true)}onBlur={() => setIsFocused(false)} ref={inputRef} className={searchBarStyle}></input>
           <button id="submitForm" type="submit" className={searchButtonStyle}><Search /></button>
         </form>
 

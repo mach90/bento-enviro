@@ -5,7 +5,7 @@ const cardWeatherContainerStyle = "bg-fifth p-6 flex flex-col justify-between it
 
 const cardWeatherDataContainerStyle = "bg-second h-full w-full flex flex-col justify-between items-center rounded-xl shadow-inner shadow-1000";
 const cardWeatherDataContainerTopStyle = "p-5 flex flex-col gap-2 h-full";
-const cardWeatherDataContainerBottomStyle = "p-2 flex flex-row gap-2 h-max w-full items-center justify-end border-y-2 mt-2 border-fifth brightness-75";
+const cardWeatherDataContainerBottomStyle = "p-2 flex flex-row gap-2 h-max w-full items-center justify-end border-y-2 mt-2 border-fifth brightness-75 rounded-lg";
 
 const cardWeatherDescriptionStyle = "font-heading text-heading text-0 bg-first p-1";
 const cardWeatherPrecisionStyle = "font-body text-body text-1000";

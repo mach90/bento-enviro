@@ -2,18 +2,26 @@ import { useWeather } from "../context/weatherContext";
 import { MoveRight, Fan } from 'lucide-react';
 
 const cardWindContainerStyle = "bg-fifth p-6 flex flex-col justify-between items-end shadow-md col-span-1 row-span-1 rounded-tl-[60px] rounded-tr-[40px] rounded-b-2xl gap-4";
-const cardWindInfosContainerStyle = "bg-second w-full h-max flex flex-col justify-center items-center rounded-xl p-4 shadow-inner shadow-1000";
+const cardWindUpperContainerStyle = "flex gap-8 justify-between items-center w-full";
+const cardWindInfosContainerStyle = "bg-second w-full h-full flex flex-col justify-center items-center rounded-xl p-4 shadow-inner shadow-1000";
+const cardWindHoleStyle = "bg-background min-w-24 max-w-40 w-full h-full rounded-tl-[40px] rounded-tr-2xl rounded-b-2xl";
 const cardWindNoDataStyle = "font-heading text-heading text-1000";
 const cardWindWindspeedStyle = "flex items-center gap-2 bg-1000 text-heading font-heading text-200";
 const cardWindIconStyle = "text-1000";
 const cardWindFanStyle = "bg-first rounded-full p-1 border-4 border-1000 text-fifth";
 const cardWindDescription = "test-body font-body text-1000";
+const cardWindGustContainerStyle = "flex flex-col justify-center items-center";
 
 export default function CardWeather({unit}) {
-    const { windSpeed, windDirection, windGust } = useWeather();
+    const { windSpeed, windDirection } = useWeather();
     
+    const windGust = 4;
+
     const windSpeedConverted = unit === "metric" ? windSpeed * 3.6 : windSpeed * 2.236936;
     const windGustConverted = unit === "metric" ? windGust * 3.6 : windGust * 2.236936;
+
+    const windSpeedKts = (windSpeed * 1.943844).toFixed(0);
+    const windGustKts = (windGust * 1.943844).toFixed(0);
 
     let beaufortWindDescription;
     let beaufortWindForce;
@@ -95,8 +103,11 @@ export default function CardWeather({unit}) {
 
     return (
         <div className={cardWindContainerStyle}>
-            <div className={`${cardWindFanStyle} ${fanSpeed}`}>
-                <Fan size={64} />
+            <div className={cardWindUpperContainerStyle}>
+                <div className={cardWindHoleStyle}></div>
+                <div className={`${cardWindFanStyle} ${fanSpeed}`}>
+                    <Fan size={64} />
+                </div>
             </div>
             <div className={cardWindInfosContainerStyle}>
                 {!windSpeed && <p className={cardWindNoDataStyle}>No wind recorded</p>}
@@ -108,17 +119,26 @@ export default function CardWeather({unit}) {
                         {(windSpeedConverted).toFixed(0)} {unit === "metric" ? "km/h" : "mph"}
                     </p>
                     <p className={cardWindDescription}>
+                        ({windSpeedKts} kts)
+                    </p>
+                    <p className={cardWindWindspeedStyle}>
                         {windDirection >= 0 ? windDirection : "???"}°
                     </p>
                     <p className={cardWindIconStyle}>
-                        <MoveRight size={48} transform={`rotate(${windDirection + 90})`} />
+                        {/* <MoveRight size={48} transform={`rotate(${windDirection + 90})`} /> */}
+                        <span className="font-heading text-7xl" style={{ transform: `rotate(${windDirection + 90}deg)`, display: 'inline-block' }}>{"→"}</span>
                     </p>
                 </>}
 
                 {windGust && 
-                    <p className={cardWindDescription}>
-                        {(windGustConverted).toFixed(0)} {unit === "metric" ? "km/h" : "mph"} gusts
-                    </p>
+                    <div className={cardWindGustContainerStyle}>
+                        <p className={cardWindDescription}>
+                            {(windGustConverted).toFixed(0)} {unit === "metric" ? "km/h" : "mph"} gusts
+                        </p>
+                        <p className={cardWindDescription}>
+                            ({windGustKts} kts)
+                        </p>
+                    </div>
                 }
             </div>
         </div>

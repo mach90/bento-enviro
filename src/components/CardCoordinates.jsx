@@ -2,7 +2,7 @@ import proj4 from "proj4";
 import mgrs from "mgrs";
 
 const cardCoordinatesContainerStyle = "relative h-full w-full bg-second rounded-xl p-4";
-const cardCoordinatesScreenStyle = "flex flex-col gap-2 bg-first rounded-xl p-4 font-600 text-sm font-exp h-full w-full";
+const cardCoordinatesScreenStyle = "flex flex-col gap-2 bg-first rounded-xl p-4 font-600 text-sm font-exp h-full w-full shadow-inner shadow-stone-950";
 const cardCoordinatesGroupStyle = "flex flex-col border-b border-800 border-dashed w-max";
 const cardCoordinatesTitleStyle = "font-exp text-exp text-700";
 const cardCoordinatesDataStyle = "font-exp text-exp text-500";
