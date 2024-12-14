@@ -1,6 +1,6 @@
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 import { useSun } from "../context/sunContext";
-import { Sunrise,  Sunset, Sun, Telescope, ShipWheel, PersonStanding} from 'lucide-react';
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer, Tooltip } from 'recharts';
+import { Sunrise,  Sunset, Sun, Telescope, ShipWheel, PersonStanding, Hourglass} from 'lucide-react';
 
 const cardSunContainerStyle = "flex flex-col justify-center items-center bg-first p-4 shadow-md rounded-lg gap-4 col-span-1 row-span-1 h-full w-full p-4";
 const cardSunDataContainerStyle = "flex flex-col justify-center items-center w-full bg-second p-1 rounded-lg";
@@ -11,16 +11,29 @@ const cardSunInfoStyle = "w-full flex flex-row justify-center items-center gap-2
 export default function CardSun() {
     const {sunrise, sunset, solarNoon, dayLength, civilTwilightBegin, civilTwilightEnd, nauticalTwilightBegin, nauticalTwilightEnd, astronomicalTwilightBegin, astronomicalTwilightEnd} = useSun();
 
+    console.log('Sun Context Values:', {
+        sunrise, 
+        sunset, 
+        solarNoon, 
+        dayLength, 
+        civilTwilightBegin, 
+        civilTwilightEnd, 
+        nauticalTwilightBegin, 
+        nauticalTwilightEnd, 
+        astronomicalTwilightBegin, 
+        astronomicalTwilightEnd
+    });
+
     // Timezone = Browser timezone. Converts "2024-12-13T06:40:24+01:00" to timestamp in seconds.
-    const astronomicalTwilightBeginTimestamp =  new Date(String(astronomicalTwilightBegin)).getTime() / 1000;
-    const nauticalTwilightBeginTimestamp =  new Date(String(nauticalTwilightBegin)).getTime() / 1000;
-    const civilTwilightBeginTimestamp =  new Date(String(civilTwilightBegin)).getTime() / 1000;
-    const sunriseTimestamp = new Date(String(sunrise)).getTime() / 1000;
-    const solarNoonTimestamp = new Date(String(solarNoon)).getTime() / 1000;
-    const sunsetTimestamp = new Date(String(sunset)).getTime() / 1000;
-    const civilTwilightEndTimestamp =  new Date(String(civilTwilightEnd)).getTime() / 1000;
-    const nauticalTwilightEndTimestamp =  new Date(String(nauticalTwilightEnd)).getTime() / 1000;
-    const astronomicalTwilightEndTimestamp =  new Date(String(astronomicalTwilightEnd)).getTime() / 1000;
+    const astronomicalTwilightBeginTimestamp = astronomicalTwilightBegin ? new Date(String(astronomicalTwilightBegin)).getTime() / 1000 : "??";
+    const nauticalTwilightBeginTimestamp = nauticalTwilightBegin ? new Date(String(nauticalTwilightBegin)).getTime() / 1000 : "??";
+    const civilTwilightBeginTimestamp =  civilTwilightBegin ? new Date(String(civilTwilightBegin)).getTime() / 1000 : "??";
+    const sunriseTimestamp = sunrise ?  new Date(String(sunrise)).getTime() / 1000 : "??";
+    const solarNoonTimestamp = solarNoon ? new Date(String(solarNoon)).getTime() / 1000 : "??";
+    const sunsetTimestamp = sunset ? new Date(String(sunset)).getTime() / 1000 : "??";
+    const civilTwilightEndTimestamp = civilTwilightEnd ? new Date(String(civilTwilightEnd)).getTime() / 1000 : "??";
+    const nauticalTwilightEndTimestamp = nauticalTwilightEnd ? new Date(String(nauticalTwilightEnd)).getTime() / 1000 : "??";
+    const astronomicalTwilightEndTimestamp = astronomicalTwilightEnd ? new Date(String(astronomicalTwilightEnd)).getTime() / 1000 : "??";
 
     // Timezone = Browser timezone. Converts "2024-12-13T06:40:24+01:00" to 06:40
     const options = { hour12: false, hour: 'numeric', minute: 'numeric' };
@@ -36,61 +49,75 @@ export default function CardSun() {
 
     // Time data for Pie Chart
     const dataPie = [
-        { 
+         { 
             name: 'Astronomic Twilight Begin',
             start: astronomicalTwilightBeginLocale,
             end: nauticalTwilightBeginLocale,
             duration: ((nauticalTwilightBeginTimestamp - astronomicalTwilightBeginTimestamp) / 3600),
-            color: "#111125",
+            color: "#393939",
         },
         { 
             name: 'Nautical Twilight Begin',
             start: nauticalTwilightBeginLocale,
             end: civilTwilightBeginLocale,
             duration: ((civilTwilightBeginTimestamp - nauticalTwilightBeginTimestamp) / 3600),
-            color: "#0f3460",
+            color: "#5c5c5c",
         },
         { 
             name: 'Civil Twilight Begin',
             start: civilTwilightBeginLocale,
             end: sunriseLocale,
             duration: ((sunriseTimestamp - civilTwilightBeginTimestamp) / 3600),
-            color: "#d590ec",
+            color: "#7f7f7f",
+        },
+        { 
+            name: 'Golden Hour',
+            start: sunriseLocale,
+            end: "~1h after Sunrise",
+            duration: 1,
+            color: "#c87734",
         },
         { 
             name: 'Sunrise',
             start: sunriseLocale,
             end: solarNoonLocale,
             duration: ((solarNoonTimestamp - sunriseTimestamp) / 3600),
-            color: "#c7bdae",
+            color: "#f0f0f0",
         },
         { 
             name: 'Noon',
             start: solarNoonLocale,
             end: sunsetLocale, 
             duration: ((sunsetTimestamp - solarNoonTimestamp) / 3600),
-            color: "#a6a097",
+            color: "#dddddd",
+        },
+        { 
+            name: 'Golden Hour',
+            start: "~1h before Sunset",
+            end: sunsetLocale,
+            duration: 1,
+            color: "#c87734",
         },
         { 
             name: 'Sunset',
             start: sunsetLocale,
             end: civilTwilightEndLocale,
             duration: ((civilTwilightEndTimestamp - sunsetTimestamp) / 3600),
-            color: "#f08a5d",
+            color: "#7f7f7f",
         },
         { 
             name: 'Civil Twilight End ',
             start: civilTwilightEndLocale,
             end: nauticalTwilightEndLocale,
             duration: ((nauticalTwilightEndTimestamp - civilTwilightEndTimestamp) / 3600),
-            color: "#b83b5e",
+            color: "#5c5c5c",
         },
         { 
             name: 'Nautrical Twilight End ',
             start: nauticalTwilightEndLocale,
             end: astronomicalTwilightEndLocale,
             duration: ((astronomicalTwilightEndTimestamp - nauticalTwilightEndTimestamp) / 3600),
-            color: "#201360",
+            color: "#393939",
         },
         { 
             name: 'Astronomic Twilight End (Night)',
@@ -101,13 +128,15 @@ export default function CardSun() {
         },
     ];
 
+    console.log(dataPie)
+
     const CustomTooltip = ({ active, payload }) => {
         if (active && payload && payload.length) {
             const { name, value, payload: data } = payload[0]; // Extract data from tooltip
             return (
                 <div style={{ backgroundColor: '#818181', color: '#313131', padding: '10px', border: '1px solid #313131', borderRadius: '4px' }}>
                     <p><strong>{name}</strong></p>
-                    <p>Start: {data.start}</p>
+                    {data.start ? <p>Start: {data.start}</p> : ""}
                     {data.end ? <p>End: {data.end}</p> : ""}
                     <p>Duration: {value.toFixed(2)}h</p>
                 </div>
@@ -125,24 +154,22 @@ export default function CardSun() {
                         <p className={cardSunTrioItemStyle}><ShipWheel size={14} />{nauticalTwilightBeginLocale}</p>
                         <p className={cardSunTrioItemStyle}><PersonStanding size={14} />{civilTwilightBeginLocale}</p>
                     </div>
-                    <p className={cardSunInfoStyle}><Sunrise size={16}/> {sunriseLocale}</p>
-                </div>
-                <div className={cardSunDataContainerStyle}>
-                    <p className={cardSunInfoStyle}><Sun size={16}/>{solarNoonLocale}</p>
-                    <p className={cardSunInfoStyle}>{dayLength ? `Day length ${(dayLength / 3600).toFixed(2)}h` : "??h"}</p>
-                </div>
-                <div className={cardSunDataContainerStyle}>
-                    <p className={cardSunInfoStyle}><Sunset size={16}/> {sunsetLocale}</p>
+
+                    <p className={cardSunInfoStyle}>Sunrise <Sunrise size={16}/> {sunriseLocale}</p>
+                    <p className={cardSunInfoStyle}>Noon <Sun size={16}/>{solarNoonLocale}</p>
+                    <p className={cardSunInfoStyle}>Sunset <Sunset size={16}/> {sunsetLocale}</p>
+                    <p className={cardSunInfoStyle}>Day length <Hourglass size={16}/> {(dayLength / 3600).toFixed(2)}h</p>
+
                     <div className={cardSunTrioStyle}>
                         <p className={cardSunTrioItemStyle}><PersonStanding size={14} />{civilTwilightEndLocale}</p>
                         <p className={cardSunTrioItemStyle}><ShipWheel size={14} />{nauticalTwilightEndLocale}</p>
                         <p className={cardSunTrioItemStyle}><Telescope size={14} />{astronomicalTwilightEndLocale}</p>
                     </div>
                 </div>
-                <div className="w-full h-full p-4 bg-second rounded-lg">
+                <div className="w-full h-64 p-4 bg-second rounded-lg">
                     <ResponsiveContainer width="100%" height="100%">
                         <PieChart>
-                            <Pie data={dataPie} nameKey="name" dataKey="duration" innerRadius={50} outerRadius="100%" startAngle={180}  endAngle={-180}>
+                            <Pie data={dataPie} nameKey="name" dataKey="duration" innerRadius={20} outerRadius="100%" startAngle={180}  endAngle={-180}>
                                 {dataPie.map(entry => <Cell fill={entry.color} stroke={entry.color} key={entry.duration}/>)}
                             </Pie>
                             <Tooltip content={<CustomTooltip />} />

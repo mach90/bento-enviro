@@ -19,6 +19,8 @@ React, Vite, TailwindCSS, Lucide, Swiper, Pako, proj4, DepartureMono, Recharts
 
 ## 🔧 TO FIX
 - [x] CSS dynamic states 🟢
+- [x] Sun Recharts doesn't work anymore for an unknown reason 🟢
+- [/] Webcam Swiper w-full doesn't work anymore for an unknown reason 🟡
 - [ ] Menu behavior 🔴
 - [ ] Text size and responsiveness 🔴
 
@@ -27,6 +29,7 @@ React, Vite, TailwindCSS, Lucide, Swiper, Pako, proj4, DepartureMono, Recharts
 - [x] https://swiperjs.com/ 🟢
 - [x] Metric/US units 🟢
 - [x] Sun Card design 🟢
+- [ ] No data/Error handling for each card 🔴
 ### Cards from APIs
 - [x] Weather 🟢
 - [x] Weather Forecast 🟢

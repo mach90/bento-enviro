@@ -1,6 +1,6 @@
 function Container({children}) {
     return (
-        <div className="bg-[url('img/noisybg-medium.jpg')] bg-repeat p-4 md:p-8 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-4 min-h-screen">
+        <div className="bg-[url('img/noisybg-medium.jpg')] bg-repeat p-4 md:p-8 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-4 min-h-screen w-screen overflow-x-hidden">
             {children}
         </div>
     );

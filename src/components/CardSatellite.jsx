@@ -3,9 +3,9 @@ import { useState } from "react";
 const cardSatelliteContainerStyle = "bg-second p-4 flex flex-col gap-2 justify-center items-center rounded-lg col-span-1 row-span-1 md:col-span-2 md:row-span-2";
 const cardSatelliteEmbStyle1 = "w-full min-h-96 h-full bg-first rounded-lg shadow-inner shadow-stone-950 p-2";
 const cardSatelliteEmbStyle2 = "w-full min-h-96 h-full bg-first rounded-lg shadow-inner shadow-stone-950 p-2 grayscale";
-const cardSatelliteEmbStyle3 = "w-full min-h-96 h-full bg-first rounded-lg shadow-inner shadow-stone-950 p-2 sepia";
-const cardSatelliteEmbStyle4 = "w-full min-h-96 h-full bg-first rounded-lg shadow-inner shadow-stone-950 p-2 grayscale contrast-200 brightness-90";
-const cardSatelliteEmbStyle5 = "w-full min-h-96 h-full bg-first rounded-lg shadow-inner shadow-stone-950 p-2 grayscale contrast-150 brightness-150 invert";
+const cardSatelliteEmbStyle3 = "w-full min-h-96 h-full bg-first rounded-lg shadow-inner shadow-stone-950 p-2 sepia brightness-75";
+const cardSatelliteEmbStyle4 = "w-full min-h-96 h-full bg-first rounded-lg shadow-inner shadow-stone-950 p-2 grayscale contrast-150 brightness-75";
+const cardSatelliteEmbStyle5 = "w-full min-h-96 h-full bg-first rounded-lg shadow-inner shadow-stone-950 p-2 grayscale contrast-150 brightness-75 invert";
 const cardSatelliteButtonsContainerStyle = "flex flex-row justify-center items-center gap-1 border-y-2 border-1000 py-1 w-full rounded-md";
 const cardSatelliteButtonStyle = "font-exp text-exp bg-first p-1 text-400 rounded-lg min-w-6 hover:brightness-125";
 
