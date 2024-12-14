@@ -11,19 +11,6 @@ const cardSunInfoStyle = "w-full flex flex-row justify-center items-center gap-2
 export default function CardSun() {
     const {sunrise, sunset, solarNoon, dayLength, civilTwilightBegin, civilTwilightEnd, nauticalTwilightBegin, nauticalTwilightEnd, astronomicalTwilightBegin, astronomicalTwilightEnd} = useSun();
 
-    console.log('Sun Context Values:', {
-        sunrise, 
-        sunset, 
-        solarNoon, 
-        dayLength, 
-        civilTwilightBegin, 
-        civilTwilightEnd, 
-        nauticalTwilightBegin, 
-        nauticalTwilightEnd, 
-        astronomicalTwilightBegin, 
-        astronomicalTwilightEnd
-    });
-
     // Timezone = Browser timezone. Converts "2024-12-13T06:40:24+01:00" to timestamp in seconds.
     const astronomicalTwilightBeginTimestamp = astronomicalTwilightBegin ? new Date(String(astronomicalTwilightBegin)).getTime() / 1000 : "??";
     const nauticalTwilightBeginTimestamp = nauticalTwilightBegin ? new Date(String(nauticalTwilightBegin)).getTime() / 1000 : "??";
@@ -128,7 +115,7 @@ export default function CardSun() {
         },
     ];
 
-    console.log(dataPie)
+    // console.log(dataPie)
 
     const CustomTooltip = ({ active, payload }) => {
         if (active && payload && payload.length) {

@@ -218,9 +218,9 @@ export default function App() {
 
       <CardSatellite latitude={latitude} longitude={longitude}/>
 
-      {/* <MoonProvider latitude={latitude} longitude={longitude}>
+      <MoonProvider latitude={latitude} longitude={longitude}>
         <CardMoon />
-      </MoonProvider> */}
+      </MoonProvider>
 
       <NightskyProvider latitude={latitude} longitude={longitude}>
         <CardNightsky />
