@@ -1,6 +1,6 @@
 import logo from "../../public/logo.svg";
 
-const cardLogoContainerStyle = "flex flex-row justify-start items-center p-4 gap-2 col-span-1 row-span-1";
+const cardLogoContainerStyle = "flex flex-row justify-start items-center p-4 gap-2 col-span-full row-span-1";
 const cardLogoTextContainerStyle = "flex flex-col justify-center items-start h-12";
 const cardLogoTitleStyle = "flex justify-center items-center text-heading font-heading gap-x-2 text-200";
 const cardLogoSpanStyle = "font-exp text-exp text-200";

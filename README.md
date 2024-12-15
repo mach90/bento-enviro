@@ -20,9 +20,9 @@ React, Vite, TailwindCSS, Lucide, Swiper, Pako, proj4, DepartureMono, Recharts
 ## 🔧 TO FIX
 - [x] CSS dynamic states 🟢
 - [x] Sun Recharts doesn't work anymore for an unknown reason 🟢
-- [/] Webcam Swiper w-full doesn't work anymore for an unknown reason 🟡
+- [x] Webcam Swiper w-full doesn't work anymore for an unknown reason 🟡
+- [x] Text size and responsiveness 🟠 (1024x1366, 1440x900)
 - [ ] Menu behavior 🔴
-- [ ] Text size and responsiveness 🔴
 
 ## 🔳 TO DO
 ### App

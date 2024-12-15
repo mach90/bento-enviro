@@ -73,11 +73,11 @@ const questionsAnswers = [
 
 // const cardFaqContainerStyle = "flex flex-col justify-center items-center gap-2  col-span-full md:col-span-full rounded-lg p-4 w-full";
 // const cardFaqTitleStyle = "font-heading text-heading text-500";
-const cardFaqContainerStyle = "bg-sixth col-span-1 md:col-span-full w-full h-max md:h-96 p-8 rounded-xl flex flex-col md:flex-row gap-4";
+const cardFaqContainerStyle = "bg-sixth col-span-1 md:col-span-full xl:col-span-4 w-full h-max md:h-96 p-8 rounded-xl flex flex-col md:flex-row gap-4";
 const cardFaqSwiperStyle = "w-full md:w-[30%] h-64 md:h-full border-8 border-first bg-first rounded-lg";
 const cardFaqSlideStyle = "flex h-full bg-second items-center p-2 ml-6 font-exp text-exp text-200 border-2 border-500 cursor-pointer hover:brightness-125";
 const cardFaqDisplayStyle = "bg-first flex flex-row gap-4 rounded-lg shadow-inner shadow-stone-950 w-full md:w-[70%] h-96 md:h-full p-4";
-const cardFaqDisplayIconStyle = "flex items-center justify-center h-full w-12 bg-900 font-heading text-heading font-800 text-first";
+const cardFaqDisplayIconStyle = "flex items-center justify-center h-full w-12 bg-600 font-heading text-heading font-800 text-first";
 const cardFaqDisplayTextContainerStyle = "w-full";
 const cardFaqQuestionStyle = "font-body text-body text-300";
 const cardFaqAnswerStyle = "font-exp text-exp text-500";
