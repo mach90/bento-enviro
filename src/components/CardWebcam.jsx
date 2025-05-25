@@ -9,7 +9,7 @@ import Webcam from "./Webcam";
 const carWebcamContainerStyle = "flex flex-col gap-2 bg-second h-full w-full col-span-1 row-span-1 p-4 rounded-xl";
 const cardWebcamContainerInnerStyle = "bg-stone-950 shadow-inner shadow-black p-2 rounded-lg h-full w-full";
 const cardWebcamSliderStyle = "bg-first cursor-grab rounded-2xl h-full w-64 md:w-full";
-const cardWebcomButtonsContainerStyle = "flex flex-row justify-center items-center gap-1 border-y-2 border-1000 py-1 rounded-md"
+const cardWebcamButtonsContainerStyle = "flex flex-row justify-center items-center gap-1 border-y-2 border-1000 py-1 rounded-md"
 const cardWebcamButtonStyle = "font-exp text-exp bg-first p-1 text-400 rounded-lg min-w-6 hover:brightness-125";
 
 export default function CardWebcam() {
@@ -64,7 +64,7 @@ export default function CardWebcam() {
                     ))}
                 </Swiper>
             </div>
-            <div className={cardWebcomButtonsContainerStyle}>
+            <div className={cardWebcamButtonsContainerStyle}>
                 <p className="text-1000">•</p>
                 <p className="text-1000">•</p>
                  <button className={cardWebcamButtonStyle} onClick={handleDecreaseBrightn} disabled={brightn === 50}>BRT-</button> 

@@ -32,7 +32,8 @@ import { NightskyProvider } from "./context/nightskyContext";
 import { MoonProvider } from "./context/moonContext";
 import { WebcamProvider } from "./context/webcamContext";
 import { SunProvider } from "./context/sunContext";
-import { TesterProvider } from "./context/testerContext";
+import { PollenProvider } from "./context/pollenContext";
+
 
 /* //////////////////////////////////////////////////
 COMPONENTS
@@ -51,10 +52,10 @@ import CardMoon from "./components/CardMoon";
 import CardSun from "./components/CardSun";
 import CardWind from "./components/CardWind";
 import CardRain from "./components/CardRain";
-import CardAllergy from "./components/CardAllergy";
+import CardPollen from "./components/CardPollen";
 import CardSources from "./components/CardSources";
 import CardFAQ from "./components/CardFAQ";
-import Tester from "./components/Tester";
+
 /* //////////////////////////////////////////////////
 ICONS
 ////////////////////////////////////////////////// */
@@ -178,7 +179,7 @@ export default function App() {
         <button className={geolocationButtonStyle} onClick={getGeolocation}><Locate /></button>
 
         <form onSubmit={(e) => handleSubmit(e)} className={searchPositionFormStyle}>
-          <input id="cityQueryInput" type="text" placeholder="Search for a city, place, address, ICAO" onFocus={() => setIsFocused(true)}onBlur={() => setIsFocused(false)} ref={inputRef} className={searchBarStyle}></input>
+          <input id="cityQueryInput" type="text" placeholder="Search for a city, place, address, ICAO" onFocus={() => setIsFocused(true)} onBlur={() => setIsFocused(false)} ref={inputRef} className={searchBarStyle}></input>
           <button id="submitForm" type="submit" className={searchButtonStyle}><Search /></button>
         </form>
 
@@ -234,16 +235,13 @@ export default function App() {
         <CardAir />
       </AirProvider>
 
-      <CardAllergy />
+      <PollenProvider latitude={latitude} longitude={longitude}>
+        <CardPollen />
+      </PollenProvider>
       
       <CardCoordinates latitude={latitude} longitude={longitude}/>
       
       <CardSources />
-
-      {/* <TesterProvider latitude={latitude} longitude={longitude}>
-        <Tester latitude={latitude} longitude={longitude} />
-      </TesterProvider> */}
-
 
       <CardFAQ />
 
